@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Message from './Message';
+import ListGroup from './components/ListGroup';
+import NavBarOwn from './components/NavBarOwn';
 
 function App() {
   return (
     <div>
-      <Message />
+      <NavBarOwn />
+      <ListGroup />
     </div>
   );
 }
