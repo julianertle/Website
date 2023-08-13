@@ -1,9 +1,17 @@
+import { Link } from "react-router-dom"; // Import the Link component
+import NavBarOwn from "./NavBarOwn";
+
 
 function About() {
     return (
-        <h1>
-            This is a test.
-        </h1>
+        <>
+            <div>
+                <NavBarOwn />
+            </div>
+            <h1>
+                This is a test.
+            </h1>
+        </>
     );
 };
 
