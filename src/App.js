@@ -1,18 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-import ListGroup from './components/ListGroup';
-import NavBarOwn from './components/NavBarOwn';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomeInit from './components/Home'; // Import your Home component
+import About from './components/About'; // Import your About component
 
 function App() {
   return (
-    <div>
-      <NavBarOwn />
-      <ListGroup />
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<HomeInit />} />
+        <Route path='/about' element={<About />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </Router>
+
   );
 }
-
-
 
 
 
