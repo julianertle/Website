@@ -10,7 +10,7 @@ function Content() {
 
             <div class="center-div container">
                 <div class="box">
-                    <img src={portraitImage} className="portrait-style center-horizontal" />
+                    <img src={portraitImage} className="portrait-style center-horizontal animated-image" />
 
                 </div>
 
@@ -48,9 +48,9 @@ function Content() {
                         <table>
                             <tr>
                                 <td>
-                                    <p>
-                                        Github:
-                                    </p>
+                                    <h5 class="center-vertical">
+                                        Github:&nbsp;
+                                    </h5>
                                 </td>
                                 <td>
                                     <img src={githubImage}>

@@ -12,9 +12,18 @@
 /* Default styles for screens larger than 720px wide */
 .portrait-style {
     max-width: 80%;
+    /* Set the maximum width as a percentage of the viewport */
     min-width: 400px;
+    /* Set the minimum width */
     display: block;
-    /* Ensure the image is treated as a block element */
+    /* Ensure the container behaves as a block element */
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Hide overflow to prevent scrollbars during animation */
+
 }
 
 /* Media query for screens up to 720px wide */
@@ -36,6 +45,8 @@
     /* Required for positioning the child element */
     display: flex;
 }
+
+
 
 .box {
     flex: 1;
@@ -73,4 +84,31 @@
     right: -20px;
     /* Align the icon to the right of the container */
 
+}
+
+.color {
+    background-color: yellow;
+}
+
+.animated-image {
+    animation: slideUpAndFade 1s ease-in-out forwards;
+    /* Animation name, duration, and timing function */
+    opacity: 0;
+    /* Initial opacity, set to 0% */
+}
+
+@keyframes slideUpAndFade {
+    0% {
+        transform: translateY(20px);
+        /* Initial position, translate 20px down */
+        opacity: 0;
+        /* Initial opacity, set to 0% */
+    }
+
+    100% {
+        transform: translateY(0);
+        /* Final position, no translation */
+        opacity: 1;
+        /* Final opacity, set to 100% */
+    }
 }
