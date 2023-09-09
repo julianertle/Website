@@ -1,6 +1,8 @@
 import React from "react";
 import './styles.css';
 import portraitImage from '../assets/portrait.png';
+import githubImage from '../assets/github-logo.png';
+
 
 function Content() {
     return (
@@ -8,7 +10,7 @@ function Content() {
 
             <div class="center-div container">
                 <div class="box">
-                    <img src={portraitImage} alt="Hey this is me :)" className="portrait-style center-horizontal" />
+                    <img src={portraitImage} className="portrait-style center-horizontal" />
 
                 </div>
 
@@ -37,6 +39,37 @@ function Content() {
                     <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
                         <div className="progress-bar bg-danger" style={{ width: '100%' }}>100%</div>
                     </div>
+
+                    <a href="https://www.flaticon.com/free-icons/cat" title="cat icons">Cat icons created by Dave Gandy - Flaticon</a>
+
+                    <div class="github-logo">
+
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Github:
+                                    </p>
+                                </td>
+                                <td>
+                                    <img src={githubImage}>
+
+                                    </img>
+                                </td>
+                            </tr>
+                        </table>
+
+
+
+
+                        <p class="info-sign-style">
+                            ⓘ
+                        </p>
+
+
+                    </div>
+
                 </div>
 
             </div>
