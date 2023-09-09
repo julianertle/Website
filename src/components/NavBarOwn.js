@@ -1,6 +1,5 @@
 import React from 'react';
 //import { Link } from "react-router-dom"; // Import the Link component
-import Content from './Content';
 
 
 function NavBarOwn() {
@@ -22,9 +21,6 @@ function NavBarOwn() {
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-      </div>
-      <div>
-        <Content/>
       </div>
     </>
   );

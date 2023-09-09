@@ -5,16 +5,49 @@ import portraitImage from '../assets/portrait.png';
 function Content() {
     return (
         <>
-            
-                <img src={portraitImage} alt="Hey this is me :)" className="portrait-style" />
-                
+
+            <div class="center-div container">
+                <div class="box">
+                    <img src={portraitImage} alt="Hey this is me :)" className="portrait-style center-horizontal" />
+
+                </div>
+
+                <div class="center-vertical box">
+                    <p>
+                        Test
+                    </p>
+                    <div className="progress" role="progressbar" aria-label="Success example" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>
+                        <div className="progress-bar bg-success" style={{ width: '25%' }}>25%</div>
+                    </div>
+                    <p>
+                        Test
+                    </p>
+                    <div className="progress" role="progressbar" aria-label="Info example" aria-valuenow={50} aria-valuemin={0} aria-valuemax={100}>
+                        <div className="progress-bar bg-info text-dark" style={{ width: '50%' }}>50%</div>
+                    </div>
+                    <p>
+                        Test
+                    </p>
+                    <div className="progress" role="progressbar" aria-label="Warning example" aria-valuenow={75} aria-valuemin={0} aria-valuemax={100}>
+                        <div className="progress-bar bg-warning text-dark" style={{ width: '75%' }}>75%</div>
+                    </div>
+                    <p>
+                        Test
+                    </p>
+                    <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
+                        <div className="progress-bar bg-danger" style={{ width: '100%' }}>100%</div>
+                    </div>
+                </div>
+
+            </div>
 
 
-            
-            <div class="colored-div">
-                <h5>
+
+
+            <div class="center-div">
+                <h2>
                     Student für Angewandte Informatik
-                </h5>
+                </h2>
                 <p>
                     Für mein 6-monatiges Praktikumssemester suche ich eine
                     Vollzeitstelle im Bereich der IT-Entwicklung (Sept. 2023 - Feb.

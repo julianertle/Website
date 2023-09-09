@@ -1,14 +1,18 @@
-.colored-div {
-    background-color: yellow;
+.center-div {
+    background-color: lightgrey;
     max-width: 80%;
     min-width: 380px;
     margin: 0 auto;
 }
 
+.color-div {
+    background-color: green;
+}
+
 /* Default styles for screens larger than 720px wide */
 .portrait-style {
-    max-width: 45%;
-    min-width: 768px;
+    max-width: 80%;
+    min-width: 400px;
     display: block;
     /* Ensure the image is treated as a block element */
 }
@@ -25,4 +29,26 @@
         margin-left: auto;
         margin-right: auto;
     }
+}
+
+.container {
+    display: flex;
+}
+
+.box {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+
+}
+
+.center-vertical {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.center-horizontal {
+    margin-left: auto;
+    margin-right: auto;
 }
