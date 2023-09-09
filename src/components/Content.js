@@ -1,12 +1,17 @@
 import React from "react";
 import './styles.css';
+import portraitImage from '../assets/portrait.jpeg';
 
 function Content() {
     return (
         <>
-            <div>
+            
+                <img src={portraitImage} alt="Hey this is me :)" className="portrait-style" >
+                
+                </img>
 
-            </div>
+
+            
             <div class="colored-div">
                 <h5>
                     Student für Angewandte Informatik
