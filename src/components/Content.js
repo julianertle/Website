@@ -1,14 +1,13 @@
 import React from "react";
 import './styles.css';
-import portraitImage from '../assets/portrait.jpeg';
+import portraitImage from '../assets/portrait.png';
 
 function Content() {
     return (
         <>
             
-                <img src={portraitImage} alt="Hey this is me :)" className="portrait-style" >
+                <img src={portraitImage} alt="Hey this is me :)" className="portrait-style" />
                 
-                </img>
 
 
             
