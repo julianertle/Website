@@ -3,14 +3,26 @@
     max-width: 80%;
     min-width: 380px;
     margin: 0 auto;
-  }
+}
 
+/* Default styles for screens larger than 720px wide */
 .portrait-style {
     max-width: 45%;
-    min-width: 420px;
-
-    margin-left: auto;
-    margin-right: auto;
-    display: block; /* Ensure the image is treated as a block element */
+    min-width: 768px;
+    display: block;
+    /* Ensure the image is treated as a block element */
 }
-  
+
+/* Media query for screens up to 720px wide */
+@media (max-width: 768px) {
+    .portrait-style {
+        max-width: 100%;
+        /* Adjust to full width on smaller screens */
+        min-width: 0;
+        /* Remove the minimum width on smaller screens */
+        display: block;
+        /* Ensure the image is treated as a block element */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
