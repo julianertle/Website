@@ -89,9 +89,7 @@
 
 }
 
-.color {
-    background-color: yellow;
-}
+
 
 .animated-image {
     animation: slideUpAndFade 2s ease-in-out forwards;
@@ -124,19 +122,31 @@
     padding: 5px;
     border-radius: 3px;
     position: absolute;
-    
-
-    transform: translateX(-50%);
+    top: -30px;
+    right: 0;
+    /* Position the tooltip to the right and above the icon */
     white-space: nowrap;
 }
 
 .custom-tooltip:hover .tooltip-text {
     visibility: visible;
 }
+.custom-tooltip {
+    position: relative;
+    /* Make sure the tooltip is positioned relative to the container */
+    margin-left: 10px; /* Add some spacing between the table and tooltip */
+}
 
 .flex{
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+
+}
+
+.color {
+    display: flex;
+    background-color: yellow;
 }
 
 .absolute {
