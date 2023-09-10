@@ -13,8 +13,10 @@ function Content() {
                     <img src={portraitImage} className="portrait-style center-horizontal animated-image" alt="Portrait" />
 
                 </div>
-
+                
                 <div class="center-vertical box">
+                <table>
+                    <tr>
                     <p>
                         Test
                     </p>
@@ -39,38 +41,55 @@ function Content() {
                     <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
                         <div className="progress-bar bg-danger" style={{ width: '100%' }}>100%</div>
                     </div>
+                    </tr>
+                    <tr>
+                    <div class="github-logo">
+
+<a class="black-text" href="https://github.com/julianertle" id="hyperlink" target="_blank" rel="noreferrer">
+    <table>
+        <tr>
+            <td>
+                <h5 class="center-vertical">
+                    Github:&nbsp;
+                </h5>
+            </td>
+            <td>
+                <img src={githubImage} alt="Github">
+
+                </img>
+            </td>
+        </tr>
+    </table>
+</a>
 
 
-                    <div class="flex">
-                        <div class="color">
 
 
-                            <table>
-                                <tr>
-                                    <td>
-                                        <h5 class="center-vertical">
-                                            Github:&nbsp;
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <img src={githubImage} alt="Github">
+<a class="custom-tooltip" href="https://www.flaticon.com/free-icons/cat" id="hyperlink" target="_blank" rel="noreferrer">
+    <span class="info-sign-style black-text">
+        ⓘ
+    </span>
+    <span class="tooltip-text">Cat icons created by Dave Gandy - Flaticon</span>
+</a>
 
-                                        </img>
-                                    </td>
-                                    <td>
-                                        <a class="custom-tooltip" href="https://www.flaticon.com/free-icons/cat" id="hyperlink" target="_blank" rel="noreferrer">
-                                            <span class=" color-div">
-                                                ⓘ
-                                            </span>
-                                            <span class="tooltip-text">Cat icons created by Dave Gandy - Flaticon</span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+
+
+
+
+
+</div>
+                    </tr>
+                </table>
+                    
+                    
+
                 </div>
+
             </div>
+
+
+
+
             <div class="center-div">
                 <h2>
                     Student für Angewandte Informatik
