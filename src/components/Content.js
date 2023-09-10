@@ -10,7 +10,7 @@ function Content() {
 
             <div class="center-div container">
                 <div class="box">
-                    <img src={portraitImage} className="portrait-style center-horizontal animated-image" />
+                    <img src={portraitImage} className="portrait-style center-horizontal animated-image" alt="Portrait" />
 
                 </div>
 
@@ -53,19 +53,25 @@ function Content() {
                                     </h5>
                                 </td>
                                 <td>
-                                    <img src={githubImage}>
+                                    <img src={githubImage} alt="Github">
 
                                     </img>
                                 </td>
                             </tr>
                         </table>
 
+                        
+
+                        <a class="custom-tooltip" href="https://www.flaticon.com/free-icons/cat" id="hyperlink" target="_blank" rel="noreferrer">
+                        <span class="info-sign-style">
+                                ⓘ
+                            </span>
+                            <span class="tooltip-text">Cat icons created by Dave Gandy - Flaticon</span>
+                        </a>
 
 
 
-                        <p class="info-sign-style">
-                            ⓘ
-                        </p>
+
 
 
                     </div>

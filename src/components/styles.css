@@ -91,7 +91,7 @@
 }
 
 .animated-image {
-    animation: slideUpAndFade 1s ease-in-out forwards;
+    animation: slideUpAndFade 2s ease-in-out forwards;
     /* Animation name, duration, and timing function */
     opacity: 0;
     /* Initial opacity, set to 0% */
@@ -111,4 +111,22 @@
         opacity: 1;
         /* Final opacity, set to 100% */
     }
+}
+
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.custom-tooltip:hover .tooltip-text {
+    visibility: visible;
 }
