@@ -27,6 +27,8 @@
 }
 
 
+
+
 /* Media query for screens up to 720px wide */
 @media (max-width: 768px) {
     .portrait-style {
@@ -52,12 +54,14 @@
     border: 0px solid #ccc;
     padding: 10px;
     text-align: center;
-    transition: transform 0.5s ease; /* Add a smooth transition for scaling */
+    transition: transform 0.4s ease; /* Add a smooth transition for scaling */
 
 }
 
 .box:hover{
     transform: scale(1.05); /* Increase the size by 10% on hover */
+    -webkit-filter: drop-shadow(0px 0px 7px rgba(224, 255, 52, 0.5)); /*required for old versions of browser*/
+     filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.1));
 }
 
 
