@@ -2,6 +2,7 @@ import React from "react";
 import './styles.css';
 import portraitImage from '../assets/portrait.png';
 import githubImage from '../assets/github-logo.png';
+import AnimatedProgressBar from "./AnimatedProgressBar";
 
 
 function Content() {
@@ -13,11 +14,13 @@ function Content() {
                     <img src={portraitImage} className="portrait-style center-horizontal animated-image" alt="Portrait" />
 
                 </div>
-
+    
                 <div class="center-vertical box">
                     <p>
                         Test
                     </p>
+                    <AnimatedProgressBar value={25} color="green" duration={2000}/>
+
                     <div className="progress" role="progressbar" aria-label="Success example" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>
                         <div className="progress-bar bg-success" style={{ width: '25%' }}>25%</div>
                     </div>
