@@ -11,7 +11,7 @@ function AnimatedProgressBar({ value,color,duration }) {
     const progressStyle = {
         width: `${progress}%`,
         backgroundColor: color, // Use the color prop as the background color
-        transition: `width ${duration}ms linear`, // Specify the animation duration
+        transition: `width ${duration}ms ease-out`, // Specify the animation duration
     };
 
     return (

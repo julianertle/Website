@@ -14,51 +14,42 @@ function Content() {
                     <img src={portraitImage} className="portrait-style center-horizontal animated-image" alt="Portrait" />
 
                 </div>
-    
+
                 <div class="center-vertical box">
                     <p>
                         Test
                     </p>
-                    <AnimatedProgressBar value={25} color="green" duration={2000}/>
+                    <AnimatedProgressBar value={25} color="green" duration={1000} />
+                    <p>
+                        Test
+                    </p>
+                    <AnimatedProgressBar value={50} color="DeepSkyBlue" duration={1500} />
 
-                    <div className="progress" role="progressbar" aria-label="Success example" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>
-                        <div className="progress-bar bg-success" style={{ width: '25%' }}>25%</div>
-                    </div>
                     <p>
                         Test
                     </p>
-                    <div className="progress" role="progressbar" aria-label="Info example" aria-valuenow={50} aria-valuemin={0} aria-valuemax={100}>
-                        <div className="progress-bar bg-info text-dark" style={{ width: '50%' }}>50%</div>
-                    </div>
+                    <AnimatedProgressBar value={75} color="Orange" duration={2000} />
                     <p>
                         Test
                     </p>
-                    <div className="progress" role="progressbar" aria-label="Warning example" aria-valuenow={75} aria-valuemin={0} aria-valuemax={100}>
-                        <div className="progress-bar bg-warning text-dark" style={{ width: '75%' }}>75%</div>
-                    </div>
-                    <p>
-                        Test
-                    </p>
-                    <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
-                        <div className="progress-bar bg-danger" style={{ width: '100%' }}>100%</div>
-                    </div>
+                    <AnimatedProgressBar value={100} color="FireBrick " duration={2500} />
 
 
                     <div class="flex">
                         <div class="color align-bottom">
                             <a href="https://github.com/julianertle" target="_blank" id="hyperlink" rel="noreferrer" color="black">
                                 <table>
-                                <tr>
-                                    <td>
-                                        <h5 class="center-vertical">
-                                            Github:&nbsp;
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <img src={githubImage} alt="Github" />
-                                    </td>
-                                </tr>
-                            </table>
+                                    <tr>
+                                        <td>
+                                            <h5 class="center-vertical">
+                                                Github:&nbsp;
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <img src={githubImage} alt="Github" />
+                                        </td>
+                                    </tr>
+                                </table>
                             </a>
                             <a class="custom-tooltip" href="https://www.flaticon.com/free-icons/cat" id="hyperlink" target="_blank" rel="noreferrer">
                                 <span class=" color-div">
