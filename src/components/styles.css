@@ -9,6 +9,7 @@
     background-color: green;
 }
 
+
 /* Default styles for screens larger than 720px wide */
 .portrait-style {
     max-width: 80%;
@@ -23,8 +24,8 @@
     align-items: center;
     overflow: hidden;
     /* Hide overflow to prevent scrollbars during animation */
-
 }
+
 
 /* Media query for screens up to 720px wide */
 @media (max-width: 768px) {
@@ -46,15 +47,20 @@
     display: flex;
 }
 
-
-
 .box {
     flex: 1;
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     padding: 10px;
     text-align: center;
+    transition: transform 0.5s ease; /* Add a smooth transition for scaling */
 
 }
+
+.box:hover{
+    transform: scale(1.05); /* Increase the size by 10% on hover */
+}
+
+
 
 .center-vertical {
     margin-top: auto;
@@ -94,7 +100,6 @@
 }
 
 
-
 .animated-image {
     animation: slideUpAndFade 2s ease-in-out forwards;
     /* Animation name, duration, and timing function */
@@ -117,6 +122,7 @@
         /* Final opacity, set to 100% */
     }
 }
+
 
 .tooltip-text {
     visibility: hidden;

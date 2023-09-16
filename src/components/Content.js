@@ -7,10 +7,12 @@ import AnimatedProgressBar from "./AnimatedProgressBar";
 
 function Content() {
     return (
+        
         <>
 
             <div class="center-div container">
                 <div class="box">
+                    
                     <img src={portraitImage} className="portrait-style center-horizontal animated-image" alt="Portrait" />
 
                 </div>
