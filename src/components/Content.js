@@ -54,7 +54,7 @@ function Content() {
                                 </table>
                             </a>
                             <a class="custom-tooltip" href="https://www.flaticon.com/free-icons/cat" id="hyperlink" target="_blank" rel="noreferrer">
-                                <span class=" color-div">
+                                <span>
                                     ⓘ
                                 </span>
                                 <span class="tooltip-text">Cat icons created by Dave Gandy - Flaticon</span>
