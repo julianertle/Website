@@ -42,7 +42,7 @@ function Content() {
 
 
                     <div class="flex">
-                        <div class="color">
+                        <div class="color align-bottom">
                             <table>
                                 <tr>
                                     <td>
