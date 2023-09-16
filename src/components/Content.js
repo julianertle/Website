@@ -43,7 +43,8 @@ function Content() {
 
                     <div class="flex">
                         <div class="color align-bottom">
-                            <table>
+                            <a href="https://github.com/julianertle" target="_blank" id="hyperlink" rel="noreferrer" color="black">
+                                <table>
                                 <tr>
                                     <td>
                                         <h5 class="center-vertical">
@@ -55,6 +56,7 @@ function Content() {
                                     </td>
                                 </tr>
                             </table>
+                            </a>
                             <a class="custom-tooltip" href="https://www.flaticon.com/free-icons/cat" id="hyperlink" target="_blank" rel="noreferrer">
                                 <span class=" color-div">
                                     ⓘ
