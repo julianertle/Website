@@ -84,7 +84,7 @@
 
 .grow{ /* On hover the element grows a bit */
     border: 0px solid #c90808;
-    transition: transform 0.4s ease;
+    transition: transform 0.25s ease;
 }
 
 .grow:hover {

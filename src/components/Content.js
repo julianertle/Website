@@ -7,14 +7,15 @@ import AnimatedProgressBar from "./AnimatedProgressBar";
 
 function Content() {
     return (
-        
+
         <>
 
             <div class="center-div container">
                 <div class=" split-space">
                     <div class="animated-image ">
-                    <img src={portraitImage} className="portrait-style center-horizontal grow " alt="Portrait" />
-
+                        <a href="/about">
+                            <img src={portraitImage} className="portrait-style center-horizontal grow " alt="Portrait" />
+                        </a>
                     </div>
 
                 </div>
@@ -23,26 +24,26 @@ function Content() {
                     <p>
                         Test
                     </p>
-                    <AnimatedProgressBar value={25} color="green" offset={800} duration={2000} />
+                    <AnimatedProgressBar value={25} color="green" offset={800} duration={1500} />
                     <p>
                         Test
                     </p>
-                    <AnimatedProgressBar value={50} color="DeepSkyBlue" offset={1000} duration={2000} />
+                    <AnimatedProgressBar value={50} color="DeepSkyBlue" offset={1000} duration={1500} />
 
                     <p>
                         Test
                     </p>
-                    <AnimatedProgressBar value={75} color="Orange" offset={1200} duration={2000} />
+                    <AnimatedProgressBar value={75} color="Orange" offset={1200} duration={1500} />
                     <p>
                         Test
                     </p>
-                    <AnimatedProgressBar value={100} color="FireBrick " offset={1400} duration={2000} />
+                    <AnimatedProgressBar value={100} color="FireBrick " offset={1400} duration={1500} />
 
 
                     <div class="flex">
                         <div class="color align-bottom">
                             <a href="https://github.com/julianertle" target="_blank" id="hyperlink" rel="noreferrer" color="black">
-                                <table>
+                                <table class="grow">
                                     <tr>
                                         <td>
                                             <h5 class="center-vertical">
