@@ -11,30 +11,32 @@ function Content() {
         <>
 
             <div class="center-div container">
-                <div class="box">
-                    
-                    <img src={portraitImage} className="portrait-style center-horizontal animated-image" alt="Portrait" />
+                <div class=" split-space">
+                    <div class="animated-image ">
+                    <img src={portraitImage} className="portrait-style center-horizontal grow " alt="Portrait" />
+
+                    </div>
 
                 </div>
 
-                <div class="center-vertical box">
+                <div class="center-vertical box grow split-space">
                     <p>
                         Test
                     </p>
-                    <AnimatedProgressBar value={25} color="green" duration={1000} />
+                    <AnimatedProgressBar value={25} color="green" offset={800} duration={2000} />
                     <p>
                         Test
                     </p>
-                    <AnimatedProgressBar value={50} color="DeepSkyBlue" duration={1500} />
+                    <AnimatedProgressBar value={50} color="DeepSkyBlue" offset={1000} duration={2000} />
 
                     <p>
                         Test
                     </p>
-                    <AnimatedProgressBar value={75} color="Orange" duration={2000} />
+                    <AnimatedProgressBar value={75} color="Orange" offset={1200} duration={2000} />
                     <p>
                         Test
                     </p>
-                    <AnimatedProgressBar value={100} color="FireBrick " duration={2500} />
+                    <AnimatedProgressBar value={100} color="FireBrick " offset={1400} duration={2000} />
 
 
                     <div class="flex">
