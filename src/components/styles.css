@@ -36,8 +36,11 @@
     }
 }
 
-.split-space{
+.split-space-horizontal{
     width: 50%;
+}
+.split-space-vertical{
+    height: 50%;
 }
 
 .container {
@@ -73,6 +76,8 @@
         
     }
 }
+
+
 
 .box {
     flex: 1;
@@ -179,34 +184,48 @@
 }
 
 .color {
-    display: flex;
     background-color: yellow;
 }
 
 .blue {
-    display: flex;
     background-color: blue;
 }
 
 .green {
-    display: flex;
     background-color: green;
 }
 
 .yellow {
-    display: flex;
+    
     background-color: yellow;
 }
 
 
 
-.absolute {
 
+
+:root {
+    --main-light-color: #38373b;
+  }
+  
+
+
+  .dialog-1 {
+    background-color: var(--main-light-color);
+    border-radius: 25%;
     position: absolute;
-
+    top: 20%; /* Adjust as needed */
+    left: 70%; /* Adjust as needed */
+    z-index: 2; /* Ensure it's above the image */
 }
 
-.up {
-    vertical-align: bottom;
-    /* Adjust this value to move it to the top of the cell */
+.left-point {
+    width: 0;
+    height: 0;
+    border-left: 2vh solid transparent;
+    border-right: 2vh solid transparent;
+    border-top: 10vh solid var(--main-light-color);
+    top: 45%;
+    left: -5%;
+    transform: rotate(60deg);
 }
