@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './styles.css';
 import portraitImage from '../assets/portrait.png';
 import githubImage from '../assets/github-logo.png';
@@ -6,6 +6,21 @@ import AnimatedProgressBar from "./AnimatedProgressBar";
 
 
 function Content() {
+
+    useEffect(() => {
+        const imageElement = document.querySelector('.portrait-style');
+        if (imageElement) {
+            imageElement.onload = () => {
+                // Get the width of the image
+                const imageWidth = imageElement.offsetWidth;
+    
+                // Set the width as a CSS variable
+                document.documentElement.style.setProperty('--julian-portrait-width', `${imageWidth}px`);
+            }
+        }
+    }, []);
+    
+
     return (
 
         <>
@@ -14,9 +29,9 @@ function Content() {
                 <div class=" split-space-horizontal">
                     <div class="animated-image ">
                         <a href="/about">
-                            <div class=" color">
-                                <div class="dialog-1">
-                                    <div class="left-point"></div>
+                            <div class=" color speach-bubble">
+                                <div /* class="dialog-1" */>
+                                    <div /* class="left-point" */></div>
                                 </div>
                             </div>
                             <img src={portraitImage} className="portrait-style center-horizontal grow " alt="Portrait" />
