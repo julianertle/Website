@@ -3,6 +3,8 @@ import './styles.css';
 import portraitImage from '../assets/portrait.png';
 import githubImage from '../assets/github-logo.png';
 import AnimatedProgressBar from "./AnimatedProgressBar";
+import ContentInfo from './ContentSections/ContentInfo';
+import SkillsInfo from './ContentSections/SkillsInfo';
 
 
 function Content() {
@@ -26,50 +28,22 @@ function Content() {
         <>
 
             <div class="center-div container">
-                <div class=" split-space-horizontal">
-                    <div class="animated-image ">
-                        <a href="/about">
-                            <div class=" color speach-bubble">
-                                <div /* class="dialog-1" */>
-                                    <div /* class="left-point" */></div>
-                                </div>
-                            </div>
-                            <img src={portraitImage} className="portrait-style center-horizontal grow " alt="Portrait" />
-                        </a>
-                    </div>
-
+            <div class="split-space-horizontal">
+                <div class="animated-image">
+                <a href="/about">
+                    <img src={portraitImage} className="portrait-style center-horizontal grow" alt="Portrait" />
+                </a>
                 </div>
-                <div class="split-space-horizontal center-vertical">
-                    <div class="box">
-
-
-
-                    </div>
-                    <h2>
-                        Student für Angewandte Informatik
-                    </h2>
-                    <p>
-                        Hallo mein Name ist Julian Ertle, ich studiere Angewandte Informatik an der Hochschule Heilbronn und
-                        nutze die Gelegenheit um mein Portfolio zu erweitern indem ich diese Seite selber programmiert habe.
-                        Schau dich gerne etwas um :D
-                        Für mein 6-monatiges Praktikumssemester suche ich eine
-                        Vollzeitstelle im Bereich der IT-Entwicklung (Sept. 2023 - Feb.
-                        2024). Ich freue mich auf die Zusammenarbeit mit Ihnen und
-                        hoffentlich darauf meine ersten praktischen Erfahrungen in
-                        ihrem Unternehmen sammeln zu können.
-
-
-                    </p>
-
-                    <div class=" blue">
-                        Testomat
-
-                    </div>
-
-
-                </div>
-
             </div>
+            {/* <ContentInfo /> */}
+            <div className="vertical-stack">
+                <ContentInfo />
+                <div className="relative">
+                <SkillsInfo /> 
+                </div>
+            </div>
+            </div>
+
 
             <div class="center-vertical box grow split-space-horizontal">
 
