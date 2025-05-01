@@ -8,6 +8,9 @@
 .color-div {
     background-color: green;
 }
+.color-div-blue {
+    background-color: blue;
+}
 
 /* Default styles for screens larger than 720px wide */
 .portrait-style {
@@ -110,10 +113,10 @@
 }
 
 .center-vertical {
-    margin-top: auto;
-    margin-bottom: auto;
-
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
 .center-horizontal {
 
