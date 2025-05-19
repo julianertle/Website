@@ -73,9 +73,8 @@ function Languages() {
   return (
 <div className="center-vertical box" style={{ maxWidth: '90%', margin: '0 auto' }}>
       <div className="flex justify-center items-center gap-3 mb-6">
-  <h3 className="text-xl font-bold">
-    Meinen Repositories
-  </h3>
+  <h2 className="text-3xl font-semibold text-gray-900">Meinen Repositories</h2>
+
   <a
     href={`https://github.com/${GITHUB_USERNAME}`}
     target="_blank"
