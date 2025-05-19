@@ -1,21 +1,19 @@
 import NavBarOwn from "./NavBarOwn";
 import Footer from "./Footer";
 
+function Imprint() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <NavBarOwn />
 
-function Imprint(){
-    return (
-        <>
-            <div>
-                <NavBarOwn />
-            </div>
-            <h1>
-                Imprint.
-            </h1>
-            <div>
-                <Footer />
-            </div>
-        </>
-    );
-};
+      <main className="flex-grow flex flex-col justify-center items-center text-center px-4">
+        <h1 className="text-2xl font-semibold mb-2">Seite noch in Arbeit</h1>
+        <p className="text-gray-600">Wir sind bald fertig – schau später nochmal rein!</p>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
 
 export default Imprint;

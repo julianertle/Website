@@ -102,7 +102,7 @@ function Languages() {
                   value={percent}
                   color={colors[i % colors.length]}
                   offset={800 + i * 200}
-                  duration={2000}
+                  duration={1500}
                 />
               </div>
             );

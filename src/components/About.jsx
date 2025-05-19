@@ -1,21 +1,20 @@
-import { Link } from "react-router-dom"; // Import the Link component
 import NavBarOwn from "./NavBarOwn";
 import Footer from "./Footer";
 
 function About() {
-    return (
-        <>
-            <div>
-                <NavBarOwn />
-            </div>
-            <h1>
-                This is a test.
-            </h1>
-            <div>
-                <Footer />
-            </div>
-        </>
-    );
-};
+  return (
+    <div className="flex flex-col min-h-screen">
+      <NavBarOwn />
+
+      <main className="flex-grow flex flex-col justify-center items-center text-center px-4">
+        <h1 className="text-2xl font-semibold mb-2">Seite noch in Arbeit</h1>
+        <p className="text-gray-600">Wir sind bald fertig – schau später nochmal rein!</p>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+
 
 export default About;

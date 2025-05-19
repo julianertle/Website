@@ -9,16 +9,16 @@ function classNames(...classes) {
 }
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Imprint", href: "/imprint" },
+  { name: "Start", href: "/" },
+  { name: "Hobbys", href: "/about" },
+  { name: "Sonstiges", href: "/imprint" },
 ];
 
 function NavBarOwn() {
   const location = useLocation();
 
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-800 fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           {/* Mobile menu button */}
@@ -84,7 +84,7 @@ function NavBarOwn() {
                   className="h-8 w-8 rounded-full"
                 />
               </MenuButton>
-              <MenuItems
+              {/* <MenuItems
                 className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-hidden"
               >
                 <MenuItem>
@@ -117,7 +117,7 @@ function NavBarOwn() {
                     </button>
                   )}
                 </MenuItem>
-              </MenuItems>
+              </MenuItems> */}
             </Menu>
           </div>
         </div>

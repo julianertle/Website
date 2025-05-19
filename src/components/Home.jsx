@@ -8,12 +8,14 @@ function HomeInit() {
             <div>
                 <NavBarOwn />
             </div>
-            <div>
+            <div className="pt-16">
+<div>
                 <Content />
             </div>
             <div>
                 <Footer />
-            </div>
+            </div></div>
+            
         </>
     );
 }

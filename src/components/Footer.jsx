@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { BsGithub, BsInstagram } from "react-icons/bs";
 
 const routes = [
-  { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
-  { name: "Imprint", path: "/imprint" },
+  { name: "Start", path: "/" },
+  { name: "Hobbys", path: "/about" },
+  { name: "Sonstiges", path: "/imprint" },
 ];
 
 function Footer() {
