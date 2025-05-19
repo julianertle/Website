@@ -19,7 +19,7 @@ function Content() {
     return (
         <>
             <div className="center-div container">
-                <div className="split-space-horizontal ">
+                <div className="split-space-horizontal mt-3">
                     <div className="animated-image">
                         <a href="/about">
                             <img src={portraitImage} className="portrait-style center-horizontal grow" alt="Portrait" />
@@ -40,10 +40,10 @@ function Content() {
                 
             </div>
             <div className="max-w-[80%] min-w-[380px] mx-auto mt-10">
-  <div className="p-6 bg-white rounded-lg shadow-md text-gray-800">
-    <Languages />
-  </div>
-</div>
+                <div className="p-6 bg-white rounded-lg shadow-md text-gray-800">
+                    <Languages />
+                </div>
+            </div>
 
         </>
     );

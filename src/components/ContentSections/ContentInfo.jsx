@@ -1,6 +1,6 @@
 const ContentInfo = () => {
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md text-gray-800">
+    <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md text-gray-800 mt-3">
       <h2 className="text-3xl font-semibold mb-6 text-center">
         Julian Ertle, B.Sc. – Angewandte Informatik
       </h2>
