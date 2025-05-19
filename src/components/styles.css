@@ -27,19 +27,22 @@
     /* Hide overflow to prevent scrollbars during animation */
 }
 
-/* Media query for screens up to 720px wide */
 @media (max-width: 768px) {
-    .portrait-style {
-        max-width: 100%;
-        /* Adjust to full width on smaller screens */
-        min-width: 0;
-        /* Remove the minimum width on smaller screens */
-        display: block;
-        /* Ensure the image is treated as a block element */
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .container {
+    flex-direction: column;
+    align-items: center; /* Center horizontally when stacked */
+  }
+
+  .split-space-horizontal,
+  .vertical-stack {
+    width: 100%;
+  }
+
+  .vertical-stack {
+    margin-top: 10px; /* add some spacing when stacked */
+  }
 }
+
 
 .split-space-horizontal{
     width: 50%;

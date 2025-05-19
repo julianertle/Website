@@ -71,7 +71,7 @@ function Languages() {
   ];
 
   return (
-<div className="center-vertical box grow" style={{ maxWidth: '90%', margin: '0 auto' }}>
+<div className="center-vertical box" style={{ maxWidth: '90%', margin: '0 auto' }}>
       <div className="flex items-center gap-3 mb-6">
         <h3 className="text-xl font-bold">
           Meinen Repositories
@@ -94,7 +94,7 @@ function Languages() {
           .map(([lang, bytes], i) => {
             const percent = ((bytes / totalBytes) * 100).toFixed(1);
             return (
-              <div key={lang} className="mb-4">
+              <div key={lang} className="mb-4 hover:scale-105 duration-200 transform transition-transform">
                 <div className="text-lg font-medium mb-1">
                   {lang} ({percent}%)
                 </div>
