@@ -7,24 +7,31 @@ function Languages() {
   const [loading, setLoading] = useState(true);
 
   const GITHUB_USERNAME = "julianertle";
-  const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN; // Optional: Add token for private repo access or rate limits
 
   useEffect(() => {
     const fetchLanguages = async () => {
       try {
-        const headers = GITHUB_TOKEN
-          ? { Authorization: `token ${GITHUB_TOKEN}` }
-          : {};
+        const headers = {};
 
-        const reposRes = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`, { headers });
+        const reposRes = await fetch(
+          `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`,
+          { headers }
+        );
+
+        if (!reposRes.ok) throw new Error(`API Fehler: ${reposRes.status}`);
+
         const repos = await reposRes.json();
+
+        if (!Array.isArray(repos)) throw new Error("Unerwartete API Antwort");
 
         const languageData = {};
 
         await Promise.all(
           repos.map(async (repo) => {
             const langRes = await fetch(repo.languages_url, { headers });
+            if (!langRes.ok) throw new Error(`API Fehler: ${langRes.status}`);
             const langJson = await langRes.json();
+
             for (const [lang, bytes] of Object.entries(langJson)) {
               languageData[lang] = (languageData[lang] || 0) + bytes;
             }
@@ -32,8 +39,16 @@ function Languages() {
         );
 
         setLanguageStats(languageData);
+        localStorage.setItem("languageStats", JSON.stringify(languageData));
       } catch (err) {
-        console.error("Failed to fetch languages:", err);
+        console.error("Fehler beim Laden der Sprachdaten:", err);
+
+        const cachedData = localStorage.getItem("languageStats");
+        if (cachedData) {
+          setLanguageStats(JSON.parse(cachedData));
+        } else {
+          setLanguageStats({});
+        }
       } finally {
         setLoading(false);
       }
@@ -57,18 +72,32 @@ function Languages() {
 
   return (
     <div className="center-vertical box grow">
-      <h3 className="text-xl font-bold mb-4">Languages Used on GitHub</h3>
+      <div className="flex items-center gap-3 mb-6">
+        <h3 className="text-xl font-bold">
+          Programmiersprachen in meinen Repositories
+        </h3>
+        <a
+          href={`https://github.com/${GITHUB_USERNAME}`}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-block transform transition-transform duration-200 hover:scale-110"
+        >
+          <img src={githubImage} alt="GitHub" className="w-10 h-10" />
+        </a>
+      </div>
 
       {loading ? (
-        <p>Loading...</p>
+        <p>Lade Daten...</p>
       ) : (
         Object.entries(languageStats)
-          .sort((a, b) => b[1] - a[1]) // Sort by usage
+          .sort((a, b) => b[1] - a[1])
           .map(([lang, bytes], i) => {
             const percent = ((bytes / totalBytes) * 100).toFixed(1);
             return (
-              <div key={lang}>
-                <p>{lang} ({percent}%)</p>
+              <div key={lang} className="mb-4">
+                <div className="text-lg font-medium mb-1">
+                  {lang} ({percent}%)
+                </div>
                 <AnimatedProgressBar
                   value={percent}
                   color={colors[i % colors.length]}
@@ -79,18 +108,6 @@ function Languages() {
             );
           })
       )}
-
-      <div className="flex mt-6">
-        <a
-          href="https://github.com/julianertle"
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center gap-2 text-black"
-        >
-          <h5 className="center-vertical">GitHub:</h5>
-          <img src={githubImage} alt="GitHub" className="w-6 h-6" />
-        </a>
-      </div>
     </div>
   );
 }
