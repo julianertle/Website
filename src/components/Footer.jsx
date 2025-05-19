@@ -10,7 +10,7 @@ const routes = [
 
 function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-gray-100 to-gray-50 text-gray-800 mt-16 border-t border-gray-200 shadow-sm">
+    <footer className="bg-gray-900 text-white mt-16 border-t border-gray-700 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           {/* Logo and technologies */}
@@ -36,7 +36,7 @@ function Footer() {
               <Link
                 key={route.name}
                 to={route.path}
-                className="text-sm font-medium text-black hover:text-black hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+                className="text-sm font-medium text-white hover:text-gray-300 hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
               >
                 {route.name}
               </Link>
@@ -49,7 +49,7 @@ function Footer() {
               href="https://github.com/julianertle"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black hover:text-black transition-all duration-200 transform hover:scale-125"
+              className="text-white hover:text-gray-300 transition-all duration-200 transform hover:scale-125"
               aria-label="GitHub Profile"
             >
               <BsGithub size={28} />
@@ -58,7 +58,7 @@ function Footer() {
               href="https://www.instagram.com/julez_vin?igsh=ZDAwbzZqbGJ5ZXh2"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black hover:text-black transition-all duration-200 transform hover:scale-125"
+              className="text-white hover:text-gray-300 transition-all duration-200 transform hover:scale-125"
               aria-label="Instagram Profile"
             >
               <BsInstagram size={28} />
@@ -67,7 +67,7 @@ function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-8 text-center text-xs text-gray-500 border-t border-gray-200/50">
+        <div className="mt-8 pt-8 text-center text-xs text-gray-400 border-t border-gray-700/50">
           © {new Date().getFullYear()} Julian Ertle. All rights reserved.
         </div>
       </div>

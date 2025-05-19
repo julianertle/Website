@@ -72,19 +72,20 @@ function Languages() {
 
   return (
 <div className="center-vertical box" style={{ maxWidth: '90%', margin: '0 auto' }}>
-      <div className="flex items-center gap-3 mb-6">
-        <h3 className="text-xl font-bold">
-          Meinen Repositories
-        </h3>
-        <a
-          href={`https://github.com/${GITHUB_USERNAME}`}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-block transform transition-transform duration-200 hover:scale-110"
-        >
-          <img src={githubImage} alt="GitHub" className="w-10 h-10" />
-        </a>
-      </div>
+      <div className="flex justify-center items-center gap-3 mb-6">
+  <h3 className="text-xl font-bold">
+    Meinen Repositories
+  </h3>
+  <a
+    href={`https://github.com/${GITHUB_USERNAME}`}
+    target="_blank"
+    rel="noreferrer"
+    className="inline-block transform transition-transform duration-200 hover:scale-110"
+  >
+    <img src={githubImage} alt="GitHub" className="w-10 h-10" />
+  </a>
+</div>
+
 
       {loading ? (
         <p>Lade Daten...</p>

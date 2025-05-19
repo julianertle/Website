@@ -6,7 +6,9 @@
     min-width: 380px;
     margin: 0 auto;
 }
-
+body {
+  background-color: lightgrey; /* Tailwind's gray-100 */
+}
 .color-div {
     background-color: green;
 }
