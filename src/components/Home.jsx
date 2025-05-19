@@ -1,5 +1,6 @@
 import NavBarOwn from './NavBarOwn';
 import Content from './Content';
+import Footer from './Footer';
 
 function HomeInit() {
     return (
@@ -9,6 +10,9 @@ function HomeInit() {
             </div>
             <div>
                 <Content />
+            </div>
+            <div>
+                <Footer />
             </div>
         </>
     );
