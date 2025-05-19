@@ -92,40 +92,18 @@ const skillsData = [
   ];
   
 
+
 export default function Skills() {
   const [activeSkill, setActiveSkill] = useState(null);
-  const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
   const [tooltipVisible, setTooltipVisible] = useState(false);
-  const tooltipRef = useRef(null);
+  const tooltipRefs = useRef({});
   const buttonRefs = useRef({});
   const hideTimeoutRef = useRef(null);
 
-  const updateTooltipPosition = useCallback((skillName) => {
-    if (!tooltipRef.current || !buttonRefs.current[skillName]) return;
-
-    const buttonRect = buttonRefs.current[skillName].getBoundingClientRect();
-    const tooltipRect = tooltipRef.current.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-
-    let newPosition = {
-      top: buttonRect.top - tooltipRect.height - 8,
-      left: buttonRect.left + buttonRect.width / 2 - tooltipRect.width / 2,
-    };
-
-    if (newPosition.left + tooltipRect.width > viewportWidth - 8) {
-      newPosition.left = viewportWidth - tooltipRect.width - 8;
-    }
-    if (newPosition.left < 8) {
-      newPosition.left = 8;
-    }
-
-    setTooltipPosition(newPosition);
-  }, []);
-
-  const toggleSkill = (name, event) => {
-    if (activeSkill === name) {
-      setActiveSkill(null);
+  const toggleSkill = (name) => {
+    if (activeSkill === name && tooltipVisible) {
       setTooltipVisible(false);
+      setActiveSkill(null);
     } else {
       setActiveSkill(name);
       setTooltipVisible(true);
@@ -146,39 +124,16 @@ export default function Skills() {
   };
 
   useEffect(() => {
-    if (tooltipVisible && activeSkill) {
-      requestAnimationFrame(() => {
-        updateTooltipPosition(activeSkill);
-      });
-    }
-  }, [activeSkill, tooltipVisible, updateTooltipPosition]);
-
-  useEffect(() => {
-    const handleResizeOrScroll = () => {
-      if (tooltipVisible && activeSkill) {
-        updateTooltipPosition(activeSkill);
-      }
-    };
-
-    window.addEventListener("resize", handleResizeOrScroll);
-    window.addEventListener("scroll", handleResizeOrScroll);
-
-    return () => {
-      window.removeEventListener("resize", handleResizeOrScroll);
-      window.removeEventListener("scroll", handleResizeOrScroll);
-    };
-  }, [tooltipVisible, activeSkill, updateTooltipPosition]);
-
-  useEffect(() => {
     const handleClickOutside = (event) => {
-      const tooltipEl = tooltipRef.current;
-      const clickedButtonEl = activeSkill ? buttonRefs.current[activeSkill] : null;
+      const currentTooltip = tooltipRefs.current[activeSkill];
+      const currentButton = buttonRefs.current[activeSkill];
 
       if (
-        tooltipEl &&
-        !tooltipEl.contains(event.target) &&
-        clickedButtonEl &&
-        !clickedButtonEl.contains(event.target)
+        tooltipVisible &&
+        currentTooltip &&
+        currentButton &&
+        !currentTooltip.contains(event.target) &&
+        !currentButton.contains(event.target)
       ) {
         setTooltipVisible(false);
         setActiveSkill(null);
@@ -186,55 +141,35 @@ export default function Skills() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [activeSkill]);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [tooltipVisible, activeSkill]);
 
   return (
-    <div className="skills-container max-w-4xl mx-auto relative">
-      <style>
-        {`
-          .github-tooltip {
-            position: absolute;
-            background: white;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            z-index: 50;
-            min-width: 150px;
-            text-align: left;
-            transition: opacity 0.2s ease-in-out;
-          }
-          .github-tooltip::after {
-            content: none;
-          }
-        `}
-      </style>
-      <h2 className="text-3xl font-bold">Skills & Technologies</h2>
+    <div className="max-w-4xl mx-auto p-4">
+      <h2 className="text-3xl font-bold mb-6">Skills & Technologies</h2>
       <div className="flex flex-wrap gap-4">
         {skillsData.map((skill) => (
           <div key={skill.name} className="relative">
             <div
               ref={(el) => (buttonRefs.current[skill.name] = el)}
-              onClick={(e) => toggleSkill(skill.name, e)}
+              onClick={() => toggleSkill(skill.name)}
               onMouseEnter={() => handleMouseEnter(skill.name)}
               onMouseLeave={handleMouseLeave}
-              className={`skill-button cursor-pointer px-4 py-2 rounded ${activeSkill === skill.name ? "ring-2 ring-offset-2 ring-gray-400" : ""} ${skill.color}`}
+              className={`cursor-pointer px-4 py-2 rounded ${activeSkill === skill.name ? "ring-2 ring-offset-2 ring-gray-400" : ""} ${skill.color}`}
             >
               {skill.name}
             </div>
 
+            {/* Tooltip */}
             {activeSkill === skill.name && tooltipVisible && (
               <div
-                ref={tooltipRef}
-                className="github-tooltip"
-                style={{ top: tooltipPosition.top, left: tooltipPosition.left }}
+                ref={(el) => (tooltipRefs.current[skill.name] = el)}
                 onMouseEnter={() => clearTimeout(hideTimeoutRef.current)}
                 onMouseLeave={handleMouseLeave}
+                className="absolute left-1/2 -translate-x-1/2 mt-2 w-64 bg-white text-black p-4 rounded-lg shadow-lg z-50"
               >
-                <h4 className="font-bold">References:</h4>
-                <ul className="list-disc pl-5">
+                <h4 className="font-bold mb-2">References:</h4>
+                <ul className="list-disc pl-5 space-y-1 text-sm">
                   {skill.githubProjects.length > 0 ? (
                     skill.githubProjects.map((project, index) => (
                       <li key={index} dangerouslySetInnerHTML={{ __html: project }} />
