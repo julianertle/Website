@@ -1,4 +1,5 @@
 import NavBarOwn from "./NavBarOwn";
+import Footer from "./Footer";
 
 
 function Imprint(){
@@ -10,6 +11,9 @@ function Imprint(){
             <h1>
                 Imprint.
             </h1>
+            <div>
+                <Footer />
+            </div>
         </>
     );
 };

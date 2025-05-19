@@ -10,57 +10,66 @@ const routes = [
 
 function Footer() {
   return (
-    <footer className="bg-gray-50 text-black mt-12 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-        {/* Logo and technologies */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
-  <img src="/logo192.png" alt="Logo" style={{ height: 40, width: 40 }} />
-  <div style={{ display: 'flex', alignItems: 'center', height: 40 }}>
-    <p style={{ margin: 0, fontSize: 12, lineHeight: 'normal' }}>
-      Erstellt mit React, React Router und Tailwind CSS
-    </p>
-  </div>
-</div>
+    <footer className="bg-gradient-to-b from-gray-100 to-gray-50 text-gray-800 mt-16 border-t border-gray-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+          {/* Logo and technologies */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <img
+              src="/logo192.png"
+              alt="Logo"
+              style={{ height: 40, width: 40 }}
+              className="rounded-full object-cover transition-transform duration-300 hover:scale-110"
+            />
+            <div style={{ display: 'flex', alignItems: 'center', height: 40 }}>
+              <p style={{ margin: 0, fontSize: 12, lineHeight: 'normal' }}>
+                Erstellt mit <span className="font-semibold">React</span>,{' '}
+                <span className="font-semibold">React Router</span> und{' '}
+                <span className="font-semibold">Tailwind CSS</span>
+              </p>
+            </div>
+          </div>
 
+          {/* Navigation links */}
+          <nav className="flex justify-center gap-6">
+            {routes.map((route) => (
+              <Link
+                key={route.name}
+                to={route.path}
+                className="text-sm font-medium text-black hover:text-black hover:underline underline-offset-4 transition-all duration-200 ease-in-out"
+              >
+                {route.name}
+              </Link>
+            ))}
+          </nav>
 
-
-
-        {/* Navigation links */}
-        <div className="flex justify-center space-x-8">
-          {routes.map((route) => (
-            <Link
-              key={route.name}
-              to={route.path}
-              className="text-sm font-medium text-black hover:text-gray-600 transition-colors duration-200"
+          {/* Social icons */}
+          <div className="flex justify-end gap-5">
+            <a
+              href="https://github.com/julianertle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black hover:text-black transition-all duration-200 transform hover:scale-125"
+              aria-label="GitHub Profile"
             >
-              {route.name}
-            </Link>
-          ))}
+              <BsGithub size={28} />
+            </a>
+            <a
+              href="https://www.instagram.com/julez_vin?igsh=ZDAwbzZqbGJ5ZXh2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black hover:text-black transition-all duration-200 transform hover:scale-125"
+              aria-label="Instagram Profile"
+            >
+              <BsInstagram size={28} />
+            </a>
+          </div>
         </div>
 
-        {/* Social icons */}
-        <div className="flex justify-end space-x-6 pr-6">
-          <a
-            href="https://github.com/julianertle"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-black hover:text-gray-600 transition-colors duration-200"
-          >
-            <BsGithub size={24} />
-          </a>
-          <a
-            href="https://www.instagram.com/julez_vin?igsh=ZDAwbzZqbGJ5ZXh2"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-black hover:text-gray-600 transition-colors duration-200"
-          >
-            <BsInstagram size={24} />
-          </a>
+        {/* Copyright */}
+        <div className="mt-8 pt-8 text-center text-xs text-gray-500 border-t border-gray-200/50">
+          © {new Date().getFullYear()} Julian Ertle. All rights reserved.
         </div>
-      </div>
-
-      <div className="text-center text-xs text-black py-6 border-t border-gray-200">
-        © {new Date().getFullYear()} Julian Ertle. All rights reserved.
       </div>
     </footer>
   );
