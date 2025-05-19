@@ -10,9 +10,6 @@
 .color-div {
     background-color: green;
 }
-.color-div-blue {
-    background-color: blue;
-}
 
 /* Default styles for screens larger than 720px wide */
 .portrait-style {
@@ -170,18 +167,19 @@
     white-space: nowrap;
 }
 
+a {
+  text-decoration: none;
+}
 
-#hyperlink {
+/* #hyperlink {
     color: black;
-    /* Change the link color to black */
     text-decoration: none;
 
 }
 
 #hyperlink:hover {
     color: blue;
-    /* Change the link color to blue on hover */
-}
+} */
 
 .custom-tooltip:hover .tooltip-text {
     visibility: visible;
@@ -194,19 +192,16 @@
     /* Add some spacing between the table and tooltip */
 }
 
-.flex {
+/* .flex {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-}
+} */
 
 .color {
     background-color: var(--main-light-color);
 }
 
-.blue {
-    background-color: blue;
-}
 
 .green {
     background-color: green;
