@@ -71,20 +71,24 @@ function Languages() {
   ];
 
   return (
-<div className="center-vertical box" style={{ maxWidth: '90%', margin: '0 auto' }}>
+    <div
+      className="center-vertical box"
+      style={{ maxWidth: "90%", margin: "0 auto" }}
+    >
       <div className="flex justify-center items-center gap-3 mb-6">
-  <h2 className="text-3xl font-semibold text-gray-900">Meinen Repositories</h2>
+        <h2 className="text-3xl font-semibold text-gray-900">
+          Meinen Repositories
+        </h2>
 
-  <a
-    href={`https://github.com/${GITHUB_USERNAME}`}
-    target="_blank"
-    rel="noreferrer"
-    className="inline-block transform transition-transform duration-200 hover:scale-110"
-  >
-    <img src={githubImage} alt="GitHub" className="w-10 h-10" />
-  </a>
-</div>
-
+        <a
+          href={`https://github.com/${GITHUB_USERNAME}`}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-block transform transition-transform duration-200 hover:scale-110"
+        >
+          <img src={githubImage} alt="GitHub" className="w-10 h-10" />
+        </a>
+      </div>
 
       {loading ? (
         <p>Lade Daten...</p>
@@ -94,7 +98,10 @@ function Languages() {
           .map(([lang, bytes], i) => {
             const percent = ((bytes / totalBytes) * 100).toFixed(1);
             return (
-              <div key={lang} className="mb-4 hover:scale-105 duration-200 transform transition-transform">
+              <div
+                key={lang}
+                className="mb-4 hover:scale-105 duration-200 transform transition-transform"
+              >
                 <div className="text-lg font-medium mb-1">
                   {lang} ({percent}%)
                 </div>
@@ -102,7 +109,7 @@ function Languages() {
                   value={percent}
                   color={colors[i % colors.length]}
                   offset={800 + i * 200}
-                  duration={1500}
+                  duration={1000}
                 />
               </div>
             );
