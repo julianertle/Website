@@ -27,17 +27,21 @@ function Content() {
                     </div>
                 </div>
                 <div className="vertical-stack">
-                    <ContentInfo />
+                    <div className="relative skills-container mb-10">
+                        <ContentInfo />
+
+                    </div>
                     <div className="relative skills-container ">
                         <SkillsInfo />
                     </div>
-                    <div className="w-full">
-                        <Languages />
-                    </div>
+                    
                 </div>
                 
+                
             </div>
-            
+            <div className="center-div container mt-10">
+  <Languages />
+</div>
         </>
     );
 }

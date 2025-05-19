@@ -71,10 +71,10 @@ function Languages() {
   ];
 
   return (
-    <div className="center-vertical box grow">
+<div className="center-vertical box grow" style={{ maxWidth: '90%', margin: '0 auto' }}>
       <div className="flex items-center gap-3 mb-6">
         <h3 className="text-xl font-bold">
-          Programmiersprachen in meinen Repositories
+          Meinen Repositories
         </h3>
         <a
           href={`https://github.com/${GITHUB_USERNAME}`}
@@ -102,7 +102,7 @@ function Languages() {
                   value={percent}
                   color={colors[i % colors.length]}
                   offset={800 + i * 200}
-                  duration={1500}
+                  duration={2000}
                 />
               </div>
             );
