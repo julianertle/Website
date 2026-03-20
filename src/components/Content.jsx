@@ -19,8 +19,12 @@ const GitHubIcon = ({ className }) => (
 );
 
 const LocationIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="black">
-    <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
+  <svg className={className} viewBox="57.249 0 298.6 413.099" fill="black">
+    <path
+      d="M206.549,0L206.549,0c-82.6,0-149.3,66.7-149.3,149.3c0,28.8,9.2,56.3,22,78.899l97.3,168.399c6.1,11,18.4,16.5,30,16.5
+            c11.601,0,23.3-5.5,30-16.5l97.3-168.299c12.9-22.601,22-49.601,22-78.901C355.849,66.8,289.149,0,206.549,0z M206.549,193.4
+            c-30,0-54.5-24.5-54.5-54.5s24.5-54.5,54.5-54.5s54.5,24.5,54.5,54.5C261.049,169,236.549,193.4,206.549,193.4z"
+    />
   </svg>
 );
 
@@ -91,7 +95,7 @@ function Content() {
                   </span>
                 </div>
                 {/* Location Pin */}
-                <div className="relative flex flex-col items-center group cursor-default overflow-visible z-10 flex-shrink-0">
+                <div className="bg-red-200 relative flex flex-col items-center group cursor-default overflow-visible z-10 flex-shrink-0">
                   <div className="absolute bottom-full mb-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none z-30">
                     <div className="bg-gray-900 text-white text-[13px] font-black uppercase tracking-widest px-6 py-3 rounded-2xl shadow-2xl whitespace-nowrap">
                       Allgäu, Germany
@@ -100,7 +104,7 @@ function Content() {
                   </div>
 
                   <div className="transition-transform duration-300 group-hover:scale-110">
-                    <LocationIcon className="w-12 h-12" />
+                    <LocationIcon className="w-9 h-12" />
                   </div>
                 </div>
               </div>
