@@ -1,18 +1,35 @@
+import React from "react";
+
 const ContentInfo = () => {
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md text-gray-800 mt-3">
-      <h2 className="text-3xl font-semibold mb-6 text-center">
-        Julian Ertle, B.Sc. – Angewandte Informatik
+    <div className="h-full p-8 bg-white border-l-4 border-indigo-500 rounded-3xl shadow-sm border border-gray-100 transition-all hover:shadow-md">
+      {" "}
+      <h2 className="text-3xl font-bold mb-4 text-gray-900 tracking-tight">
+        Julian Ertle, <span className="text-indigo-600">B.Sc.</span>
       </h2>
-      <p className="text-lg leading-relaxed mb-4">
-        Absolvent der <strong>Hochschule Heilbronn</strong> mit Studienschwerpunkt <strong>Mobile Computing</strong>. Während meines Studiums habe ich praktische Erfahrung in der Entwicklung von Android-Apps sowie in der Arbeit mit Mikrocontrollern gesammelt.
-      </p>
-      <p className="text-lg leading-relaxed mb-4">
-        <strong>Softwareentwicklung</strong> bereitet mir am meisten Freude. Gleichzeitig möchte ich mich in Zukunft gezielt im Bereich <strong>Cybersecurity</strong> weiterbilden.
-      </p>
-      <p className="text-lg leading-relaxed">
-        <strong>Ich freue mich darauf</strong>, meine praktischen Erfahrungen in Ihrem Unternehmen einzubringen und gemeinsam spannende Projekte umzusetzen.
-      </p>
+      <h3 className="text-xl font-medium text-gray-500 mb-6">
+        Angewandte Informatik
+      </h3>
+      <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
+        <p>
+          Absolvent der{" "}
+          <span className="font-semibold text-gray-800 border-b-2 border-indigo-100">
+            Hochschule Heilbronn
+          </span>{" "}
+          mit Studienschwerpunkt{" "}
+          <span className="bg-indigo-50 px-2 py-0.5 rounded text-indigo-700">
+            Mobile Computing
+          </span>
+          .
+        </p>
+        <p>
+          <span className="font-semibold text-gray-800 italic underline decoration-indigo-300 decoration-2 underline-offset-4">
+            Softwareentwicklung
+          </span>{" "}
+          bereitet mir am meisten Freude. Mein Ziel ist die Spezialisierung im
+          Bereich <strong>Cybersecurity</strong>.
+        </p>
+      </div>
     </div>
   );
 };
