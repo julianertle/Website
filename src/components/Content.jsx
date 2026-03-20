@@ -44,16 +44,22 @@ function Content() {
             </div>
 
             {/* TEXT-BEREICH */}
-            <div className="lg:w-2/5 flex flex-col min-h-[450px] p-10 lg:p-14 lg:pl-16 text-center lg:text-left pt-16 lg:pt-20 bg-white rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none overflow-visible">
-              <div className="flex-grow flex flex-col justify-center">
-                <h3 className="text-5xl lg:text-6xl font-black text-gray-900 tracking-tighter leading-none mb-4">
-                  Hey, I'm <span className="text-gray-950">Julian.</span>
+            <div className="lg:w-2/4 flex flex-col min-h-[450px] p-10 lg:p-12 lg:pl-16 text-center lg:text-left pt-16 lg:pt-20 bg-white rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none overflow-visible">
+              <div className="flex-grow flex flex-col justify-center bg-red-50">
+                {/* Name - Optimized for 2 rows max */}
+                <h3 className="text-5xl lg:text-5xl xl:text-6xl font-black text-gray-950 tracking-tight leading-tight mb-8">
+                  Hey, I'm Julian.
+                  <br />
+                  <span className="relative inline-block"></span>
                 </h3>
-                <p className="text-2xl font-mono text-gray-950 uppercase tracking-[0.2em] mb-12">
-                  Web Developer
-                </p>
-              </div>
 
+                {/* Titel - Font size slightly reduced for better balance */}
+                <div className="space-y-2">
+                  <p className="text-lg lg:text-xl font-mono text-gray-950 font-bold uppercase tracking-[0.1em] leading-tight">
+                    IT Security Student & Developer
+                  </p>
+                </div>
+              </div>
               {/* Icon Leiste - pt-6 rückt die Icons näher an die Linie (border-t-2) */}
               <div className="mt-auto pt-6 border-t-2 border-gray-300 flex flex-nowrap items-center justify-center lg:justify-start gap-4 lg:gap-8 overflow-visible">
                 {/* LinkedIn */}
