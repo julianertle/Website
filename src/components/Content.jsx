@@ -23,13 +23,16 @@ function Content() {
       {/* OBERE REIHE: Bento Grid (2 Spalten, 50/50 Aufteilung) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
         {/* KARTE 1: PORTRAIT & HEY INFO */}
+        {/* WICHTIG: overflow-visible erlaubt dem Bild UND der Sprechblase, über den Rand zu wachsen! */}
         <div className="rounded-3xl shadow-lg self-stretch transition-all duration-300 hover:shadow-xl bg-white overflow-visible">
           <div className="flex flex-col lg:flex-row h-full">
             {/* BILD-BEREICH (Links) */}
-            <div className="lg:w-3/5 relative group z-0 hover:z-10">
+            {/* relative group z-0 hover:z-10 sorgt dafür, dass das gehoverte Bild über dem Text schwebt */}
+            <div className="lg:w-3/5 relative group z-0 hover:z-10 h-full">
               <a href="/about" className="block w-full h-full">
                 <img
                   src={portraitImage}
+                  // Bild füllt die Karte, abgerundete Ecken passen sich an
                   className="w-full h-full object-cover rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none transition-transform duration-500 group-hover:scale-110"
                   alt="Portrait"
                 />
@@ -37,63 +40,75 @@ function Content() {
             </div>
 
             {/* TEXT-BEREICH (Rechts) */}
-            <div className="lg:w-2/5 flex flex-col min-h-[400px] p-8 lg:p-12 text-center lg:text-left bg-white rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none">
-              {/* Name & Title (Mittig im verfügbaren Raum) */}
+            {/* pt-16 lg:pt-20 gibt Platz nach oben für die Sprechblase (löst das Abschneide-Problem) */}
+            <div className="lg:w-2/5 flex flex-col min-h-[450px] p-10 lg:p-14 lg:pl-16 text-center lg:text-left pt-16 lg:pt-20 bg-white rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none overflow-visible">
+              {/* Name & Title (Mittig, Größe erhöht) */}
               <div className="flex-grow flex flex-col justify-center">
-                <h3 className="text-4xl lg:text-5xl font-black text-gray-900 tracking-tighter leading-none mb-3">
+                <h3 className="text-5xl lg:text-6xl font-black text-gray-900 tracking-tighter leading-none mb-4">
                   Hey, I'm <span className="text-indigo-600">Julian.</span>
                 </h3>
-                <p className="text-xl font-mono text-gray-900 uppercase tracking-[0.2em] mb-8">
+                <p className="text-2xl font-mono text-gray-900 uppercase tracking-[0.2em] mb-12">
                   Web Developer
                 </p>
               </div>
 
-              {/* UNTERER TEIL: Social Icons & Location */}
-              <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-center lg:justify-start gap-12">
-                {/* LinkedIn */}
-                <div className="relative flex items-center group">
+              {/* Social Icons & Location (Ganz unten, X-Achse aligned) */}
+              {/* gap-10 für mehr Abstand zwischen den größeren Icons */}
+              <div className="mt-auto pt-8 border-t border-gray-100 flex items-center justify-center lg:justify-start gap-10">
+                {/* LinkedIn (Icon Größe erhöht) */}
+                <div className="relative flex flex-col items-center group">
                   <a
-                    href="https://linkedin.com/..."
+                    href="https://linkedin.com/in/dein-profil"
                     target="_blank"
-                    className="text-gray-900 hover:text-indigo-600 transition-transform hover:scale-110"
+                    rel="noopener noreferrer"
+                    className="text-gray-900 hover:text-indigo-600 transition-transform duration-300 hover:scale-110 group-hover:z-20"
                   >
-                    <LinkedInIcon />
+                    {/* WICHTIG: Die LinkedInIcon Komponente sollte selbst keine feste Größe haben, damit w-8 h-8 wirkt */}
+                    <div className="w-8 h-8 flex items-center justify-center">
+                      <LinkedInIcon className="w-full h-full" />
+                    </div>
                   </a>
-                  {/* Der Text schwebt absolut daneben, damit er das Layout nicht verschiebt */}
-                  <span className="absolute left-8 ml-2 text-[10px] font-bold uppercase tracking-widest text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                  <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 text-[10px] font-bold uppercase tracking-widest text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none bg-indigo-50 px-2 py-1 rounded">
                     LinkedIn
                   </span>
                 </div>
 
-                {/* GitHub */}
-                <div className="relative flex items-center group">
+                {/* GitHub (Icon Größe erhöht) */}
+                <div className="relative flex flex-col items-center group">
                   <a
-                    href="https://github.com/..."
+                    href="https://github.com/julianertle"
                     target="_blank"
-                    className="text-gray-900 hover:text-indigo-600 transition-transform hover:scale-110"
+                    rel="noopener noreferrer"
+                    className="text-gray-900 hover:text-indigo-600 transition-transform duration-300 hover:scale-110 group-hover:z-20"
                   >
-                    <GitHubIcon />
+                    <div className="w-8 h-8 flex items-center justify-center">
+                      <GitHubIcon className="w-full h-full" />
+                    </div>
                   </a>
-                  <span className="absolute left-8 ml-2 text-[10px] font-bold uppercase tracking-widest text-gray-950 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                  <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 text-[10px] font-bold uppercase tracking-widest text-gray-950 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none bg-slate-100 px-2 py-1 rounded">
                     GitHub
                   </span>
                 </div>
 
-                {/* Location Pin mit Sprechblase */}
-                <div className="relative flex flex-col items-center group cursor-default">
-                  {/* DIE SPRECHBLASE (Tooltip) */}
-                  <div className="absolute bottom-full mb-3 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
+                {/* Location Pin mit SPRECHBLASE (Fixiert und Größer) */}
+                {/* WICHTIG: group-hover:z-20 sorgt dafür, dass die Blase über anderen Elementen schwebt */}
+                <div className="relative flex flex-col items-center group cursor-default z-10 group-hover:z-20">
+                  {/* DIE SPRECHBLASE (Tooltip) - Jetzt fixiert */}
+                  <div className="absolute bottom-full mb-4 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
                     {/* Blasen-Körper */}
-                    <div className="bg-gray-900 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-2 rounded-lg shadow-xl whitespace-nowrap">
+                    <div className="bg-gray-900 text-white text-[11px] font-bold uppercase tracking-widest px-4 py-2.5 rounded-xl shadow-2xl whitespace-nowrap">
                       Allgäu, Germany
                     </div>
                     {/* Kleiner Pfeil nach unten */}
-                    <div className="w-2 h-2 bg-gray-900 rotate-45 -mt-1"></div>
+                    <div className="w-3 h-3 bg-gray-900 rotate-45 -mt-1.5 shadow-xl"></div>
                   </div>
 
-                  {/* DAS ICON */}
+                  {/* DAS ICON - Größe erhöht auf w-8 h-8 */}
                   <div className="text-gray-900 transition-transform duration-300 group-hover:scale-110">
-                    <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <svg
+                      className="w-8 h-8 fill-current flex-shrink-0"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
                     </svg>
                   </div>
