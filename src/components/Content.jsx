@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import portraitImage from "../assets/portrait.png";
 import ContentInfo from "./ContentSections/ContentInfo";
 import SkillsInfo from "./ContentSections/SkillsInfo";
 import Languages from "./Languages";
 
 // Icons als SVG-Komponenten
-// fill="black" erzwingt das Schwarz, unabhängig von Link-Farben
 const LinkedInIcon = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="black">
     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -20,48 +19,38 @@ const GitHubIcon = ({ className }) => (
 
 const LocationIcon = ({ className }) => (
   <svg className={className} viewBox="57.249 0 298.6 413.099" fill="black">
-    <path
-      d="M206.549,0L206.549,0c-82.6,0-149.3,66.7-149.3,149.3c0,28.8,9.2,56.3,22,78.899l97.3,168.399c6.1,11,18.4,16.5,30,16.5
-            c11.601,0,23.3-5.5,30-16.5l97.3-168.299c12.9-22.601,22-49.601,22-78.901C355.849,66.8,289.149,0,206.549,0z M206.549,193.4
-            c-30,0-54.5-24.5-54.5-54.5s24.5-54.5,54.5-54.5s54.5,24.5,54.5,54.5C261.049,169,236.549,193.4,206.549,193.4z"
-    />
+    <path d="M206.549,0L206.549,0c-82.6,0-149.3,66.7-149.3,149.3c0,28.8,9.2,56.3,22,78.899l97.3,168.399c6.1,11,18.4,16.5,30,16.5 c11.601,0,23.3-5.5,30-16.5l97.3-168.299c12.9-22.601,22-49.601,22-78.901C355.849,66.8,289.149,0,206.549,0z M206.549,193.4 c-30,0-54.5-24.5-54.5-54.5s24.5-54.5,54.5-54.5s54.5,24.5,54.5,54.5C261.049,169,236.549,193.4,206.549,193.4z" />
   </svg>
 );
 
 function Content() {
+  const [activeTooltip, setActiveTooltip] = useState(null);
+
   return (
     <div className="w-full max-w-screen-2xl mx-auto p-4 md:p-8 space-y-8 bg-slate-50 min-h-screen">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch overflow-visible">
         {/* KARTE 1: PORTRAIT & INFO */}
-        <div className="rounded-3xl shadow-lg self-stretch transition-all duration-300 hover:shadow-xl bg-white overflow-visible">
+        <div className="rounded-3xl shadow-lg bg-white overflow-visible transition-all duration-300 hover:shadow-xl">
           <div className="flex flex-col lg:flex-row h-full overflow-visible">
             {/* BILD-BEREICH */}
-            <div className="w-full lg:w-3/5 h-auto lg:h-full relative group z-0 overflow-visible">
+            <div className="w-full lg:w-3/5 h-auto lg:h-full relative group overflow-visible">
               <a href="/about" className="block w-full h-full">
                 <img
                   src={portraitImage}
-                  className="w-auto mx-auto object-contain rounded-t-3xl transition-transform duration-500 group-hover:scale-110 
-    /* 1. Mobile (Smallest) */
-    max-h-[400px] 
-    /* 2. Tablet / Single Column (Middleground) */
-    sm:max-h-[550px] 
-    /* 3. Desktop (Side-by-Side) */
-    lg:w-full lg:h-full lg:max-h-none lg:object-cover lg:rounded-l-3xl lg:rounded-tr-none lg:mx-0"
+                  className="w-auto mx-auto object-contain rounded-t-3xl transition-transform duration-500 group-hover:scale-105 
+                  max-h-[300px] sm:max-h-[500px] 
+                  lg:w-full lg:h-full lg:max-h-none lg:object-cover lg:rounded-l-3xl lg:rounded-tr-none lg:mx-0"
                   alt="Portrait"
                 />
               </a>
             </div>
 
             {/* TEXT-BEREICH */}
-            <div className="lg:w-1/2 flex flex-col min-h-[100px] lg:min-h-[450px] p-6 lg:p-12 lg:pl-16 text-center lg:text-left pt-10 lg:pt-20 rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none overflow-visible">
-              {/* Added a margin-bottom here to push icons away from text on mobile */}
-              <div className="flex-grow flex flex-col justify-center mb-3 lg:mb-0">
-                {/* Name - Kept large on desktop, slightly smaller on mobile to save space */}
+            <div className="lg:w-1/2 flex flex-col p-6 lg:p-12 lg:pl-16 text-center lg:text-left pt-10 lg:pt-20 rounded-b-3xl lg:rounded-r-3xl overflow-visible">
+              <div className="flex-grow flex flex-col justify-center mb-6 lg:mb-0">
                 <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-gray-950 tracking-tight leading-tight mb-4 lg:mb-8">
                   Hey, I'm Julian.
                 </h3>
-
-                {/* Titel */}
                 <div className="space-y-2">
                   <p className="text-lg lg:text-xl font-mono text-gray-950 font-bold uppercase tracking-[0.1em] leading-tight">
                     IT Security Student & Developer
@@ -69,47 +58,84 @@ function Content() {
                 </div>
               </div>
 
-              {/* Icon Leiste - Added mt-4 to ensure it never touches the text */}
-              <div className="bg-red-50 w-full mt-0 lg:mt-auto pt-3 border-t-2 border-gray-300 flex flex-nowrap items-center justify-between overflow-visible">
-                {" "}
+              {/* Icon Leiste */}
+              <div className="w-full mt-auto pt-3 border-t-2 border-gray-300 flex flex-nowrap items-center justify-between overflow-visible">
                 {/* LinkedIn */}
-                <div className="relative flex flex-col items-center group overflow-visible flex-shrink-0">
+                <div
+                  className="relative flex flex-col items-center flex-shrink-0"
+                  onMouseEnter={() => setActiveTooltip("linkedin")}
+                  onMouseLeave={() => setActiveTooltip(null)}
+                >
+                  <div
+                    className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 flex flex-col items-center transition-all duration-300 pointer-events-none z-30 
+                    ${activeTooltip === "linkedin" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                  >
+                    <div className="bg-gray-900 text-white text-[13px] font-black uppercase tracking-widest px-6 py-3 rounded-2xl shadow-2xl whitespace-nowrap">
+                      LinkedIn Profil
+                    </div>
+                    {/* Überlappung fix: -mt-2.5 statt -mt-2 */}
+                    <div className="w-4 h-4 bg-gray-900 rotate-45 -mt-2.5"></div>
+                  </div>
                   <a
                     href="https://linkedin.com/in/dein-profil"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-transform duration-300 hover:scale-110 z-10 block"
+                    className={`block transition-all duration-300 ${activeTooltip === "linkedin" ? "scale-125" : "hover:scale-110"}`}
                   >
                     <LinkedInIcon className="w-12 h-12" />
                   </a>
-                  <span className="absolute bottom-full mb-4 text-[12px] font-black uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none bg-gray-900 px-4 py-2 rounded-lg z-30 shadow-2xl">
-                    LinkedIn
-                  </span>
                 </div>
+
                 {/* GitHub */}
-                <div className="relative flex flex-col items-center group overflow-visible flex-shrink-0">
+                <div
+                  className="relative flex flex-col items-center flex-shrink-0"
+                  onMouseEnter={() => setActiveTooltip("github")}
+                  onMouseLeave={() => setActiveTooltip(null)}
+                >
+                  <div
+                    className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 flex flex-col items-center transition-all duration-300 pointer-events-none z-30 
+                    ${activeTooltip === "github" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                  >
+                    <div className="bg-gray-900 text-white text-[13px] font-black uppercase tracking-widest px-6 py-3 rounded-2xl shadow-2xl whitespace-nowrap">
+                      GitHub Profil
+                    </div>
+                    {/* Überlappung fix: -mt-2.5 statt -mt-2 */}
+                    <div className="w-4 h-4 bg-gray-900 rotate-45 -mt-2.5"></div>
+                  </div>
                   <a
                     href="https://github.com/julianertle"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-transform duration-300 hover:scale-110 z-10 block"
+                    className={`block transition-all duration-300 ${activeTooltip === "github" ? "scale-125" : "hover:scale-110"}`}
                   >
                     <GitHubIcon className="w-12 h-12" />
                   </a>
-                  <span className="absolute bottom-full mb-4 text-[12px] font-black uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none bg-gray-900 px-4 py-2 rounded-lg z-30 shadow-2xl">
-                    GitHub
-                  </span>
                 </div>
+
                 {/* Location Pin */}
-                <div className="bg-red-200 relative flex flex-col items-center group cursor-default overflow-visible z-10 flex-shrink-0">
-                  <div className="absolute bottom-full mb-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none z-30">
+                <div
+                  className="relative flex flex-col items-center cursor-pointer flex-shrink-0 z-20"
+                  onMouseEnter={() => setActiveTooltip("location")}
+                  onMouseLeave={() => setActiveTooltip(null)}
+                  onClick={() =>
+                    setActiveTooltip(
+                      activeTooltip === "location" ? null : "location",
+                    )
+                  }
+                >
+                  <div
+                    className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 flex flex-col items-center transition-all duration-300 pointer-events-none z-30 
+                    ${activeTooltip === "location" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                  >
                     <div className="bg-gray-900 text-white text-[13px] font-black uppercase tracking-widest px-6 py-3 rounded-2xl shadow-2xl whitespace-nowrap">
                       Allgäu, Germany
                     </div>
-                    <div className="w-4 h-4 bg-gray-900 rotate-45 -mt-2"></div>
+                    {/* Überlappung fix: -mt-2.5 statt -mt-2 */}
+                    <div className="w-4 h-4 bg-gray-900 rotate-45 -mt-2.5"></div>
                   </div>
-
-                  <div className="transition-transform duration-300 group-hover:scale-110">
+                  <div
+                    className={`transition-all duration-300 ${activeTooltip === "location" ? "scale-125 brightness-125" : "hover:scale-110"}`}
+                  >
                     <LocationIcon className="w-9 h-12" />
                   </div>
                 </div>
@@ -132,7 +158,7 @@ function Content() {
         <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 transition-hover hover:shadow-md">
           <Languages />
         </div>
-        <div className="bg-gray-900 rounded-3xl shadow-lg p-8 text-gray-100 flex flex-col justify-between transition-hover hover:shadow-xl hover:shadow-gray-800/20">
+        <div className="bg-gray-900 rounded-3xl shadow-lg p-8 text-gray-100 flex flex-col justify-between transition-hover hover:shadow-xl">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">🛡️</span>
