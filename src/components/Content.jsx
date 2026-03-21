@@ -36,35 +36,41 @@ function Content() {
         <div className="rounded-3xl shadow-lg self-stretch transition-all duration-300 hover:shadow-xl bg-white overflow-visible">
           <div className="flex flex-col lg:flex-row h-full overflow-visible">
             {/* BILD-BEREICH */}
-            <div className="lg:w-3/5 relative group z-0 hover:z-20 h-full">
+            <div className="w-full lg:w-3/5 h-auto lg:h-full relative group z-0 overflow-visible">
               <a href="/about" className="block w-full h-full">
                 <img
                   src={portraitImage}
-                  className="w-full h-full object-cover rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none transition-transform duration-500 group-hover:scale-110"
+                  className="w-auto mx-auto object-contain rounded-t-3xl transition-transform duration-500 group-hover:scale-110 
+    /* 1. Mobile (Smallest) */
+    max-h-[400px] 
+    /* 2. Tablet / Single Column (Middleground) */
+    sm:max-h-[550px] 
+    /* 3. Desktop (Side-by-Side) */
+    lg:w-full lg:h-full lg:max-h-none lg:object-cover lg:rounded-l-3xl lg:rounded-tr-none lg:mx-0"
                   alt="Portrait"
                 />
               </a>
             </div>
 
             {/* TEXT-BEREICH */}
-            <div className="lg:w-1/2 flex flex-col min-h-[450px] p-10 lg:p-12 lg:pl-16 text-center lg:text-left pt-16 lg:pt-20 bg-white rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none overflow-visible">
-              <div className="flex-grow flex flex-col justify-center bg-red-50">
-                {/* Name - Optimized for 2 rows max */}
-                <h3 className="text-5xl lg:text-5xl xl:text-6xl font-black text-gray-950 tracking-tight leading-tight mb-8">
+            <div className="lg:w-1/2 flex flex-col min-h-[100px] lg:min-h-[450px] p-6 lg:p-12 lg:pl-16 text-center lg:text-left pt-10 lg:pt-20 rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none overflow-visible">
+              {/* Added a margin-bottom here to push icons away from text on mobile */}
+              <div className="flex-grow flex flex-col justify-center mb-3 lg:mb-0">
+                {/* Name - Kept large on desktop, slightly smaller on mobile to save space */}
+                <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-gray-950 tracking-tight leading-tight mb-4 lg:mb-8">
                   Hey, I'm Julian.
-                  <br />
-                  <span className="relative inline-block"></span>
                 </h3>
 
-                {/* Titel - Font size slightly reduced for better balance */}
+                {/* Titel */}
                 <div className="space-y-2">
                   <p className="text-lg lg:text-xl font-mono text-gray-950 font-bold uppercase tracking-[0.1em] leading-tight">
                     IT Security Student & Developer
                   </p>
                 </div>
               </div>
-              {/* Icon Leiste - pt-6 rückt die Icons näher an die Linie (border-t-2) */}
-              <div className="bg-red-100 w-full mt-auto pt-6 border-t-2 border-gray-300 flex flex-nowrap items-center justify-between overflow-visible">
+
+              {/* Icon Leiste - Added mt-4 to ensure it never touches the text */}
+              <div className="bg-red-50 w-full mt-0 lg:mt-auto pt-3 border-t-2 border-gray-300 flex flex-nowrap items-center justify-between overflow-visible">
                 {" "}
                 {/* LinkedIn */}
                 <div className="relative flex flex-col items-center group overflow-visible flex-shrink-0">
