@@ -115,7 +115,8 @@ function Content() {
         <div className="rounded-3xl shadow-lg bg-white p-8 lg:p-12 flex flex-col justify-center transition-all duration-300 hover:shadow-xl border border-gray-100 overflow-visible">
           <div className="space-y-6">
             <section>
-              <p className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold mb-3">
+              {/* Überschrift zentriert */}
+              <p className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold mb-3 ">
                 Schön, dass du hier bist!
               </p>
               <p className="text-gray-600 mb-6">
@@ -125,8 +126,8 @@ function Content() {
               </p>
             </section>
 
-            <section className="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-2">
-              <p className="text-gray-700 leading-relaxed italic">
+            <section className="bg-slate-50 py-3 px-6 rounded-2xl border border-slate-100 mb-2">
+              <p className="text-gray-700 leading-relaxed italic mb-3">
                 "Als Developer macht mir vor allem die Softwareentwicklung Spaß.
                 Gerade spezialisiere ich mich auf die{" "}
                 <strong>IT-Sicherheit</strong>, um in Zukunft Unternehmen
@@ -136,21 +137,22 @@ function Content() {
             </section>
 
             <section className="pt-2 overflow-visible flex flex-col">
-              <p className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold mb-3">
+              {/* Überschrift zentriert, Fließtext links */}
+              <p className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold mb-3 ">
                 Interesse an einer Zusammenarbeit?
               </p>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 mb-6 text-left">
                 Sie möchten Ihre Systeme sicherer machen? Kontaktieren Sie mich
-                gerne – ich bin schließlich auf der Suche nach einem
+                gerne, ich bin schließlich auf der Suche nach einem
                 langfristigen Arbeitgeber.
               </p>
 
+              {/* Button zentriert */}
               <div
-                className="relative self-end overflow-visible"
+                className="relative self-center overflow-visible"
                 onMouseEnter={() => setActiveTooltip("contact-linkedin")}
                 onMouseLeave={() => setActiveTooltip(null)}
               >
-                {/* Tooltip für Button */}
                 <div
                   className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 flex flex-col items-center transition-all duration-300 pointer-events-none z-30 ${activeTooltip === "contact-linkedin" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                 >
@@ -164,7 +166,7 @@ function Content() {
                   href="https://linkedin.com/in/dein-profil"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-gray-900 text-white px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl active:scale-95"
+                  className="inline-block bg-gray-900 text-white px-5 py-2.5 rounded-xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-md active:scale-95"
                 >
                   Kontakt aufnehmen
                 </a>
@@ -263,7 +265,6 @@ function Content() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 overflow-visible">
-          {/* Master */}
           <section className="relative pl-6 border-l-4 border-blue-500">
             <h4 className="text-xs font-black uppercase tracking-widest text-blue-500 mb-2">
               Aktuelles Studium
@@ -277,7 +278,6 @@ function Content() {
             </div>
           </section>
 
-          {/* Bachelor */}
           <section className="relative pl-6 border-l-4 border-gray-200 overflow-visible">
             <h4 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-2">
               Bachelor of Science
