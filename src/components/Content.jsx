@@ -17,7 +17,7 @@ function Content() {
     <div className="w-full max-w-screen-2xl mx-auto p-4 md:p-8 space-y-8 bg-slate-50 min-h-screen">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch overflow-visible">
         {/* KARTE 1: PORTRAIT & INFO */}
-        <div className="rounded-3xl shadow-lg bg-white overflow-visible transition-all duration-300 hover:shadow-xl">
+        <div className="rounded-3xl shadow-lg bg-white overflow-visible transition-all duration-300 hover:shadow-xl border border-gray-100">
           <div className="flex flex-col lg:flex-row h-full overflow-visible">
             <div className="w-full lg:w-3/5 h-auto lg:h-full relative group overflow-visible">
               <a href="/about" className="block w-full h-full">
@@ -111,85 +111,65 @@ function Content() {
           </div>
         </div>
 
-        {/* KARTE 2: EDUCATION & EXPERIENCE */}
-        <div className="rounded-3xl shadow-lg bg-white p-8 lg:p-12 flex flex-col justify-between transition-all duration-300 hover:shadow-xl border border-gray-100">
-          <div className="space-y-10">
-            {/* Master Sektion */}
-            <section className="relative pl-6 border-l-4 border-blue-500">
-              <h4 className="text-xs font-black uppercase tracking-widest text-blue-500 mb-2">
-                Aktuelles Studium
-              </h4>
-              <div className="flex flex-col">
-                <h5 className="text-2xl lg:text-3xl font-bold text-gray-900 leading-tight">
-                  Advanced IT Security
-                </h5>
-                <div className="flex items-center gap-2 mt-2 text-gray-600 font-medium text-lg">
-                  <LocationIcon className="w-4 h-4 text-blue-500" />
-                  <span>Hochschule Albstadt-Sigmaringen</span>
-                </div>
-              </div>
+        {/* KARTE 2: MOTIVATION & CONTACT */}
+        <div className="rounded-3xl shadow-lg bg-white p-8 lg:p-12 flex flex-col justify-center transition-all duration-300 hover:shadow-xl border border-gray-100 overflow-visible">
+          <div className="space-y-6">
+            <section>
+              <p className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold mb-3">
+                Schön, dass du hier bist!
+              </p>
+              <p className="text-gray-600 mb-6">
+                Wenn du mich als Person genauer kennenlernen möchtest, bist du
+                hier genau richtig. Sieh dir gerne meine Projekte, meinen
+                Werdegang und meine Motivation an.
+              </p>
             </section>
 
-            {/* Bachelor Sektion */}
-            <section className="relative pl-6 border-l-4 border-gray-200">
-              <h4 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-2">
-                Hochschulabschluss
-              </h4>
-              <div className="flex flex-col">
-                <h5 className="text-2xl lg:text-3xl font-bold text-gray-900 leading-tight">
-                  Angewandte Informatik <br className="hidden sm:block" />
-                  <span className="text-gray-500 text-xl font-medium">
-                    Schwerpunkt{" "}
-                  </span>
-                  <a
-                    href="https://www.hs-heilbronn.de/de/mobile-computing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline decoration-2 underline-offset-4 text-xl"
-                  >
-                    Mobile Computing
-                  </a>
-                </h5>
-                <div className="flex items-center gap-2 mt-2 text-gray-600 font-medium text-lg">
-                  <LocationIcon className="w-4 h-4 text-blue-500" />
-                  <span>Hochschule Heilbronn</span>
-                </div>
-              </div>
+            <section className="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-2">
+              <p className="text-gray-700 leading-relaxed italic">
+                "Als Developer macht mir vor allem die Softwareentwicklung Spaß.
+                Gerade spezialisiere ich mich auf die{" "}
+                <strong>IT-Sicherheit</strong>, um in Zukunft Unternehmen
+                abzusichern und Anwendungen zu bauen, die von Grund auf
+                resilient gegen moderne Bedrohungen sind."
+              </p>
             </section>
 
-            {/* Work & Travel Sektion */}
-            <section className="relative pl-6 border-l-4 border-gray-200">
-              <h4 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-2">
-                Work and Travel
-              </h4>
-              <div className="flex flex-col">
-                <h5 className="text-2xl font-bold text-gray-900">
-                  Auslandsaufenthalt Kanada
-                </h5>
-                <div className="flex items-center gap-2 mt-1 text-gray-600 font-medium text-lg">
-                  <LocationIcon className="w-4 h-4 text-red-500" />
-                  <span>Vancouver & Banff</span>
-                </div>
-              </div>
-            </section>
-          </div>
+            <section className="pt-2 overflow-visible flex flex-col">
+              <p className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold mb-3">
+                Interesse an einer Zusammenarbeit?
+              </p>
+              <p className="text-gray-600 mb-8">
+                Sie möchten Ihre Systeme sicherer machen? Kontaktieren Sie mich
+                gerne – ich bin schließlich auf der Suche nach einem
+                langfristigen Arbeitgeber.
+              </p>
 
-          {/* Trenner und Projekt-Link */}
-          <div className="mt-12 pt-6 border-t border-gray-100">
-            <p className="text-gray-500 flex items-center gap-2">
-              <span>🚀</span>
-              <span className="italic text-sm sm:text-base">
-                Einblicke in meine{" "}
-                <a
-                  href="#projekte"
-                  onClick={scrollToProjects}
-                  className="text-gray-900 font-bold hover:text-blue-600 underline decoration-blue-500 decoration-2 underline-offset-4 transition-colors"
+              <div
+                className="relative self-end overflow-visible"
+                onMouseEnter={() => setActiveTooltip("contact-linkedin")}
+                onMouseLeave={() => setActiveTooltip(null)}
+              >
+                {/* Tooltip für Button */}
+                <div
+                  className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 flex flex-col items-center transition-all duration-300 pointer-events-none z-30 ${activeTooltip === "contact-linkedin" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                 >
-                  akademischen Projekte
-                </a>{" "}
-                findest du hier.
-              </span>
-            </p>
+                  <div className="bg-gray-900 text-white text-[13px] font-black uppercase tracking-widest px-6 py-3 rounded-2xl shadow-2xl whitespace-nowrap">
+                    Auf LinkedIn kontaktieren
+                  </div>
+                  <div className="w-4 h-4 bg-gray-900 rotate-45 -mt-2.5"></div>
+                </div>
+
+                <a
+                  href="https://linkedin.com/in/dein-profil"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-gray-900 text-white px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl active:scale-95"
+                >
+                  Kontakt aufnehmen
+                </a>
+              </div>
+            </section>
           </div>
         </div>
       </div>
@@ -204,7 +184,6 @@ function Content() {
             <div className="h-1 flex-grow bg-gray-100 rounded-full"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Bachelor Thesis Card */}
             <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-300 transition-all group flex flex-col justify-between">
               <div>
                 <span className="text-2xl mb-4 block">🎓</span>
@@ -219,16 +198,7 @@ function Content() {
                   Prognosemodelle in der Materialwirtschaft
                 </p>
                 <p className="text-xs text-gray-500 mb-4 italic">
-                  In Kooperation mit dem{" "}
-                  <a
-                    href="https://www.molit.eu/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
-                  >
-                    MOLIT Institut
-                  </a>
-                  .
+                  In Kooperation mit dem MOLIT Institut.
                 </p>
               </div>
               <div className="text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -250,22 +220,22 @@ function Content() {
               <h5 className="font-bold text-lg mb-2">ERP-System Integration</h5>
               <p className="text-sm text-gray-600">
                 Anpassung und Rollout eines ERP-Systems zur Optimierung
-                betrieblicher Abläufe in der IT-Administration.
+                betrieblicher Abläufe.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* UNTERE REIHE */}
+      {/* SKILLS & LANGUAGES REIHE */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 transition-hover hover:shadow-md">
+        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-all">
           <SkillsInfo />
         </div>
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 transition-hover hover:shadow-md">
+        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-all">
           <Languages />
         </div>
-        <div className="bg-gray-900 rounded-3xl shadow-lg p-8 text-gray-100 flex flex-col justify-between transition-hover hover:shadow-xl">
+        <div className="bg-gray-900 rounded-3xl shadow-lg p-8 text-gray-100 flex flex-col justify-between hover:shadow-xl transition-all">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">🛡️</span>
@@ -274,12 +244,72 @@ function Content() {
             <p className="text-gray-300 text-base leading-relaxed mb-6">
               Mein Fokus liegt auf der Spezialisierung in{" "}
               <strong>Advanced IT Security</strong>. Ich vertiefe meine
-              Kenntnisse in Netzwerksicherheit und sicheren Systemarchitekturen.
+              Kenntnisse in Netzwerksicherheit und Systemarchitekturen.
             </p>
           </div>
           <div className="mt-auto text-sm font-mono bg-gray-800 p-3 rounded-lg border border-gray-700 text-cyan-300">
             $ nmap -p 80,443 target.com
           </div>
+        </div>
+      </div>
+
+      {/* WERDEGANG */}
+      <div className="bg-white rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 transition-all duration-300 hover:shadow-xl overflow-visible">
+        <div className="flex items-center gap-4 mb-10">
+          <h3 className="text-3xl font-black text-gray-950 uppercase tracking-tight">
+            Werdegang
+          </h3>
+          <div className="h-1 flex-grow bg-gray-100 rounded-full"></div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 overflow-visible">
+          {/* Master */}
+          <section className="relative pl-6 border-l-4 border-blue-500">
+            <h4 className="text-xs font-black uppercase tracking-widest text-blue-500 mb-2">
+              Aktuelles Studium
+            </h4>
+            <h5 className="text-2xl font-bold text-gray-900 leading-tight">
+              Advanced IT Security
+            </h5>
+            <div className="flex items-center gap-2 mt-2 text-gray-600 font-medium">
+              <LocationIcon className="w-4 h-4 text-blue-500" />
+              <span>Hochschule Albstadt-Sigmaringen</span>
+            </div>
+          </section>
+
+          {/* Bachelor */}
+          <section className="relative pl-6 border-l-4 border-gray-200 overflow-visible">
+            <h4 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-2">
+              Bachelor of Science
+            </h4>
+            <div
+              className="relative w-fit"
+              onMouseEnter={() => setActiveTooltip("focus")}
+              onMouseLeave={() => setActiveTooltip(null)}
+            >
+              <div
+                className={`absolute bottom-full mb-4 left-0 flex flex-col items-start transition-all duration-300 pointer-events-none z-30 ${activeTooltip === "focus" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+              >
+                <div className="bg-gray-900 text-white text-[13px] font-black uppercase tracking-widest px-6 py-3 rounded-2xl shadow-2xl whitespace-nowrap">
+                  Schwerpunkt: Mobile Computing
+                </div>
+                <div className="w-4 h-4 bg-gray-900 rotate-45 -mt-2.5 ml-6"></div>
+              </div>
+              <a
+                href="https://www.hs-heilbronn.de/de/mobile-computing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h5 className="text-2xl font-bold text-gray-900 leading-tight hover:text-blue-600 transition-colors">
+                  Angewandte Informatik
+                </h5>
+              </a>
+            </div>
+            <div className="flex items-center gap-2 mt-2 text-gray-600 font-medium">
+              <LocationIcon className="w-4 h-4 text-blue-500" />
+              <span>Hochschule Heilbronn</span>
+            </div>
+          </section>
         </div>
       </div>
     </div>
