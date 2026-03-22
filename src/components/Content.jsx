@@ -3,6 +3,8 @@ import portraitImage from "../assets/portrait.png";
 import SkillsInfo from "./ContentSections/SkillsInfo";
 import Languages from "./Languages";
 import Typewriter from "typewriter-effect";
+import pentestPdf from "../assets/pentest_mrrobot_ctf.pdf";
+import pspoBadge from "../assets/pspo.png";
 import {
   LinkedInIcon,
   GitHubIcon,
@@ -207,33 +209,95 @@ function Content() {
           <div className="h-1 flex-grow bg-gray-100 rounded-full"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* TILE 1: MASTER THESIS GESUCH */}
           <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-500 transition-all group flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-start mb-4">
                 <span className="text-4xl w-10 h-10 inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                  🛡️
+                  📝
                 </span>
-                <span className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 px-2 py-1 rounded-md shadow-sm">
-                  Aktuell
+                <span className="text-[10px] font-black bg-blue-600 text-white px-2 py-1 rounded-md shadow-sm">
+                  SUCHE
                 </span>
               </div>
               <h5 className="font-bold text-lg mb-2 text-gray-900">
-                Spezialisierung IT-Security
+                Master Thesis
               </h5>
               <p className="text-sm text-gray-600 leading-relaxed">
-                In meinem Master an der Hochschule Albstadt-Sigmaringen vertiefe
-                ich mein Wissen in Bereichen wie Kryptographie,
-                Netzwerksicherheit und Pentesting. Fokus liegt auf der
-                Entwicklung resilienter Systemarchitekturen.
+                Ich suche derzeit nach einem Partnerunternehmen für meine
+                Masterarbeit im Bereich IT-Security (Zeitraum: 01.09.26 –
+                28.02.2027), um theoretische Konzepte in einer realen
+                Infrastruktur zu evaluieren.
+              </p>
+            </div>
+            <div className="mt-4 text-xs font-bold text-blue-600 uppercase tracking-wider">
+              Fokus: Cybersecurity & Resilience
+            </div>
+          </div>
+
+          {/* TILE 2: PENTEST BERICHT */}
+          <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-500 transition-all group flex flex-col justify-between">
+            <div>
+              <div className="flex justify-between items-start mb-4">
+                <span className="text-4xl w-10 h-10 inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  🕵️‍♂️
+                </span>
+                <a
+                  href={pentestPdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm"
+                  style={{ textDecoration: "none" }}
+                >
+                  <span>REPORT PDF</span>
+                  <span className="text-sm leading-none">→</span>
+                </a>
+              </div>
+              <h5 className="font-bold text-lg mb-2 text-gray-900">
+                Mein erster Pentest
+              </h5>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Im Rahmen des Fachs "Advanced Pentesting" habe ich die Mr. Robot
+                Instanz auf TryHackMe kompromittiert. Der Bericht dokumentiert
+                die vollständige Kill-Chain – von der initialen User Enumeration
+                über das Knacken von MD5-Hashes bis hin zur finalen
+                Root-Privilegieneskalation via Nmap.
+              </p>
+            </div>
+            <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+              Black-Box Pentest Report
+            </div>
+          </div>
+
+          {/* TILE 3: SCRUM ZERTIFIKAT */}
+          <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-500 transition-all group flex flex-col justify-between">
+            <div>
+              <div className="flex justify-between items-start mb-4">
+                <img
+                  src={pspoBadge}
+                  alt="PSPO I Logo"
+                  className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110 shadow-sm rounded-full"
+                />
+                <span className="text-[10px] font-black bg-white border border-gray-200 text-green-600 px-2 py-1 rounded-md shadow-sm">
+                  ZERTIFIZIERT
+                </span>
+              </div>
+              <h5 className="font-bold text-lg mb-2 text-gray-900">
+                Professional Scrum Product Owner
+              </h5>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Zertifizierter Abschluss der Scrum.org (PSPO I). Das Training
+                vermittelte fundierte Kenntnisse in der Wertmaximierung von
+                Softwareprodukten und der effektiven Arbeit in agilen
+                Security-Teams.
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors italic">
-              Advanced IT Security
+              Scrum.org | Albstadt 2025
             </div>
           </div>
         </div>
       </div>
-
       {/* SEKTION: MEIN BACHELOR STUDIUM */}
       <div ref={projectsRef} id="projekte" className="scroll-mt-8">
         <div className="bg-white rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 transition-all duration-300 hover:shadow-xl">
