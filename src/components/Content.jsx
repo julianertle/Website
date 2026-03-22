@@ -3,7 +3,12 @@ import portraitImage from "../assets/portrait.png";
 import SkillsInfo from "./ContentSections/SkillsInfo";
 import Languages from "./Languages";
 import Typewriter from "typewriter-effect";
-import { LinkedInIcon, GitHubIcon, LocationIcon } from "../assets/SvgIcons";
+import {
+  LinkedInIcon,
+  GitHubIcon,
+  LocationIcon,
+  ERPNextIcon,
+} from "../assets/SvgIcons";
 
 function Content() {
   const [activeTooltip, setActiveTooltip] = useState(null);
@@ -20,7 +25,6 @@ function Content() {
         {/* KARTE 1: PORTRAIT & INFO */}
         <div className="rounded-3xl shadow-lg bg-white overflow-visible transition-all duration-300 hover:shadow-xl border border-gray-100">
           <div className="flex flex-col lg:flex-row h-full overflow-visible">
-            {/* BILD-CONTAINER: overflow-visible ist hier der Schlüssel */}
             <div className="w-full lg:w-3/5 h-auto lg:h-full relative group overflow-visible">
               <a href="/about" className="block w-full h-full">
                 <img
@@ -65,7 +69,6 @@ function Content() {
 
                 <div className="flex-grow"></div>
 
-                {/* Untertitel: lg:text-lg macht den Text auf großen Bildschirmen deutlich präsenter */}
                 <p className="text-[14px] lg:text-base text-gray-400 font-black uppercase tracking-[0.4em] leading-relaxed">
                   IT Security Student & Developer
                 </p>
@@ -236,22 +239,69 @@ function Content() {
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-300 transition-colors group">
-              <span className="text-2xl mb-4 block">📱</span>
-              <h5 className="font-bold text-lg mb-2">Mobile Application</h5>
-              <p className="text-sm text-gray-600">
-                Entwicklung diverser Prototypen im Rahmen des Schwerpunkts
-                Mobile Computing an der Hochschule Heilbronn.
-              </p>
+            <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-300 transition-all group flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-4">
+                  <span className="text-3xl transition-transform duration-300 group-hover:scale-110">
+                    📱
+                  </span>
+                  <a
+                    href="https://github.com/julianertle"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <span>LEARN MORE</span>
+                    <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
+                      →
+                    </span>
+                  </a>
+                </div>
+                <h5 className="font-bold text-lg mb-2 text-gray-900">
+                  Schwerpunkt Mobile Computing
+                </h5>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Im Studium der Angewandten Informatik bin ich intensiv mit der
+                  App-Entwicklung in Berührung gekommen. Dabei sammelte ich
+                  praktische Erfahrung mit Mikrokontrollern, Sensorik und ersten
+                  IT-Security relevanten Themen.
+                </p>
+              </div>
+              <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+                IoT & Mobile Development
+              </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-300 transition-colors group">
-              <span className="text-2xl mb-4 block">⚙️</span>
-              <h5 className="font-bold text-lg mb-2">ERP-System Integration</h5>
-              <p className="text-sm text-gray-600">
-                Anpassung und Rollout eines ERP-Systems zur Optimierung
-                betrieblicher Abläufe.
-              </p>
+            {/* ERP-System Integration Tile */}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-[#0089FF]/30 transition-all group flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-4">
+                  <ERPNextIcon className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" />
+                  <a
+                    href="https://frappe.io/erpnext/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-black bg-white border border-gray-200 text-[#0089FF] hover:bg-[#0089FF]/5 px-3 py-1.5 rounded-md transition-all no-underline decoration-transparent inline-flex items-center gap-1.5 shadow-sm"
+                    style={{ textDecoration: "none" }} // Zusätzliche Sicherheit gegen globale Styles
+                  >
+                    <span>LEARN MORE</span>
+                    <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
+                      →
+                    </span>
+                  </a>
+                </div>
+                <h5 className="font-bold text-lg mb-2 text-gray-900">
+                  ERPNext Integration
+                </h5>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Anpassung und Rollout des ERP-Systems zur Optimierung
+                  betrieblicher Abläufe in meiner Zeit als Werkstudent.
+                </p>
+              </div>
+              <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-[#0089FF] transition-colors">
+                Full-Stack & Consulting
+              </div>
             </div>
           </div>
         </div>
