@@ -20,13 +20,16 @@ function Content() {
         {/* KARTE 1: PORTRAIT & INFO */}
         <div className="rounded-3xl shadow-lg bg-white overflow-visible transition-all duration-300 hover:shadow-xl border border-gray-100">
           <div className="flex flex-col lg:flex-row h-full overflow-visible">
-            {/* BILD-CONTAINER: animated-image triggert das Einblenden */}
-            <div className="w-full lg:w-3/5 h-auto lg:h-full relative group overflow-visible animated-image">
+            {/* BILD-CONTAINER: overflow-visible erlaubt dem Bild, über den inneren Rand zu treten */}
+            <div className="w-full lg:w-3/5 h-auto lg:h-full relative group overflow-visible">
               <a href="/about" className="block w-full h-full">
                 <img
                   src={portraitImage}
-                  /* grow triggert den Scale-Effekt aus deiner CSS */
-                  className="w-auto mx-auto object-contain rounded-t-3xl transition-transform duration-500 group-hover:scale-105 grow max-h-[300px] sm:max-h-[500px] lg:w-full lg:h-full lg:max-h-none lg:object-cover lg:rounded-l-3xl lg:rounded-tr-none lg:mx-0"
+                  /* - transform-gpu nutzt die Grafikkarte für flüssigere Animationen
+         - group-hover:scale-105 ist dezenter, damit nichts abgeschnitten wird
+         - lg:rounded-l-3xl behält deine abgerundeten Ecken links bei
+      */
+                  className="w-auto mx-auto object-contain rounded-t-3xl transition-transform duration-500 ease-out group-hover:scale-105 transform-gpu max-h-[300px] sm:max-h-[500px] lg:w-full lg:h-full lg:max-h-none lg:object-cover lg:rounded-l-3xl lg:rounded-tr-none lg:mx-0"
                   alt="Portrait"
                 />
               </a>
@@ -38,6 +41,7 @@ function Content() {
 
                 <h3 className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold antialiased">
                   <Typewriter
+                    key="typewriter-headline"
                     onInit={(typewriter) => {
                       typewriter
                         .typeString(".")
@@ -45,23 +49,18 @@ function Content() {
                         .typeString(" .")
                         .pauseFor(150)
                         .typeString(" .")
-                        .pauseFor(400) // Kürzere Pause vor dem Löschen
-                        .deleteAll(30) // Schnelleres Löschen der Punkte
+                        .pauseFor(400)
+                        .deleteAll(30)
                         .pauseFor(300)
                         .typeString("Hey, ")
                         .pauseFor(600)
                         .typeString("I'm Julian.")
-                        .callFunction((state) => {
-                          // Blendet den Cursor am Ende der Animation aus
-                          state.elements.cursor.style.display = "none";
-                        })
                         .start();
                     }}
                     options={{
                       autoStart: true,
                       cursor: "_",
                       delay: 60,
-                      // Nutzt exakt die Klassen deiner Motivations-Texte
                       wrapperClassName: "text-gray-800 font-bold",
                       cursorClassName: "text-gray-800 font-bold",
                     }}
