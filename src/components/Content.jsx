@@ -19,22 +19,30 @@ function Content() {
         {/* KARTE 1: PORTRAIT & INFO */}
         <div className="rounded-3xl shadow-lg bg-white overflow-visible transition-all duration-300 hover:shadow-xl border border-gray-100">
           <div className="flex flex-col lg:flex-row h-full overflow-visible">
-            <div className="w-full lg:w-3/5 h-auto lg:h-full relative group overflow-visible">
+            {/* BILD-CONTAINER: animated-image triggert das Einblenden */}
+            <div className="w-full lg:w-3/5 h-auto lg:h-full relative group overflow-visible animated-image">
               <a href="/about" className="block w-full h-full">
                 <img
                   src={portraitImage}
-                  className="w-auto mx-auto object-contain rounded-t-3xl transition-transform duration-500 group-hover:scale-105 max-h-[300px] sm:max-h-[500px] lg:w-full lg:h-full lg:max-h-none lg:object-cover lg:rounded-l-3xl lg:rounded-tr-none lg:mx-0"
+                  /* grow triggert den Scale-Effekt aus deiner CSS */
+                  className="w-auto mx-auto object-contain rounded-t-3xl transition-transform duration-500 group-hover:scale-105 grow max-h-[300px] sm:max-h-[500px] lg:w-full lg:h-full lg:max-h-none lg:object-cover lg:rounded-l-3xl lg:rounded-tr-none lg:mx-0"
                   alt="Portrait"
                 />
               </a>
             </div>
 
             <div className="lg:w-1/2 flex flex-col p-6 lg:p-12 lg:pl-16 text-center lg:text-left pt-10 lg:pt-20 rounded-b-3xl lg:rounded-r-3xl overflow-visible">
-              <div className="flex-grow flex flex-col justify-center mb-6 lg:mb-0">
-                <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-gray-950 tracking-tight leading-tight mb-4 lg:mb-8">
-                  Hey, I'm Julian.
+              <div className="flex-grow flex flex-col mb-8 overflow-visible">
+                <div className="flex-grow"></div>
+
+                {/* ÜBERSCHRIFT: Hier kannst du ebenfalls animated-image hinzufügen, wenn sie mitfaden soll */}
+                <h3 className="font-display text-5xl lg:text-6xl xl:text-8xl font-black text-gray-950 tracking-[-0.04em] leading-[0.85] antialiased">
+                  <strong>Hey, I'm Julian.</strong>
                 </h3>
-                <p className="text-lg lg:text-xl font-mono text-gray-950 font-bold uppercase tracking-[0.1em] leading-tight">
+
+                <div className="flex-grow"></div>
+
+                <p className="text-[10px] lg:text-xs text-gray-400 font-black uppercase tracking-[0.4em]">
                   IT Security Student & Developer
                 </p>
               </div>
@@ -115,7 +123,6 @@ function Content() {
         <div className="rounded-3xl shadow-lg bg-white p-8 lg:p-12 flex flex-col justify-center transition-all duration-300 hover:shadow-xl border border-gray-100 overflow-visible">
           <div className="space-y-6">
             <section>
-              {/* Überschrift zentriert */}
               <p className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold mb-3 ">
                 Schön, dass du hier bist!
               </p>
@@ -129,15 +136,13 @@ function Content() {
             <section className="bg-slate-50 py-3 px-6 rounded-2xl border border-slate-100 mb-2">
               <p className="text-gray-700 leading-relaxed italic mb-3">
                 "Als Developer macht mir vor allem die Softwareentwicklung Spaß.
-                Gerade spezialisiere ich mich auf die{" "}
-                <strong>IT-Sicherheit</strong>, um in Zukunft Unternehmen
-                abzusichern und Anwendungen zu bauen, die von Grund auf
-                resilient gegen moderne Bedrohungen sind."
+                Gerade spezialisiere ich mich auf die IT-Sicherheit, um in
+                Zukunft Unternehmen abzusichern und Anwendungen zu bauen, die
+                von Grund auf resilient gegen moderne Bedrohungen sind."
               </p>
             </section>
 
             <section className="pt-2 overflow-visible flex flex-col">
-              {/* Überschrift zentriert, Fließtext links */}
               <p className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold mb-3 ">
                 Interesse an einer Zusammenarbeit?
               </p>
@@ -147,7 +152,6 @@ function Content() {
                 langfristigen Arbeitgeber.
               </p>
 
-              {/* Button zentriert */}
               <div
                 className="relative self-center overflow-visible"
                 onMouseEnter={() => setActiveTooltip("contact-linkedin")}

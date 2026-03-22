@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
-/* Deine eigenen Definitionen */
+@theme {
+  /* Wir definieren 'display' als den fettesten System-Font */
+  --font-display: system-ui, sans-serif;
+  /* 'sans' für den normalen Text */
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+}
+/* Deine bestehenden Styles */
 .portrait-style {
   width: 100%;
   height: auto;
@@ -17,6 +23,24 @@
 }
 
 .animated-image {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Der Fade-In Effekt von damals */
+.animated-image {
+  opacity: 0;
+  transform: translateY(20px);
   animation: slideUp 0.8s ease-out forwards;
 }
 
