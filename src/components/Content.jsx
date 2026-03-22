@@ -225,13 +225,12 @@ function Content() {
               </h5>
               <p className="text-sm text-gray-600 leading-relaxed">
                 Ich suche derzeit nach einem Partnerunternehmen für meine
-                Masterarbeit im Bereich IT-Security (Zeitraum: 01.09.26 –
-                28.02.2027), um theoretische Konzepte in einer realen
-                Infrastruktur zu evaluieren.
+                Masterarbeit im Bereich IT-Security für den Zeitraum 01.09.26 –
+                28.02.2027.
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-blue-600 uppercase tracking-wider">
-              Fokus: Cybersecurity & Resilience
+              Bei Interesse gerne kontaktieren
             </div>
           </div>
 
@@ -257,11 +256,11 @@ function Content() {
                 Mein erster Pentest
               </h5>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Im Rahmen des Fachs "Advanced Pentesting" habe ich die Mr. Robot
-                Instanz auf TryHackMe kompromittiert. Der Bericht dokumentiert
-                die vollständige Kill-Chain – von der initialen User Enumeration
-                über das Knacken von MD5-Hashes bis hin zur finalen
-                Root-Privilegieneskalation via Nmap.
+                Im Rahmen meines Kurses "Advanced Pentesting" habe ich die Mr.
+                Robot Instanz auf der Lernplattform TryHackMe kompromittiert.
+                Der Bericht dokumentiert die vollständige Kill-Chain, von der
+                ersten Informationspreisgabe bis hin zur finalen
+                Root-Privilegieneskalation.
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -286,14 +285,22 @@ function Content() {
                 Professional Scrum Product Owner
               </h5>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Zertifizierter Abschluss der Scrum.org (PSPO I). Das Training
-                vermittelte fundierte Kenntnisse in der Wertmaximierung von
-                Softwareprodukten und der effektiven Arbeit in agilen
-                Security-Teams.
+                Erfolgreiche PSPO I Zertifizierung nach einem zweitägigen
+                Professional Scrum Training. Das Zertifikat validiert mein
+                Wissen über das Scrum Framework sowie die Fähigkeit,
+                Wertschöpfung und Product Management effektiv zu unterstützen.
               </p>
             </div>
-            <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors italic">
-              Scrum.org | Albstadt 2025
+            <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+              <a
+                href="https://www.scrum.org/assessments/professional-scrum-product-owner-i-certification"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-gray-400 hover:text-blue-600 transition-colors"
+              >
+                Scrum.org
+              </a>{" "}
+              | Albstadt 2025
             </div>
           </div>
         </div>
