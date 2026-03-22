@@ -212,37 +212,44 @@ function Content() {
         <div className="bg-white rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 transition-all duration-300 hover:shadow-xl">
           <div className="flex items-center gap-4 mb-8">
             <h3 className="text-3xl font-black text-gray-950 uppercase tracking-tight">
-              Projekte & Thesis
+              Mein Bachelor Studium
             </h3>
             <div className="h-1 flex-grow bg-gray-100 rounded-full"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-300 transition-all group flex flex-col justify-between">
-              <div>
-                <span className="text-2xl mb-4 block">🎓</span>
-                <div className="flex justify-between items-start mb-2">
-                  <h5 className="font-bold text-lg">Bachelor Thesis</h5>
-                  <span className="text-[10px] font-black bg-white border border-gray-200 text-gray-600 px-2 py-1 rounded-md">
-                    Note: 1,7
-                  </span>
-                </div>
-                <p className="text-sm text-gray-600 leading-relaxed mb-1">
-                  Methodenevaluierung des maschinellen Lernens für
-                  Prognosemodelle in der Materialwirtschaft
-                </p>
-                <p className="text-xs text-gray-500 mb-4 italic">
-                  In Kooperation mit dem MOLIT Institut.
-                </p>
-              </div>
-              <div className="text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
-                Dokumentation in Vorbereitung
-              </div>
-            </div>
-
+            {/* TILE 1: BACHELOR THESIS */}
             <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-300 transition-all group flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-4">
-                  <span className="text-3xl transition-transform duration-300 group-hover:scale-110">
+                  <span className="text-4xl w-10 h-10 inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                    🎓
+                  </span>
+                  <span className="text-[10px] font-black bg-white border border-gray-200 text-gray-600 px-2 py-1 rounded-md shadow-sm">
+                    Note: 1,7
+                  </span>
+                </div>
+                <h5 className="font-bold text-lg mb-2 text-gray-900">
+                  Bachelor Thesis
+                </h5>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  In Kooperation mit dem MOLIT Institut habe ich untersucht, ob
+                  und inwiefern Machine-Learning-Verfahren die
+                  Materialwirtschaft optimieren können. Hierfür entwickelte ich
+                  einen automatisierten OCR-Workflow zur Datenaufbereitung und
+                  evaluierte verschiedene Prognosemodelle für den Laborbedarf.
+                </p>
+              </div>
+              <div className="mt-auto text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+                Machine Learning & Data Automation
+              </div>
+            </div>
+
+            {/* TILE 2: MOBILE COMPUTING */}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-300 transition-all group flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-4">
+                  {/* Einheitliche Icon-Größe: w-10 h-10 */}
+                  <span className="text-4xl w-10 h-10 inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                     📱
                   </span>
                   <a
@@ -262,10 +269,11 @@ function Content() {
                   Schwerpunkt Mobile Computing
                 </h5>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Im Studium der Angewandten Informatik bin ich intensiv mit der
-                  App-Entwicklung in Berührung gekommen. Dabei sammelte ich
-                  praktische Erfahrung mit Mikrokontrollern, Sensorik und ersten
-                  IT-Security relevanten Themen.
+                  In meinem Studium der Angewandten Informatik haben wir uns
+                  unter diesem Schwerpunkt mit Mikrokontrollern, Sensorik und
+                  der Android App-Entwicklung befasst. Einige der Projekte, die
+                  in diesem Rahmen entstanden sind, können auf meinem
+                  GitHub-Profil eingesehen werden.
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -273,7 +281,7 @@ function Content() {
               </div>
             </div>
 
-            {/* ERP-System Integration Tile */}
+            {/* TILE 3: ERPNEXT INTEGRATION */}
             <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-[#0089FF]/30 transition-all group flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-4">
@@ -282,8 +290,8 @@ function Content() {
                     href="https://frappe.io/erpnext/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black bg-white border border-gray-200 text-[#0089FF] hover:bg-[#0089FF]/5 px-3 py-1.5 rounded-md transition-all no-underline decoration-transparent inline-flex items-center gap-1.5 shadow-sm"
-                    style={{ textDecoration: "none" }} // Zusätzliche Sicherheit gegen globale Styles
+                    className="text-[10px] font-black bg-white border border-gray-200 text-[#0089FF] hover:bg-[#0089FF]/5 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
+                    style={{ textDecoration: "none" }}
                   >
                     <span>LEARN MORE</span>
                     <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
@@ -295,12 +303,15 @@ function Content() {
                   ERPNext Integration
                 </h5>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Anpassung und Rollout des ERP-Systems zur Optimierung
-                  betrieblicher Abläufe in meiner Zeit als Werkstudent.
+                  Anpassung und Rollout des ERP-Systems in meiner Zeit als
+                  Werkstudent. In engem Austausch mit Stakeholdern habe ich eine
+                  eigene, auf die spezifischen Bedürfnisse des Unternehmens
+                  zugeschnittene App in einem englischsprachigen Arbeitsumfeld
+                  entwickelt und implementiert
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-[#0089FF] transition-colors">
-                Full-Stack & Consulting
+                Full-Stack Development & Consulting
               </div>
             </div>
           </div>
