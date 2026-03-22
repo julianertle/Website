@@ -54,3 +54,20 @@
     transform: translateY(0);
   }
 }
+
+/* Styling für die animierte Unterzeile */
+.sub-text {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 10px;
+  color: #9ca3af; /* text-gray-400 */
+  font-weight: 900; /* font-black */
+  text-transform: uppercase;
+  letter-spacing: 0.4em; /* tracking-[0.4em] */
+}
+
+@media (min-width: 1024px) {
+  .sub-text {
+    font-size: 0.75rem; /* text-xs */
+  }
+}

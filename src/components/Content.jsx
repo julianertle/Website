@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import portraitImage from "../assets/portrait.png";
 import SkillsInfo from "./ContentSections/SkillsInfo";
 import Languages from "./Languages";
+import Typewriter from "typewriter-effect";
 import { LinkedInIcon, GitHubIcon, LocationIcon } from "../assets/SvgIcons";
 
 function Content() {
@@ -35,9 +36,36 @@ function Content() {
               <div className="flex-grow flex flex-col mb-8 overflow-visible">
                 <div className="flex-grow"></div>
 
-                {/* ÜBERSCHRIFT: Hier kannst du ebenfalls animated-image hinzufügen, wenn sie mitfaden soll */}
-                <h3 className="font-display text-5xl lg:text-6xl xl:text-8xl font-black text-gray-950 tracking-[-0.04em] leading-[0.85] antialiased">
-                  <strong>Hey, I'm Julian.</strong>
+                <h3 className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold antialiased">
+                  <Typewriter
+                    onInit={(typewriter) => {
+                      typewriter
+                        .typeString(".")
+                        .pauseFor(150)
+                        .typeString(" .")
+                        .pauseFor(150)
+                        .typeString(" .")
+                        .pauseFor(400) // Kürzere Pause vor dem Löschen
+                        .deleteAll(30) // Schnelleres Löschen der Punkte
+                        .pauseFor(300)
+                        .typeString("Hey, ")
+                        .pauseFor(600)
+                        .typeString("I'm Julian.")
+                        .callFunction((state) => {
+                          // Blendet den Cursor am Ende der Animation aus
+                          state.elements.cursor.style.display = "none";
+                        })
+                        .start();
+                    }}
+                    options={{
+                      autoStart: true,
+                      cursor: "_",
+                      delay: 60,
+                      // Nutzt exakt die Klassen deiner Motivations-Texte
+                      wrapperClassName: "text-gray-800 font-bold",
+                      cursorClassName: "text-gray-800 font-bold",
+                    }}
+                  />
                 </h3>
 
                 <div className="flex-grow"></div>
