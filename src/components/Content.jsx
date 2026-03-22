@@ -20,22 +20,18 @@ function Content() {
         {/* KARTE 1: PORTRAIT & INFO */}
         <div className="rounded-3xl shadow-lg bg-white overflow-visible transition-all duration-300 hover:shadow-xl border border-gray-100">
           <div className="flex flex-col lg:flex-row h-full overflow-visible">
-            {/* BILD-CONTAINER: overflow-visible erlaubt dem Bild, über den inneren Rand zu treten */}
+            {/* BILD-CONTAINER: overflow-visible ist hier der Schlüssel */}
             <div className="w-full lg:w-3/5 h-auto lg:h-full relative group overflow-visible">
               <a href="/about" className="block w-full h-full">
                 <img
                   src={portraitImage}
-                  /* - transform-gpu nutzt die Grafikkarte für flüssigere Animationen
-         - group-hover:scale-105 ist dezenter, damit nichts abgeschnitten wird
-         - lg:rounded-l-3xl behält deine abgerundeten Ecken links bei
-      */
-                  className="w-auto mx-auto object-contain rounded-t-3xl transition-transform duration-500 ease-out group-hover:scale-105 transform-gpu max-h-[300px] sm:max-h-[500px] lg:w-full lg:h-full lg:max-h-none lg:object-cover lg:rounded-l-3xl lg:rounded-tr-none lg:mx-0"
+                  className="w-auto mx-auto object-contain rounded-t-3xl transition-transform duration-500 ease-out group-hover:scale-110 transform-gpu max-h-[300px] sm:max-h-[500px] lg:w-full lg:h-full lg:max-h-none lg:object-cover lg:rounded-l-3xl lg:rounded-tr-none lg:mx-0"
                   alt="Portrait"
                 />
               </a>
             </div>
 
-            <div className="lg:w-1/2 flex flex-col p-6 lg:p-12 lg:pl-16 text-center lg:text-left pt-10 lg:pt-20 rounded-b-3xl lg:rounded-r-3xl overflow-visible">
+            <div className="lg:w-1/2 flex flex-col p-6 lg:p-12 lg:pl-16 text-center lg:text-left pt-10 lg:pt-20 overflow-visible">
               <div className="flex-grow flex flex-col mb-8 overflow-visible">
                 <div className="flex-grow"></div>
 
@@ -69,7 +65,8 @@ function Content() {
 
                 <div className="flex-grow"></div>
 
-                <p className="text-[10px] lg:text-xs text-gray-400 font-black uppercase tracking-[0.4em]">
+                {/* Untertitel: lg:text-lg macht den Text auf großen Bildschirmen deutlich präsenter */}
+                <p className="text-[14px] lg:text-base text-gray-400 font-black uppercase tracking-[0.4em] leading-relaxed">
                   IT Security Student & Developer
                 </p>
               </div>
