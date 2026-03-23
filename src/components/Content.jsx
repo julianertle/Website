@@ -258,7 +258,7 @@ function Content() {
               <p className="text-sm text-gray-600 leading-relaxed">
                 Im Rahmen meines Kurses "Advanced Pentesting" habe ich die Mr.
                 Robot Instanz auf der Lernplattform TryHackMe kompromittiert.
-                Der Bericht dokumentiert die vollständige Kill-Chain, von der
+                Der Bericht dokumentiert die vollständige Kill-Chain – von der
                 ersten Informationspreisgabe bis hin zur finalen
                 Root-Privilegieneskalation.
               </p>
@@ -296,7 +296,7 @@ function Content() {
                 href="https://www.scrum.org/assessments/professional-scrum-product-owner-i-certification"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline text-gray-400 hover:text-blue-600 transition-colors"
+                className="underline decoration-gray-400 hover:decoration-blue-600 text-gray-400 hover:text-blue-600 transition-all"
               >
                 Scrum.org
               </a>{" "}
