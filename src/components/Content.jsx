@@ -223,7 +223,9 @@ function Content() {
                   className="text-[10px] font-black bg-white border border-gray-200 text-gray-400 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm !no-underline"
                 >
                   <span>KONTAKTIEREN</span>
-                  <span className="text-sm leading-none">→</span>
+                  <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
+                    →
+                  </span>
                 </a>
               </div>
               <h5 className="font-bold text-lg mb-2 text-gray-900">
@@ -256,7 +258,9 @@ function Content() {
                   style={{ textDecoration: "none" }}
                 >
                   <span>REPORT PDF</span>
-                  <span className="text-sm leading-none">→</span>
+                  <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
+                    →
+                  </span>
                 </a>
               </div>
               <h5 className="font-bold text-lg mb-2 text-gray-900">
