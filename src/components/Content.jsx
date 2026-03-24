@@ -216,9 +216,15 @@ function Content() {
                 <span className="text-4xl w-10 h-10 inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   📝
                 </span>
-                <span className="text-[10px] font-black bg-blue-600 text-white px-2 py-1 rounded-md shadow-sm">
-                  SUCHE
-                </span>
+                <a
+                  href="https://linkedin.com/in/dein-profil"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm !no-underline"
+                >
+                  <span>KONTAKTIEREN</span>
+                  <span className="text-sm leading-none">→</span>
+                </a>
               </div>
               <h5 className="font-bold text-lg mb-2 text-gray-900">
                 Master Thesis
@@ -229,6 +235,9 @@ function Content() {
                 begleitet und betreut. Melden Sie sich bei Interesse gerne
                 direkt bei mir!
               </p>
+            </div>
+            <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+              Abschlussarbeit & Suche
             </div>
           </div>
 
