@@ -220,7 +220,7 @@ function Content() {
                   href="https://linkedin.com/in/dein-profil"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm !no-underline"
+                  className="text-[10px] font-black bg-white border border-gray-200 text-gray-400 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm !no-underline"
                 >
                   <span>KONTAKTIEREN</span>
                   <span className="text-sm leading-none">→</span>
@@ -252,7 +252,7 @@ function Content() {
                   href={pentestPdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm"
+                  className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm"
                   style={{ textDecoration: "none" }}
                 >
                   <span>REPORT PDF</span>
@@ -360,7 +360,7 @@ function Content() {
                     href="https://github.com/julianertle"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
+                    className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
                     style={{ textDecoration: "none" }}
                   >
                     <span>LEARN MORE</span>
@@ -412,7 +412,7 @@ function Content() {
                     href="https://frappe.io/erpnext/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black bg-white border border-gray-200 text-[#0089FF] hover:bg-[#0089FF]/5 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
+                    className="text-[10px] font-black bg-white border border-gray-200 text-[#0089FF] hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
                     style={{ textDecoration: "none" }}
                   >
                     <span>LEARN MORE</span>
