@@ -161,7 +161,8 @@ function Content() {
               <p className="text-gray-700 leading-relaxed italic mb-3">
                 "Als Developer macht mir vor allem die Softwareentwicklung Spaß.
                 Gerade spezialisiere ich mich auf die IT-Sicherheit, um in
-                Zukunft Unternehmen abzusichern..."
+                Zukunft Unternehmen abzusichern und Anwendungen zu bauen, die
+                von Grund auf resilient gegen moderne Bedrohungen sind."
               </p>
             </section>
             <section className="pt-2 overflow-visible flex flex-col">
@@ -169,9 +170,8 @@ function Content() {
                 Interesse an einer Zusammenarbeit?
               </p>
               <p className="text-gray-600 mb-6 text-left">
-                Sie möchten Ihre Systeme sicherer machen? Kontaktieren Sie mich
-                gerne, ich bin schließlich auf der Suche nach einem
-                langfristigen Arbeitgeber.
+                Falls Sie Verstärkung für die Sicherheit Ihrer IT-Systeme
+                suchen, freue ich mich über jede Nachricht!
               </p>
               <div
                 className="relative self-center overflow-visible"
@@ -224,13 +224,11 @@ function Content() {
                 Master Thesis
               </h5>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Ich suche derzeit nach einem Partnerunternehmen für meine
-                Masterarbeit im Bereich IT-Security für den Zeitraum 01.09.26 –
-                28.02.2027.
+                Ich suche für den Zeitraum vom 01.09.2026 bis 28.02.2027 ein
+                Unternehmen, das meine Masterarbeit im Bereich IT-Security
+                begleitet und betreut. Melden Sie sich bei Interesse gerne
+                direkt bei mir!
               </p>
-            </div>
-            <div className="mt-4 text-xs font-bold text-blue-600 uppercase tracking-wider">
-              Bei Interesse gerne kontaktieren
             </div>
           </div>
 
@@ -258,7 +256,7 @@ function Content() {
               <p className="text-sm text-gray-600 leading-relaxed">
                 Im Rahmen meines Kurses "Advanced Pentesting" habe ich die Mr.
                 Robot Instanz auf der Lernplattform TryHackMe kompromittiert.
-                Der Bericht dokumentiert die vollständige Kill-Chain – von der
+                Der Bericht dokumentiert die vollständige Kill-Chain, von der
                 ersten Informationspreisgabe bis hin zur finalen
                 Root-Privilegieneskalation.
               </p>
@@ -333,7 +331,8 @@ function Content() {
                   In Kooperation mit dem MOLIT Institut habe ich untersucht, ob
                   und inwiefern Machine-Learning-Verfahren die
                   Materialwirtschaft optimieren können. Hierfür entwickelte ich
-                  einen automatisierten OCR-Workflow zur Datenaufbereitung.
+                  einen automatisierten OCR-Workflow zur Datenaufbereitung und
+                  evaluierte verschiedene Prognosemodelle für den Laborbedarf.
                 </p>
               </div>
               <div className="mt-auto text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -367,8 +366,9 @@ function Content() {
                 <p className="text-sm text-gray-600 leading-relaxed">
                   In meinem Studium der Angewandten Informatik haben wir uns
                   unter diesem Schwerpunkt mit Mikrokontrollern, Sensorik und
-                  der Android App-Entwicklung befasst. Projekte dazu sind auf
-                  meinem GitHub-Profil einsehbar.
+                  der Android App-Entwicklung befasst. Einige der Projekte, die
+                  in diesem Rahmen entstanden sind, können auf meinem
+                  GitHub-Profil eingesehen werden.
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -416,10 +416,11 @@ function Content() {
                   ERPNext Integration
                 </h5>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Anpassung und Rollout des ERP-Systems als Werkstudent. In
-                  engem Austausch mit internationalen Stakeholdern habe ich eine
-                  maßgeschneiderte App in einem englischsprachigen Arbeitsumfeld
-                  implementiert.
+                  Anpassung und Rollout des ERP-Systems in meiner Zeit als
+                  Werkstudent. In engem Austausch mit Stakeholdern habe ich eine
+                  eigene, auf die spezifischen Bedürfnisse des Unternehmens
+                  zugeschnittene App in einem englischsprachigen Arbeitsumfeld
+                  entwickelt und implementiert.
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-[#0089FF] transition-colors">
