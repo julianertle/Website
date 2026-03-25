@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import portraitImage from "../assets/portrait.png";
 import SkillsInfo from "./ContentSections/SkillsInfo";
 import Languages from "./Languages";
@@ -15,6 +15,38 @@ import {
 function Content() {
   const [activeTooltip, setActiveTooltip] = useState(null);
   const projectsRef = useRef(null);
+  const skillsSectionRef = useRef(null);
+
+  // Der Observer startet die Animation erst, wenn die Kachel im Viewport ist
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Kleiner Delay, damit die Animation erst startet, wenn der User "angekommen" ist
+          setTimeout(() => {
+            const categories = ["dev", "cyber", "personal", null];
+            categories.forEach((cat, index) => {
+              setTimeout(() => {
+                setActiveTooltip(cat);
+              }, index * 1000);
+            });
+          }, 500);
+
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.5, // Startet erst, wenn die Kachel zu 50% sichtbar ist
+        rootMargin: "0px 0px -50px 0px", // Puffer nach unten
+      },
+    );
+
+    if (skillsSectionRef.current) {
+      observer.observe(skillsSectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="w-full max-w-screen-2xl mx-auto p-4 md:p-8 space-y-12 bg-slate-50 min-h-screen">
@@ -71,7 +103,6 @@ function Content() {
 
               {/* Icon Leiste */}
               <div className="w-full mt-auto pt-3 border-t-2 border-gray-300 flex flex-nowrap items-center justify-between overflow-visible">
-                {/* LinkedIn */}
                 <div
                   className="relative flex flex-col items-center flex-shrink-0"
                   onMouseEnter={() => setActiveTooltip("linkedin")}
@@ -95,7 +126,6 @@ function Content() {
                   </a>
                 </div>
 
-                {/* GitHub */}
                 <div
                   className="relative flex flex-col items-center flex-shrink-0"
                   onMouseEnter={() => setActiveTooltip("github")}
@@ -119,7 +149,6 @@ function Content() {
                   </a>
                 </div>
 
-                {/* Location */}
                 <div
                   className="relative flex flex-col items-center cursor-pointer flex-shrink-0 z-20"
                   onMouseEnter={() => setActiveTooltip("location")}
@@ -209,7 +238,6 @@ function Content() {
           <div className="h-1 flex-grow bg-gray-100 rounded-full"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* TILE 1: MASTER THESIS GESUCH */}
           <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-500 transition-all group flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-start mb-4">
@@ -222,7 +250,7 @@ function Content() {
                   rel="noopener noreferrer"
                   className="text-[10px] font-black bg-white border border-gray-200 text-gray-400 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm !no-underline"
                 >
-                  <span>KONTAKTIEREN</span>
+                  KONTAKTIEREN
                   <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
                     →
                   </span>
@@ -234,8 +262,7 @@ function Content() {
               <p className="text-sm text-gray-600 leading-relaxed">
                 Ich suche für den Zeitraum vom 01.09.2026 bis 28.02.2027 ein
                 Unternehmen, das meine Masterarbeit im Bereich IT-Security
-                begleitet und betreut. Melden Sie sich bei Interesse gerne
-                direkt bei mir!
+                begleitet und betreut.
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -243,7 +270,6 @@ function Content() {
             </div>
           </div>
 
-          {/* TILE 2: PENTEST BERICHT */}
           <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-500 transition-all group flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-start mb-4">
@@ -257,7 +283,7 @@ function Content() {
                   className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm"
                   style={{ textDecoration: "none" }}
                 >
-                  <span>REPORT PDF</span>
+                  REPORT PDF
                   <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
                     →
                   </span>
@@ -269,9 +295,6 @@ function Content() {
               <p className="text-sm text-gray-600 leading-relaxed">
                 Im Rahmen meines Kurses "Advanced Pentesting" habe ich die Mr.
                 Robot Instanz auf der Lernplattform TryHackMe kompromittiert.
-                Der Bericht dokumentiert die vollständige Kill-Chain, von der
-                ersten Informationspreisgabe bis hin zur finalen
-                Root-Privilegieneskalation.
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -279,7 +302,6 @@ function Content() {
             </div>
           </div>
 
-          {/* TILE 3: SCRUM ZERTIFIKAT */}
           <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-500 transition-all group flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-start mb-4">
@@ -292,30 +314,18 @@ function Content() {
                   ZERTIFIZIERT
                 </span>
               </div>
-              <h5 className="font-bold text-lg mb-2 text-gray-900">
-                Professional Scrum Product Owner
-              </h5>
+              <h5 className="font-bold text-lg mb-2 text-gray-900">PSPO I</h5>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Erfolgreiche PSPO I Zertifizierung nach einem zweitägigen
-                Professional Scrum Training. Das Zertifikat validiert mein
-                Wissen über das Scrum Framework sowie die Fähigkeit,
-                Wertschöpfung und Product Management effektiv zu unterstützen.
+                Zertifizierung nach einem Professional Scrum Training.
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
-              <a
-                href="https://www.scrum.org/assessments/professional-scrum-product-owner-i-certification"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-gray-400 hover:decoration-blue-600 text-gray-400 hover:text-blue-600 transition-all"
-              >
-                Scrum.org
-              </a>{" "}
-              | Albstadt 2025
+              Scrum.org | Albstadt 2025
             </div>
           </div>
         </div>
       </div>
+
       {/* SEKTION: MEIN BACHELOR STUDIUM */}
       <div ref={projectsRef} id="projekte" className="scroll-mt-8">
         <div className="bg-white rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 transition-all duration-300 hover:shadow-xl">
@@ -326,7 +336,6 @@ function Content() {
             <div className="h-1 flex-grow bg-gray-100 rounded-full"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* TILE 1: BACHELOR THESIS */}
             <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-300 transition-all group flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-4">
@@ -341,19 +350,14 @@ function Content() {
                   Bachelor Thesis
                 </h5>
                 <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                  In Kooperation mit dem MOLIT Institut habe ich untersucht, ob
-                  und inwiefern Machine-Learning-Verfahren die
-                  Materialwirtschaft optimieren können. Hierfür entwickelte ich
-                  einen automatisierten OCR-Workflow zur Datenaufbereitung und
-                  evaluierte verschiedene Prognosemodelle für den Laborbedarf.
+                  Machine-Learning zur Optimierung der Materialwirtschaft.
                 </p>
               </div>
               <div className="mt-auto text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
-                Machine Learning & Data Automation
+                Machine Learning
               </div>
             </div>
 
-            {/* TILE 2: MOBILE COMPUTING */}
             <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-300 transition-all group flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-4">
@@ -367,29 +371,24 @@ function Content() {
                     className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
                     style={{ textDecoration: "none" }}
                   >
-                    <span>LEARN MORE</span>
+                    LEARN MORE
                     <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
                       →
                     </span>
                   </a>
                 </div>
                 <h5 className="font-bold text-lg mb-2 text-gray-900">
-                  Schwerpunkt Mobile Computing
+                  Mobile Computing
                 </h5>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  In meinem Studium der Angewandten Informatik haben wir uns
-                  unter diesem Schwerpunkt mit Mikrokontrollern, Sensorik und
-                  der Android App-Entwicklung befasst. Einige der Projekte, die
-                  in diesem Rahmen entstanden sind, können auf meinem
-                  GitHub-Profil eingesehen werden.
+                  Fokus auf Android-Entwicklung und Sensorik.
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
-                IoT & Mobile Development
+                IoT & Mobile
               </div>
             </div>
 
-            {/* TILE 3: ERPNEXT INTEGRATION */}
             <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-[#0089FF]/30 transition-all group flex flex-col justify-between overflow-visible">
               <div>
                 <div className="flex justify-between items-start mb-4 overflow-visible">
@@ -402,12 +401,8 @@ function Content() {
                     <div
                       className={`absolute bottom-full mb-2 left-0 flex flex-col items-start transition-all duration-300 pointer-events-none z-50 ${activeTooltip === "erpnext-license" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                     >
-                      <div className="bg-gray-900 text-white text-[9px] leading-tight font-medium px-3 py-2 rounded-lg shadow-xl w-48">
+                      <div className="bg-gray-900 text-white text-[9px] px-3 py-2 rounded-lg shadow-xl w-48">
                         ERPNext logo used under Frappe Technologies Pvt. Ltd.
-                        trademark policy.
-                        <span className="block mt-1 text-blue-300">
-                          erpnext.com/license-trademark
-                        </span>
                       </div>
                       <div className="w-3 h-3 bg-gray-900 rotate-45 -mt-1.5 ml-3"></div>
                     </div>
@@ -419,25 +414,21 @@ function Content() {
                     className="text-[10px] font-black bg-white border border-gray-200 text-[#0089FF] hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
                     style={{ textDecoration: "none" }}
                   >
-                    <span>LEARN MORE</span>
+                    LEARN MORE
                     <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
                       →
                     </span>
                   </a>
                 </div>
                 <h5 className="font-bold text-lg mb-2 text-gray-900">
-                  ERPNext Integration
+                  ERPNext
                 </h5>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Anpassung und Rollout des ERP-Systems in meiner Zeit als
-                  Werkstudent. In engem Austausch mit Stakeholdern habe ich eine
-                  eigene, auf die spezifischen Bedürfnisse des Unternehmens
-                  zugeschnittene App in einem englischsprachigen Arbeitsumfeld
-                  entwickelt und implementiert.
+                  Customizing und Rollout im englischsprachigen Team.
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-[#0089FF] transition-colors">
-                Full-Stack Development & Consulting
+                Full-Stack
               </div>
             </div>
           </div>
@@ -445,47 +436,44 @@ function Content() {
       </div>
 
       {/* SEKTION: KERNKOMPETENZEN (INTERAKTIV) */}
-      <div className="pb-8 group/section">
+      <div ref={skillsSectionRef} className="pb-8 group/section">
         <div className="bg-white rounded-[2rem] shadow-lg border border-gray-100 p-8 lg:p-12 transition-all duration-500 hover:shadow-xl relative overflow-hidden">
-          {/* HEADER & FILTER STEUERUNG */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
             <div>
               <h3 className="text-3xl font-black text-gray-950 uppercase tracking-tight mb-2">
-                Kernkompetenzen
+                Technologien & Skills
               </h3>
               <p className="text-gray-500 text-sm font-medium">
-                Technologien und Methoden, mit denen ich bereits praktisch
-                gearbeitet habe.
+                Technologien, Skills und Methoden mit denen ich schon gearbeitet
+                habe.
               </p>
             </div>
 
-            {/* HOVER FILTER */}
             <div className="flex flex-wrap gap-3 bg-slate-50 p-2 rounded-2xl border border-slate-100">
               <div
                 onMouseEnter={() => setActiveTooltip("dev")}
                 onMouseLeave={() => setActiveTooltip(null)}
-                className="px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all bg-white shadow-sm hover:bg-blue-600 hover:text-white border border-slate-200"
+                className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border border-slate-200 ${activeTooltip === "dev" ? "bg-blue-600 text-white shadow-md" : "bg-white shadow-sm hover:bg-blue-600 hover:text-white"}`}
               >
                 Entwicklung
               </div>
               <div
                 onMouseEnter={() => setActiveTooltip("cyber")}
                 onMouseLeave={() => setActiveTooltip(null)}
-                className="px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all bg-white shadow-sm hover:bg-red-600 hover:text-white border border-slate-200"
+                className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border border-slate-200 ${activeTooltip === "cyber" ? "bg-red-600 text-white shadow-md" : "bg-white shadow-sm hover:bg-red-600 hover:text-white"}`}
               >
                 Sicherheit
               </div>
               <div
                 onMouseEnter={() => setActiveTooltip("personal")}
                 onMouseLeave={() => setActiveTooltip(null)}
-                className="px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all bg-white shadow-sm hover:bg-emerald-600 hover:text-white border border-slate-200"
+                className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border border-slate-200 ${activeTooltip === "personal" ? "bg-emerald-600 text-white shadow-md" : "bg-white shadow-sm hover:bg-emerald-600 hover:text-white"}`}
               >
                 Expertise
               </div>
             </div>
           </div>
 
-          {/* DYNAMISCHES BADGE-GRID */}
           <div className="flex flex-wrap gap-4 relative z-10">
             {[
               { name: "React / Vite", cat: "dev" },
@@ -497,9 +485,9 @@ function Content() {
               { name: "Linux (Terminal)", cat: "dev" },
               { name: "Tailwind CSS", cat: "dev" },
               { name: "Pentesting", cat: "cyber" },
-              { name: "Side-Channel Attacks", cat: "cyber" },
+              { name: "CPA Attacks", cat: "cyber" },
               { name: "OSINT & Scraping", cat: "cyber" },
-              { name: "ISO 27001 (Grundlagen)", cat: "cyber" }, // Fokus auf "Grundlagen" für ehrliche Selbsteinschätzung
+              { name: "ISO 27001 (Grundlagen)", cat: "cyber" },
               { name: "ERPNext / Frappe", cat: "dev" },
               { name: "Scrum (PSPO I)", cat: "personal" },
               { name: "Englisch (C1 DAAD)", cat: "personal" },
