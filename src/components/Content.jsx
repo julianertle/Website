@@ -444,29 +444,88 @@ function Content() {
         </div>
       </div>
 
-      {/* SKILLS & LANGUAGES & CYBERSECURITY CARD */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-all">
-          <SkillsInfo />
-        </div>
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-all">
-          <Languages />
-        </div>
-        <div className="bg-gray-900 rounded-3xl shadow-lg p-8 text-gray-100 flex flex-col justify-between hover:shadow-xl transition-all">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-3xl">🛡️</span>
-              <h4 className="text-2xl font-bold text-white">Cybersecurity</h4>
+      {/* SEKTION: KERNKOMPETENZEN (INTERAKTIV) */}
+      <div className="pb-8 group/section">
+        <div className="bg-white rounded-[2rem] shadow-lg border border-gray-100 p-8 lg:p-12 transition-all duration-500 hover:shadow-xl relative overflow-hidden">
+          {/* HEADER & FILTER STEUERUNG */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
+            <div>
+              <h3 className="text-3xl font-black text-gray-950 uppercase tracking-tight mb-2">
+                Kernkompetenzen
+              </h3>
+              <p className="text-gray-500 text-sm font-medium">
+                Technologien und Methoden, mit denen ich bereits praktisch
+                gearbeitet habe.
+              </p>
             </div>
-            <p className="text-gray-300 text-base leading-relaxed mb-6">
-              Mein Fokus liegt auf der Spezialisierung in{" "}
-              <strong>Advanced IT Security</strong>. Ich vertiefe meine
-              Kenntnisse in Netzwerksicherheit und Systemarchitekturen.
-            </p>
+
+            {/* HOVER FILTER */}
+            <div className="flex flex-wrap gap-3 bg-slate-50 p-2 rounded-2xl border border-slate-100">
+              <div
+                onMouseEnter={() => setActiveTooltip("dev")}
+                onMouseLeave={() => setActiveTooltip(null)}
+                className="px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all bg-white shadow-sm hover:bg-blue-600 hover:text-white border border-slate-200"
+              >
+                Entwicklung
+              </div>
+              <div
+                onMouseEnter={() => setActiveTooltip("cyber")}
+                onMouseLeave={() => setActiveTooltip(null)}
+                className="px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all bg-white shadow-sm hover:bg-red-600 hover:text-white border border-slate-200"
+              >
+                Sicherheit
+              </div>
+              <div
+                onMouseEnter={() => setActiveTooltip("personal")}
+                onMouseLeave={() => setActiveTooltip(null)}
+                className="px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all bg-white shadow-sm hover:bg-emerald-600 hover:text-white border border-slate-200"
+              >
+                Expertise
+              </div>
+            </div>
           </div>
-          <div className="mt-auto text-sm font-mono bg-gray-800 p-3 rounded-lg border border-gray-700 text-cyan-300">
-            $ nmap -p 80,443 target.com
+
+          {/* DYNAMISCHES BADGE-GRID */}
+          <div className="flex flex-wrap gap-4 relative z-10">
+            {[
+              { name: "React / Vite", cat: "dev" },
+              { name: "Java", cat: "dev" },
+              { name: "Python", cat: "dev" },
+              { name: "Android App Dev", cat: "dev" },
+              { name: "MariaDB / Postgres", cat: "dev" },
+              { name: "Docker & Compose", cat: "dev" },
+              { name: "Linux (Terminal)", cat: "dev" },
+              { name: "Tailwind CSS", cat: "dev" },
+              { name: "Pentesting", cat: "cyber" },
+              { name: "Side-Channel Attacks", cat: "cyber" },
+              { name: "OSINT & Scraping", cat: "cyber" },
+              { name: "ISO 27001 (Grundlagen)", cat: "cyber" }, // Fokus auf "Grundlagen" für ehrliche Selbsteinschätzung
+              { name: "ERPNext / Frappe", cat: "dev" },
+              { name: "Scrum (PSPO I)", cat: "personal" },
+              { name: "Englisch (C1 DAAD)", cat: "personal" },
+              { name: "KI-gestützte Workflows", cat: "dev" },
+              { name: "Stakeholder Management", cat: "personal" },
+            ].map((item) => (
+              <div
+                key={item.name}
+                className={`
+                  px-5 py-3 rounded-2xl border font-bold text-sm transition-all duration-300 transform-gpu
+                  ${!activeTooltip ? "bg-white border-slate-200 text-slate-700 shadow-sm" : ""}
+                  ${
+                    activeTooltip === item.cat
+                      ? `scale-110 z-20 shadow-md ${item.cat === "dev" ? "bg-blue-50 border-blue-400 text-blue-700" : item.cat === "cyber" ? "bg-red-50 border-red-400 text-red-700" : "bg-emerald-50 border-emerald-400 text-emerald-700"}`
+                      : activeTooltip
+                        ? "opacity-20 grayscale blur-[1px] scale-95"
+                        : ""
+                  }
+                `}
+              >
+                {item.name}
+              </div>
+            ))}
           </div>
+
+          <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-slate-50 rounded-full blur-3xl -z-0 opacity-50"></div>
         </div>
       </div>
     </div>
