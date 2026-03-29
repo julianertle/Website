@@ -260,9 +260,7 @@ function Content() {
                 Master Thesis
               </h5>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Ich suche für den Zeitraum vom 01.09.2026 bis 28.02.2027 ein
-                Unternehmen, das meine Masterarbeit im Bereich IT-Security
-                begleitet und betreut.
+                Ich suche für den Zeitraum vom 01.09.2026 bis 28.02.2027 ein Unternehmen, das meine Masterarbeit im Bereich IT-Security begleitet und betreut. Melden Sie sich bei Interesse gerne direkt bei mir!
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -293,8 +291,7 @@ function Content() {
                 Mein erster Pentest
               </h5>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Im Rahmen meines Kurses "Advanced Pentesting" habe ich die Mr.
-                Robot Instanz auf der Lernplattform TryHackMe kompromittiert.
+                Im Rahmen meines Kurses "Advanced Pentesting" habe ich die Mr. Robot Instanz auf der Lernplattform TryHackMe kompromittiert. Der Bericht dokumentiert die vollständige Kill-Chain, von der ersten Informationspreisgabe bis hin zur finalen Root-Privilegieneskalation.
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -314,9 +311,9 @@ function Content() {
                   ZERTIFIZIERT
                 </span>
               </div>
-              <h5 className="font-bold text-lg mb-2 text-gray-900">PSPO I</h5>
+              <h5 className="font-bold text-lg mb-2 text-gray-900">Professional Scrum Product Owner</h5>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Zertifizierung nach einem Professional Scrum Training.
+                Erfolgreiche PSPO I Zertifizierung nach einem zweitägigen Professional Scrum Training. Das Zertifikat validiert mein Wissen über das Scrum Framework sowie die Fähigkeit, Wertschöpfung und Product Management effektiv zu unterstützen.
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -350,7 +347,7 @@ function Content() {
                   Bachelor Thesis
                 </h5>
                 <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                  Machine-Learning zur Optimierung der Materialwirtschaft.
+                  In Kooperation mit dem MOLIT Institut habe ich untersucht, ob und inwiefern Machine-Learning-Verfahren die Materialwirtschaft optimieren können. Hierfür entwickelte ich einen automatisierten OCR-Workflow zur Datenaufbereitung und evaluierte verschiedene Prognosemodelle für den Laborbedarf.
                 </p>
               </div>
               <div className="mt-auto text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -378,10 +375,10 @@ function Content() {
                   </a>
                 </div>
                 <h5 className="font-bold text-lg mb-2 text-gray-900">
-                  Mobile Computing
+                  Schwerpunkt Mobile Computing
                 </h5>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Fokus auf Android-Entwicklung und Sensorik.
+                  In meinem Studium der Angewandten Informatik haben wir uns unter diesem Schwerpunkt mit Mikrokontrollern, Sensorik und der Android App-Entwicklung befasst. Einige der Projekte, die in diesem Rahmen entstanden sind, können auf meinem GitHub-Profil eingesehen werden.
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -421,10 +418,10 @@ function Content() {
                   </a>
                 </div>
                 <h5 className="font-bold text-lg mb-2 text-gray-900">
-                  ERPNext
+                  ERPNext Integration
                 </h5>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Customizing und Rollout im englischsprachigen Team.
+                  Anpassung und Rollout des ERP-Systems in meiner Zeit als Werkstudent. In engem Austausch mit Stakeholdern habe ich eine eigene, auf die spezifischen Bedürfnisse des Unternehmens zugeschnittene App in einem englischsprachigen Arbeitsumfeld entwickelt und implementiert.
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-[#0089FF] transition-colors">
