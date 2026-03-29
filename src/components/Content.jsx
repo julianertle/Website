@@ -317,7 +317,15 @@ function Content() {
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
-              Scrum.org | Albstadt 2025
+              <a
+                href="https://www.scrum.org/assessments/professional-scrum-product-owner-i-certification"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-gray-400 hover:decoration-blue-600 text-gray-400 hover:text-blue-600 transition-all"
+              >
+                Scrum.org
+              </a>{" "}
+              | Albstadt 2025
             </div>
           </div>
         </div>
