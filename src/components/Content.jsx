@@ -176,7 +176,7 @@ function Content() {
         </div>
 
         {/* KARTE 2: MOTIVATION & CONTACT */}
-        <div className="rounded-3xl shadow-lg bg-white dark:bg-slate-900 p-8 lg:p-12 flex flex-col justify-center transition-all duration-300 hover:shadow-xl border border-gray-100 dark:border-slate-800 overflow-visible">
+        <div className="rounded-3xl shadow-lg bg-slate-50 dark:bg-slate-900 p-8 lg:p-12 flex flex-col justify-center transition-all duration-300 hover:shadow-xl border border-gray-100 dark:border-slate-800 overflow-visible">
           <div className="space-y-6">
             <section>
               <p className="text-gray-800 dark:text-white text-xl lg:text-2xl leading-relaxed font-bold mb-3">
@@ -188,7 +188,7 @@ function Content() {
                 Werdegang und meine Motivation an.
               </p>
             </section>
-            <section className="bg-slate-50 dark:bg-slate-800/50 py-3 px-6 rounded-2xl border border-slate-100 dark:border-slate-700 mb-2">
+            <section className="bg-slate-100 dark:bg-slate-600/50 py-3 px-6 rounded-2xl border border-slate-100 dark:border-slate-700 mb-2">
               <p className="text-gray-700 dark:text-slate-300 leading-relaxed italic mb-3">
                 "Als Developer macht mir vor allem die Softwareentwicklung Spaß.
                 Gerade spezialisiere ich mich auf die IT-Sicherheit, um in
