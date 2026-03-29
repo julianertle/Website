@@ -5,7 +5,7 @@ import Languages from "./Languages";
 import Typewriter from "typewriter-effect";
 import pentestPdf from "../assets/pentest_mrrobot_ctf.pdf";
 import pspoBadge from "../assets/pspo.png";
-import { ThemeProvider } from './ThemeContext';
+import { useTheme } from "./ThemeContext"; // FIXED: Changed from ThemeProvider to useTheme
 import {
   LinkedInIcon,
   GitHubIcon,
@@ -17,6 +17,7 @@ function Content() {
   const [activeTooltip, setActiveTooltip] = useState(null);
   const projectsRef = useRef(null);
   const skillsSectionRef = useRef(null);
+  const { isDark } = useTheme(); // FIXED: Added to track theme state
 
   // Der Observer startet die Animation erst, wenn die Kachel im Viewport ist
   useEffect(() => {
@@ -50,11 +51,11 @@ function Content() {
   }, []);
 
   return (
-    <div className="w-full max-w-screen-2xl mx-auto p-4 md:p-8 space-y-12 bg-slate-50 min-h-screen">
+    <div className="w-full max-w-screen-2xl mx-auto p-4 md:p-8 space-y-12 bg-slate-50 dark:bg-slate-950 min-h-screen transition-colors duration-500">
       {/* OBERE REIHE: PORTRAIT & MOTIVATION */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch overflow-visible">
         {/* KARTE 1: PORTRAIT & INFO */}
-        <div className="rounded-3xl shadow-lg bg-white overflow-visible transition-all duration-300 hover:shadow-xl border border-gray-100">
+        <div className="rounded-3xl shadow-lg bg-white dark:bg-slate-900 overflow-visible transition-all duration-300 hover:shadow-xl border border-gray-100 dark:border-slate-800">
           <div className="flex flex-col lg:flex-row h-full overflow-visible">
             <div className="w-full lg:w-3/5 h-auto lg:h-full relative group overflow-visible">
               <a href="/about" className="block w-full h-full">
@@ -69,9 +70,9 @@ function Content() {
             <div className="lg:w-1/2 flex flex-col p-6 lg:p-12 lg:pl-16 text-center lg:text-left pt-10 lg:pt-20 overflow-visible">
               <div className="flex-grow flex flex-col mb-8 overflow-visible">
                 <div className="flex-grow"></div>
-                <h3 className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold antialiased">
+                <h3 className="text-gray-800 dark:text-white text-xl lg:text-2xl leading-relaxed font-bold antialiased">
                   <Typewriter
-                    key="typewriter-headline"
+                    key={`typewriter-${isDark}`} // FIXED: Forces refresh to update color
                     onInit={(typewriter) => {
                       typewriter
                         .typeString(".")
@@ -91,19 +92,19 @@ function Content() {
                       autoStart: true,
                       cursor: "_",
                       delay: 60,
-                      wrapperClassName: "text-gray-800 font-bold",
-                      cursorClassName: "text-gray-800 font-bold",
+                      wrapperClassName: "font-bold", // Inherits color from H3
+                      cursorClassName: "font-bold",
                     }}
                   />
                 </h3>
                 <div className="flex-grow"></div>
-                <p className="text-[14px] lg:text-base text-gray-400 font-black uppercase tracking-[0.4em] leading-relaxed">
+                <p className="text-[14px] lg:text-base text-gray-400 dark:text-slate-500 font-black uppercase tracking-[0.4em] leading-relaxed">
                   IT Security Student & Developer
                 </p>
               </div>
 
               {/* Icon Leiste */}
-              <div className="w-full mt-auto pt-3 border-t-2 border-gray-300 flex flex-nowrap items-center justify-between overflow-visible">
+              <div className="w-full mt-auto pt-3 border-t-2 border-gray-300 dark:border-slate-700 flex flex-nowrap items-center justify-between overflow-visible">
                 <div
                   className="relative flex flex-col items-center flex-shrink-0"
                   onMouseEnter={() => setActiveTooltip("linkedin")}
@@ -123,7 +124,7 @@ function Content() {
                     rel="noopener noreferrer"
                     className={`block transition-all duration-300 ${activeTooltip === "linkedin" ? "scale-125" : "hover:scale-110"}`}
                   >
-                    <LinkedInIcon className="w-12 h-12 text-gray-900" />
+                    <LinkedInIcon className="w-12 h-12 text-gray-900 dark:text-white" />
                   </a>
                 </div>
 
@@ -146,7 +147,7 @@ function Content() {
                     rel="noopener noreferrer"
                     className={`block transition-all duration-300 ${activeTooltip === "github" ? "scale-125" : "hover:scale-110"}`}
                   >
-                    <GitHubIcon className="w-12 h-12 text-gray-900" />
+                    <GitHubIcon className="w-12 h-12 text-gray-900 dark:text-white" />
                   </a>
                 </div>
 
@@ -175,20 +176,20 @@ function Content() {
         </div>
 
         {/* KARTE 2: MOTIVATION & CONTACT */}
-        <div className="rounded-3xl shadow-lg bg-white p-8 lg:p-12 flex flex-col justify-center transition-all duration-300 hover:shadow-xl border border-gray-100 overflow-visible">
+        <div className="rounded-3xl shadow-lg bg-white dark:bg-slate-900 p-8 lg:p-12 flex flex-col justify-center transition-all duration-300 hover:shadow-xl border border-gray-100 dark:border-slate-800 overflow-visible">
           <div className="space-y-6">
             <section>
-              <p className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold mb-3">
+              <p className="text-gray-800 dark:text-white text-xl lg:text-2xl leading-relaxed font-bold mb-3">
                 Schön, dass du hier bist!
               </p>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 dark:text-slate-400 mb-6">
                 Wenn du mich als Person genauer kennenlernen möchtest, bist du
                 hier genau richtig. Sieh dir gerne meine Projekte, meinen
                 Werdegang und meine Motivation an.
               </p>
             </section>
-            <section className="bg-slate-50 py-3 px-6 rounded-2xl border border-slate-100 mb-2">
-              <p className="text-gray-700 leading-relaxed italic mb-3">
+            <section className="bg-slate-50 dark:bg-slate-800/50 py-3 px-6 rounded-2xl border border-slate-100 dark:border-slate-700 mb-2">
+              <p className="text-gray-700 dark:text-slate-300 leading-relaxed italic mb-3">
                 "Als Developer macht mir vor allem die Softwareentwicklung Spaß.
                 Gerade spezialisiere ich mich auf die IT-Sicherheit, um in
                 Zukunft Unternehmen abzusichern und Anwendungen zu bauen, die
@@ -196,10 +197,10 @@ function Content() {
               </p>
             </section>
             <section className="pt-2 overflow-visible flex flex-col">
-              <p className="text-gray-800 text-xl lg:text-2xl leading-relaxed font-bold mb-3">
+              <p className="text-gray-800 dark:text-white text-xl lg:text-2xl leading-relaxed font-bold mb-3">
                 Interesse an einer Zusammenarbeit?
               </p>
-              <p className="text-gray-600 mb-6 text-left">
+              <p className="text-gray-600 dark:text-slate-400 mb-6 text-left">
                 Falls Sie Verstärkung für die Sicherheit Ihrer IT-Systeme
                 suchen, freue ich mich über jede Nachricht!
               </p>
@@ -220,7 +221,7 @@ function Content() {
                   href="https://linkedin.com/in/dein-profil"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-gray-900 text-white px-5 py-2.5 rounded-xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-md active:scale-95"
+                  className="inline-block bg-gray-900 dark:bg-blue-600 text-white px-5 py-2.5 rounded-xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-md active:scale-95"
                 >
                   Kontakt aufnehmen
                 </a>
@@ -231,15 +232,15 @@ function Content() {
       </div>
 
       {/* SEKTION: MEIN MASTER STUDIUM */}
-      <div className="bg-white rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 transition-all duration-300 hover:shadow-xl">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 dark:border-slate-800 transition-all duration-300 hover:shadow-xl">
         <div className="flex items-center gap-4 mb-8">
-          <h3 className="text-3xl font-black text-gray-950 uppercase tracking-tight">
+          <h3 className="text-3xl font-black text-gray-950 dark:text-white uppercase tracking-tight">
             Mein Master Studium
           </h3>
-          <div className="h-1 flex-grow bg-gray-100 rounded-full"></div>
+          <div className="h-1 flex-grow bg-gray-100 dark:bg-slate-800 rounded-full"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-500 transition-all group flex flex-col justify-between">
+          <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-blue-500 transition-all group flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-start mb-4">
                 <span className="text-4xl w-10 h-10 inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
@@ -249,7 +250,7 @@ function Content() {
                   href="https://linkedin.com/in/dein-profil"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] font-black bg-white border border-gray-200 text-gray-400 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm !no-underline"
+                  className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-gray-400 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm !no-underline"
                 >
                   KONTAKTIEREN
                   <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
@@ -257,19 +258,19 @@ function Content() {
                   </span>
                 </a>
               </div>
-              <h5 className="font-bold text-lg mb-2 text-gray-900">
+              <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">
                 Master Thesis
               </h5>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
                 Ich suche für den Zeitraum vom 01.09.2026 bis 28.02.2027 ein Unternehmen, das meine Masterarbeit im Bereich IT-Security begleitet und betreut. Melden Sie sich bei Interesse gerne direkt bei mir!
               </p>
             </div>
-            <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+            <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
               Abschlussarbeit & Suche
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-500 transition-all group flex flex-col justify-between">
+          <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-blue-500 transition-all group flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-start mb-4">
                 <span className="text-4xl w-10 h-10 inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
@@ -279,7 +280,7 @@ function Content() {
                   href={pentestPdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm"
+                  className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-blue-600 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm"
                   style={{ textDecoration: "none" }}
                 >
                   REPORT PDF
@@ -288,19 +289,19 @@ function Content() {
                   </span>
                 </a>
               </div>
-              <h5 className="font-bold text-lg mb-2 text-gray-900">
+              <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">
                 Mein erster Pentest
               </h5>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
                 Im Rahmen meines Kurses "Advanced Pentesting" habe ich die Mr. Robot Instanz auf der Lernplattform TryHackMe kompromittiert. Der Bericht dokumentiert die vollständige Kill-Chain, von der ersten Informationspreisgabe bis hin zur finalen Root-Privilegieneskalation.
               </p>
             </div>
-            <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+            <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
               Black-Box Pentest Report
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-500 transition-all group flex flex-col justify-between">
+          <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-blue-500 transition-all group flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-start mb-4">
                 <img
@@ -308,16 +309,16 @@ function Content() {
                   alt="PSPO I Logo"
                   className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110 shadow-sm rounded-full"
                 />
-                <span className="text-[10px] font-black bg-white border border-gray-200 text-green-600 px-2 py-1 rounded-md shadow-sm">
+                <span className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-green-600 px-2 py-1 rounded-md shadow-sm">
                   ZERTIFIZIERT
                 </span>
               </div>
-              <h5 className="font-bold text-lg mb-2 text-gray-900">Professional Scrum Product Owner</h5>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Professional Scrum Product Owner</h5>
+              <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
                 Erfolgreiche PSPO I Zertifizierung nach einem zweitägigen Professional Scrum Training. Das Zertifikat validiert mein Wissen über das Scrum Framework sowie die Fähigkeit, Wertschöpfung und Product Management effektiv zu unterstützen.
               </p>
             </div>
-            <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+            <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
               <a
                 href="https://www.scrum.org/assessments/professional-scrum-product-owner-i-certification"
                 target="_blank"
@@ -334,37 +335,37 @@ function Content() {
 
       {/* SEKTION: MEIN BACHELOR STUDIUM */}
       <div ref={projectsRef} id="projekte" className="scroll-mt-8">
-        <div className="bg-white rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 transition-all duration-300 hover:shadow-xl">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 dark:border-slate-800 transition-all duration-300 hover:shadow-xl">
           <div className="flex items-center gap-4 mb-8">
-            <h3 className="text-3xl font-black text-gray-950 uppercase tracking-tight">
+            <h3 className="text-3xl font-black text-gray-950 dark:text-white uppercase tracking-tight">
               Mein Bachelor Studium
             </h3>
-            <div className="h-1 flex-grow bg-gray-100 rounded-full"></div>
+            <div className="h-1 flex-grow bg-gray-100 dark:bg-slate-800 rounded-full"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-300 transition-all group flex flex-col justify-between">
+            <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-blue-300 transition-all group flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-4">
                   <span className="text-4xl w-10 h-10 inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                     🎓
                   </span>
-                  <span className="text-[10px] font-black bg-white border border-gray-200 text-gray-600 px-2 py-1 rounded-md shadow-sm">
+                  <span className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-gray-600 dark:text-slate-400 px-2 py-1 rounded-md shadow-sm">
                     Note: 1,7
                   </span>
                 </div>
-                <h5 className="font-bold text-lg mb-2 text-gray-900">
+                <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">
                   Bachelor Thesis
                 </h5>
-                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed mb-4">
                   In Kooperation mit dem MOLIT Institut habe ich untersucht, ob und inwiefern Machine-Learning-Verfahren die Materialwirtschaft optimieren können. Hierfür entwickelte ich einen automatisierten OCR-Workflow zur Datenaufbereitung und evaluierte verschiedene Prognosemodelle für den Laborbedarf.
                 </p>
               </div>
-              <div className="mt-auto text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+              <div className="mt-auto text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
                 Machine Learning
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-blue-300 transition-all group flex flex-col justify-between">
+            <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-blue-300 transition-all group flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-4">
                   <span className="text-4xl w-10 h-10 inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
@@ -374,7 +375,7 @@ function Content() {
                     href="https://github.com/julianertle"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black bg-white border border-gray-200 text-blue-600 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
+                    className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-blue-600 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
                     style={{ textDecoration: "none" }}
                   >
                     LEARN MORE
@@ -383,19 +384,19 @@ function Content() {
                     </span>
                   </a>
                 </div>
-                <h5 className="font-bold text-lg mb-2 text-gray-900">
+                <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">
                   Schwerpunkt Mobile Computing
                 </h5>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
                   In meinem Studium der Angewandten Informatik haben wir uns unter diesem Schwerpunkt mit Mikrokontrollern, Sensorik und der Android App-Entwicklung befasst. Einige der Projekte, die in diesem Rahmen entstanden sind, können auf meinem GitHub-Profil eingesehen werden.
                 </p>
               </div>
-              <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+              <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
                 IoT & Mobile
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:border-[#0089FF]/30 transition-all group flex flex-col justify-between overflow-visible">
+            <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-[#0089FF]/30 transition-all group flex flex-col justify-between overflow-visible">
               <div>
                 <div className="flex justify-between items-start mb-4 overflow-visible">
                   <div
@@ -417,7 +418,7 @@ function Content() {
                     href="https://frappe.io/erpnext/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black bg-white border border-gray-200 text-[#0089FF] hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
+                    className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-[#0089FF] hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
                     style={{ textDecoration: "none" }}
                   >
                     LEARN MORE
@@ -426,14 +427,14 @@ function Content() {
                     </span>
                   </a>
                 </div>
-                <h5 className="font-bold text-lg mb-2 text-gray-900">
+                <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">
                   ERPNext Integration
                 </h5>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
                   Anpassung und Rollout des ERP-Systems in meiner Zeit als Werkstudent. In engem Austausch mit Stakeholdern habe ich eine eigene, auf die spezifischen Bedürfnisse des Unternehmens zugeschnittene App in einem englischsprachigen Arbeitsumfeld entwickelt und implementiert.
                 </p>
               </div>
-              <div className="mt-4 text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-[#0089FF] transition-colors">
+              <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-[#0089FF] transition-colors">
                 Full-Stack
               </div>
             </div>
@@ -441,95 +442,95 @@ function Content() {
         </div>
       </div>
 
-{/* SEKTION: KERNKOMPETENZEN (INTERAKTIV) */}
-<div ref={skillsSectionRef} className="pb-8 group/section">
-  {/* Hintergrund auf bg-gray-900 (wie Footer) und Border auf gray-700 angepasst */}
-  <div className="bg-gray-900 rounded-[2rem] shadow-xl border border-gray-700 p-8 lg:p-12 transition-all duration-500 hover:shadow-2xl relative overflow-hidden">
-    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
-      <div>
-        <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2">
-          Technologien & Skills
-        </h3>
-        <p className="text-gray-400 text-sm font-medium">
-          Technologien, Skills und Methoden mit denen ich schon gearbeitet habe.
-        </p>
+      {/* SEKTION: KERNKOMPETENZEN (INTERAKTIV) */}
+      <div ref={skillsSectionRef} className="pb-8 group/section">
+        {/* Hintergrund auf bg-gray-900 (wie Footer) und Border auf gray-700 angepasst */}
+        <div className="bg-gray-900 dark:bg-black rounded-[2rem] shadow-xl border border-gray-700 dark:border-slate-800 p-8 lg:p-12 transition-all duration-500 hover:shadow-2xl relative overflow-hidden">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
+            <div>
+              <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2">
+                Technologien & Skills
+              </h3>
+              <p className="text-gray-400 text-sm font-medium">
+                Technologien, Skills und Methoden mit denen ich schon gearbeitet habe.
+              </p>
+            </div>
+
+            {/* Filter-Buttons passend zum Footer-Farbschema */}
+            <div className="flex flex-wrap gap-3 bg-gray-800/50 p-2 rounded-2xl border border-gray-700">
+              <div
+                onMouseEnter={() => setActiveTooltip("dev")}
+                onMouseLeave={() => setActiveTooltip(null)}
+                className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "dev" ? "bg-blue-600 border-blue-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
+              >
+                Entwicklung
+              </div>
+              <div
+                onMouseEnter={() => setActiveTooltip("cyber")}
+                onMouseLeave={() => setActiveTooltip(null)}
+                className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "cyber" ? "bg-red-600 border-red-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
+              >
+                Sicherheit
+              </div>
+              <div
+                onMouseEnter={() => setActiveTooltip("personal")}
+                onMouseLeave={() => setActiveTooltip(null)}
+                className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "personal" ? "bg-emerald-600 border-emerald-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
+              >
+                Expertise
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-4 relative z-10">
+            {[
+              { name: "React / Vite", cat: "dev" },
+              { name: "Java", cat: "dev" },
+              { name: "Python", cat: "dev" },
+              { name: "Android App Dev", cat: "dev" },
+              { name: "MariaDB / Postgres", cat: "dev" },
+              { name: "Docker & Compose", cat: "dev" },
+              { name: "Linux (Terminal)", cat: "dev" },
+              { name: "Tailwind CSS", cat: "dev" },
+              { name: "Pentesting", cat: "cyber" },
+              { name: "CPA Attacks", cat: "cyber" },
+              { name: "OSINT & Scraping", cat: "cyber" },
+              { name: "ISO 27001 (Grundlagen)", cat: "cyber" },
+              { name: "ERPNext / Frappe", cat: "dev" },
+              { name: "Scrum (PSPO I)", cat: "personal" },
+              { name: "Englisch (C1 DAAD)", cat: "personal" },
+              { name: "KI-gestützte Workflows", cat: "dev" },
+              { name: "Stakeholder Management", cat: "personal" },
+            ].map((item) => (
+              <div
+                key={item.name}
+                className={`
+                  px-5 py-3 rounded-2xl border font-bold text-sm transition-all duration-300 transform-gpu
+                  ${!activeTooltip ? "bg-gray-800 border-gray-700 text-gray-300 shadow-sm" : ""}
+                  ${
+                    activeTooltip === item.cat
+                      ? `scale-110 z-20 shadow-xl ${
+                          item.cat === "dev"
+                            ? "bg-blue-600 border-blue-400 text-white"
+                            : item.cat === "cyber"
+                              ? "bg-red-600 border-red-400 text-white"
+                              : "bg-emerald-600 border-emerald-400 text-white"
+                        }`
+                      : activeTooltip
+                        ? "opacity-20 grayscale blur-[1px] scale-95"
+                        : "hover:border-gray-500 hover:text-white"
+                  }
+                `}
+              >
+                {item.name}
+              </div>
+            ))}
+          </div>
+
+          {/* Subtiler Glow, der zum Footer-Stil passt */}
+          <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-blue-500 rounded-full blur-[120px] -z-0 opacity-10"></div>
+        </div>
       </div>
-
-      {/* Filter-Buttons passend zum Footer-Farbschema */}
-      <div className="flex flex-wrap gap-3 bg-gray-800/50 p-2 rounded-2xl border border-gray-700">
-        <div
-          onMouseEnter={() => setActiveTooltip("dev")}
-          onMouseLeave={() => setActiveTooltip(null)}
-          className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "dev" ? "bg-blue-600 border-blue-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
-        >
-          Entwicklung
-        </div>
-        <div
-          onMouseEnter={() => setActiveTooltip("cyber")}
-          onMouseLeave={() => setActiveTooltip(null)}
-          className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "cyber" ? "bg-red-600 border-red-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
-        >
-          Sicherheit
-        </div>
-        <div
-          onMouseEnter={() => setActiveTooltip("personal")}
-          onMouseLeave={() => setActiveTooltip(null)}
-          className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "personal" ? "bg-emerald-600 border-emerald-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
-        >
-          Expertise
-        </div>
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-4 relative z-10">
-      {[
-        { name: "React / Vite", cat: "dev" },
-        { name: "Java", cat: "dev" },
-        { name: "Python", cat: "dev" },
-        { name: "Android App Dev", cat: "dev" },
-        { name: "MariaDB / Postgres", cat: "dev" },
-        { name: "Docker & Compose", cat: "dev" },
-        { name: "Linux (Terminal)", cat: "dev" },
-        { name: "Tailwind CSS", cat: "dev" },
-        { name: "Pentesting", cat: "cyber" },
-        { name: "CPA Attacks", cat: "cyber" },
-        { name: "OSINT & Scraping", cat: "cyber" },
-        { name: "ISO 27001 (Grundlagen)", cat: "cyber" },
-        { name: "ERPNext / Frappe", cat: "dev" },
-        { name: "Scrum (PSPO I)", cat: "personal" },
-        { name: "Englisch (C1 DAAD)", cat: "personal" },
-        { name: "KI-gestützte Workflows", cat: "dev" },
-        { name: "Stakeholder Management", cat: "personal" },
-      ].map((item) => (
-        <div
-          key={item.name}
-          className={`
-            px-5 py-3 rounded-2xl border font-bold text-sm transition-all duration-300 transform-gpu
-            ${!activeTooltip ? "bg-gray-800 border-gray-700 text-gray-300 shadow-sm" : ""}
-            ${
-              activeTooltip === item.cat
-                ? `scale-110 z-20 shadow-xl ${
-                    item.cat === "dev" 
-                      ? "bg-blue-600 border-blue-400 text-white" 
-                      : item.cat === "cyber" 
-                        ? "bg-red-600 border-red-400 text-white" 
-                        : "bg-emerald-600 border-emerald-400 text-white"
-                  }`
-                : activeTooltip
-                  ? "opacity-20 grayscale blur-[1px] scale-95"
-                  : "hover:border-gray-500 hover:text-white"
-            }
-          `}
-        >
-          {item.name}
-        </div>
-      ))}
-    </div>
-
-    {/* Subtiler Glow, der zum Footer-Stil passt */}
-    <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-blue-500 rounded-full blur-[120px] -z-0 opacity-10"></div>
-  </div>
-</div>
     </div>
   );
 }
