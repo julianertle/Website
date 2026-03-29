@@ -3,6 +3,10 @@ import { Disclosure, DisclosureButton } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, BellIcon } from "@heroicons/react/24/outline";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { Link, useLocation } from "react-router-dom";
+import {
+  MoonIcon,
+  SunIcon
+} from "../assets/SvgIcons";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
