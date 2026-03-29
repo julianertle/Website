@@ -435,87 +435,95 @@ function Content() {
         </div>
       </div>
 
-      {/* SEKTION: KERNKOMPETENZEN (INTERAKTIV) */}
-      <div ref={skillsSectionRef} className="pb-8 group/section">
-        <div className="bg-white rounded-[2rem] shadow-lg border border-gray-100 p-8 lg:p-12 transition-all duration-500 hover:shadow-xl relative overflow-hidden">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
-            <div>
-              <h3 className="text-3xl font-black text-gray-950 uppercase tracking-tight mb-2">
-                Technologien & Skills
-              </h3>
-              <p className="text-gray-500 text-sm font-medium">
-                Technologien, Skills und Methoden mit denen ich schon gearbeitet
-                habe.
-              </p>
-            </div>
+{/* SEKTION: KERNKOMPETENZEN (INTERAKTIV) */}
+<div ref={skillsSectionRef} className="pb-8 group/section">
+  {/* Hintergrund auf bg-gray-900 (wie Footer) und Border auf gray-700 angepasst */}
+  <div className="bg-gray-900 rounded-[2rem] shadow-xl border border-gray-700 p-8 lg:p-12 transition-all duration-500 hover:shadow-2xl relative overflow-hidden">
+    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
+      <div>
+        <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2">
+          Technologien & Skills
+        </h3>
+        <p className="text-gray-400 text-sm font-medium">
+          Technologien, Skills und Methoden mit denen ich schon gearbeitet habe.
+        </p>
+      </div>
 
-            <div className="flex flex-wrap gap-3 bg-slate-50 p-2 rounded-2xl border border-slate-100">
-              <div
-                onMouseEnter={() => setActiveTooltip("dev")}
-                onMouseLeave={() => setActiveTooltip(null)}
-                className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border border-slate-200 ${activeTooltip === "dev" ? "bg-blue-600 text-white shadow-md" : "bg-white shadow-sm hover:bg-blue-600 hover:text-white"}`}
-              >
-                Entwicklung
-              </div>
-              <div
-                onMouseEnter={() => setActiveTooltip("cyber")}
-                onMouseLeave={() => setActiveTooltip(null)}
-                className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border border-slate-200 ${activeTooltip === "cyber" ? "bg-red-600 text-white shadow-md" : "bg-white shadow-sm hover:bg-red-600 hover:text-white"}`}
-              >
-                Sicherheit
-              </div>
-              <div
-                onMouseEnter={() => setActiveTooltip("personal")}
-                onMouseLeave={() => setActiveTooltip(null)}
-                className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border border-slate-200 ${activeTooltip === "personal" ? "bg-emerald-600 text-white shadow-md" : "bg-white shadow-sm hover:bg-emerald-600 hover:text-white"}`}
-              >
-                Expertise
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-4 relative z-10">
-            {[
-              { name: "React / Vite", cat: "dev" },
-              { name: "Java", cat: "dev" },
-              { name: "Python", cat: "dev" },
-              { name: "Android App Dev", cat: "dev" },
-              { name: "MariaDB / Postgres", cat: "dev" },
-              { name: "Docker & Compose", cat: "dev" },
-              { name: "Linux (Terminal)", cat: "dev" },
-              { name: "Tailwind CSS", cat: "dev" },
-              { name: "Pentesting", cat: "cyber" },
-              { name: "CPA Attacks", cat: "cyber" },
-              { name: "OSINT & Scraping", cat: "cyber" },
-              { name: "ISO 27001 (Grundlagen)", cat: "cyber" },
-              { name: "ERPNext / Frappe", cat: "dev" },
-              { name: "Scrum (PSPO I)", cat: "personal" },
-              { name: "Englisch (C1 DAAD)", cat: "personal" },
-              { name: "KI-gestützte Workflows", cat: "dev" },
-              { name: "Stakeholder Management", cat: "personal" },
-            ].map((item) => (
-              <div
-                key={item.name}
-                className={`
-                  px-5 py-3 rounded-2xl border font-bold text-sm transition-all duration-300 transform-gpu
-                  ${!activeTooltip ? "bg-white border-slate-200 text-slate-700 shadow-sm" : ""}
-                  ${
-                    activeTooltip === item.cat
-                      ? `scale-110 z-20 shadow-md ${item.cat === "dev" ? "bg-blue-50 border-blue-400 text-blue-700" : item.cat === "cyber" ? "bg-red-50 border-red-400 text-red-700" : "bg-emerald-50 border-emerald-400 text-emerald-700"}`
-                      : activeTooltip
-                        ? "opacity-20 grayscale blur-[1px] scale-95"
-                        : ""
-                  }
-                `}
-              >
-                {item.name}
-              </div>
-            ))}
-          </div>
-
-          <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-slate-50 rounded-full blur-3xl -z-0 opacity-50"></div>
+      {/* Filter-Buttons passend zum Footer-Farbschema */}
+      <div className="flex flex-wrap gap-3 bg-gray-800/50 p-2 rounded-2xl border border-gray-700">
+        <div
+          onMouseEnter={() => setActiveTooltip("dev")}
+          onMouseLeave={() => setActiveTooltip(null)}
+          className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "dev" ? "bg-blue-600 border-blue-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
+        >
+          Entwicklung
+        </div>
+        <div
+          onMouseEnter={() => setActiveTooltip("cyber")}
+          onMouseLeave={() => setActiveTooltip(null)}
+          className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "cyber" ? "bg-red-600 border-red-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
+        >
+          Sicherheit
+        </div>
+        <div
+          onMouseEnter={() => setActiveTooltip("personal")}
+          onMouseLeave={() => setActiveTooltip(null)}
+          className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "personal" ? "bg-emerald-600 border-emerald-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
+        >
+          Expertise
         </div>
       </div>
+    </div>
+
+    <div className="flex flex-wrap gap-4 relative z-10">
+      {[
+        { name: "React / Vite", cat: "dev" },
+        { name: "Java", cat: "dev" },
+        { name: "Python", cat: "dev" },
+        { name: "Android App Dev", cat: "dev" },
+        { name: "MariaDB / Postgres", cat: "dev" },
+        { name: "Docker & Compose", cat: "dev" },
+        { name: "Linux (Terminal)", cat: "dev" },
+        { name: "Tailwind CSS", cat: "dev" },
+        { name: "Pentesting", cat: "cyber" },
+        { name: "CPA Attacks", cat: "cyber" },
+        { name: "OSINT & Scraping", cat: "cyber" },
+        { name: "ISO 27001 (Grundlagen)", cat: "cyber" },
+        { name: "ERPNext / Frappe", cat: "dev" },
+        { name: "Scrum (PSPO I)", cat: "personal" },
+        { name: "Englisch (C1 DAAD)", cat: "personal" },
+        { name: "KI-gestützte Workflows", cat: "dev" },
+        { name: "Stakeholder Management", cat: "personal" },
+      ].map((item) => (
+        <div
+          key={item.name}
+          className={`
+            px-5 py-3 rounded-2xl border font-bold text-sm transition-all duration-300 transform-gpu
+            ${!activeTooltip ? "bg-gray-800 border-gray-700 text-gray-300 shadow-sm" : ""}
+            ${
+              activeTooltip === item.cat
+                ? `scale-110 z-20 shadow-xl ${
+                    item.cat === "dev" 
+                      ? "bg-blue-600 border-blue-400 text-white" 
+                      : item.cat === "cyber" 
+                        ? "bg-red-600 border-red-400 text-white" 
+                        : "bg-emerald-600 border-emerald-400 text-white"
+                  }`
+                : activeTooltip
+                  ? "opacity-20 grayscale blur-[1px] scale-95"
+                  : "hover:border-gray-500 hover:text-white"
+            }
+          `}
+        >
+          {item.name}
+        </div>
+      ))}
+    </div>
+
+    {/* Subtiler Glow, der zum Footer-Stil passt */}
+    <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-blue-500 rounded-full blur-[120px] -z-0 opacity-10"></div>
+  </div>
+</div>
     </div>
   );
 }
