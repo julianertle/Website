@@ -55,7 +55,7 @@ function Content() {
       {/* OBERE REIHE: PORTRAIT & MOTIVATION */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch overflow-visible">
         {/* KARTE 1: PORTRAIT & INFO */}
-        <div className="rounded-3xl shadow-lg bg-white dark:bg-slate-900 overflow-visible transition-all duration-300 hover:shadow-xl border border-gray-100 dark:border-slate-800">
+        <div className="rounded-3xl shadow-lg  dark:bg-slate-900 overflow-visible transition-all duration-300 hover:shadow-xl border border-gray-100 dark:border-slate-800">
           <div className="flex flex-col lg:flex-row h-full overflow-visible">
             <div className="w-full lg:w-3/5 h-auto lg:h-full relative group overflow-visible">
               <a href="/about" className="block w-full h-full">
@@ -70,7 +70,7 @@ function Content() {
             <div className="lg:w-1/2 flex flex-col p-6 lg:p-12 lg:pl-16 text-center lg:text-left pt-10 lg:pt-20 overflow-visible">
               <div className="flex-grow flex flex-col mb-8 overflow-visible">
                 <div className="flex-grow"></div>
-                <h3 className="text-gray-800 dark:text-white text-xl lg:text-2xl leading-relaxed font-bold antialiased">
+                <h3 className="text-xl lg:text-2xl leading-relaxed font-bold antialiased">
                   <Typewriter
                     key={`typewriter-${isDark}`} // FIXED: Forces refresh to update color
                     onInit={(typewriter) => {
@@ -92,13 +92,13 @@ function Content() {
                       autoStart: true,
                       cursor: "_",
                       delay: 60,
-                      wrapperClassName: "font-bold", // Inherits color from H3
+                      wrapperClassName: "font-bold text-gray-800 dark:text-white", // Inherits color from H3
                       cursorClassName: "font-bold",
                     }}
                   />
                 </h3>
                 <div className="flex-grow"></div>
-                <p className="text-[14px] lg:text-base text-gray-400 dark:text-slate-500 font-black uppercase tracking-[0.4em] leading-relaxed">
+                <p className="text-[14px] lg:text-base text-gray-400 dark:text-slate-300 font-black uppercase tracking-[0.4em] leading-relaxed">
                   IT Security Student & Developer
                 </p>
               </div>
@@ -167,7 +167,7 @@ function Content() {
                   <div
                     className={`transition-all duration-300 ${activeTooltip === "location" ? "scale-125 brightness-125" : "hover:scale-110"}`}
                   >
-                    <LocationIcon className="w-9 h-12 text-blue-600" />
+                    <LocationIcon className="w-9 h-12 text-gray-900 dark:text-white" />
                   </div>
                 </div>
               </div>
