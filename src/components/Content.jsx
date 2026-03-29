@@ -5,6 +5,7 @@ import Languages from "./Languages";
 import Typewriter from "typewriter-effect";
 import pentestPdf from "../assets/pentest_mrrobot_ctf.pdf";
 import pspoBadge from "../assets/pspo.png";
+import { ThemeProvider } from './ThemeContext';
 import {
   LinkedInIcon,
   GitHubIcon,

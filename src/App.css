@@ -6,6 +6,9 @@
   /* 'sans' für den normalen Text */
   --font-sans: ui-sans-serif, system-ui, sans-serif;
 }
+
+@variant dark (&:where(.dark, .dark *));
+
 /* Deine bestehenden Styles */
 .portrait-style {
   width: 100%;

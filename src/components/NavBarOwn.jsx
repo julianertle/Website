@@ -91,9 +91,9 @@ function NavBarOwn() {
               title={isDark ? "Light Mode" : "Dark Mode"}
             >
               {isDark ? (
-                <SunIcon className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
-              ) : (
                 <MoonIcon className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+              ) : (
+                <SunIcon className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
               )}
             </button>
           </div>
