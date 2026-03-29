@@ -232,9 +232,9 @@ function Content() {
       </div>
 
       {/* SEKTION: MEIN MASTER STUDIUM */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 dark:border-slate-800 transition-all duration-300 hover:shadow-xl">
+      <div className="dark:bg-slate-800 rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 dark:border-slate-800 transition-all duration-300 hover:shadow-xl">
         <div className="flex items-center gap-4 mb-8">
-          <h3 className="text-3xl font-black text-gray-950 dark:text-white uppercase tracking-tight">
+          <h3 className="text-3xl font-black text-gray-950 dark:!text-white uppercase tracking-tight">
             Mein Master Studium
           </h3>
           <div className="h-1 flex-grow bg-gray-100 dark:bg-slate-800 rounded-full"></div>
