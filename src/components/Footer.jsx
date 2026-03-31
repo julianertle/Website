@@ -10,21 +10,23 @@ const routes = [
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white mt-16 border-t border-gray-700 shadow-sm">
+    <footer className="bg-gray-900 text-white border-t border-gray-700 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           {/* Logo and technologies */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div
+            style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
+          >
             <img
               src="/logo192.png"
               alt="Logo"
               style={{ height: 40, width: 40 }}
               className="rounded-full object-cover transition-transform duration-300 hover:scale-110"
             />
-            <div style={{ display: 'flex', alignItems: 'center', height: 40 }}>
-              <p style={{ margin: 0, fontSize: 12, lineHeight: 'normal' }}>
-                Erstellt mit <span className="font-semibold">React</span>,{' '}
-                <span className="font-semibold">React Router</span> und{' '}
+            <div style={{ display: "flex", alignItems: "center", height: 40 }}>
+              <p style={{ margin: 0, fontSize: 12, lineHeight: "normal" }}>
+                Erstellt mit <span className="font-semibold">React</span>,{" "}
+                <span className="font-semibold">React Router</span> und{" "}
                 <span className="font-semibold">Tailwind CSS</span>
               </p>
             </div>
