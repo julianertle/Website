@@ -92,7 +92,8 @@ function Content() {
                       autoStart: true,
                       cursor: "_",
                       delay: 60,
-                      wrapperClassName: "font-bold text-gray-800 dark:text-white", // Inherits color from H3
+                      wrapperClassName:
+                        "font-bold text-gray-800 dark:text-white", // Inherits color from H3
                       cursorClassName: "font-bold",
                     }}
                   />
@@ -258,11 +259,14 @@ function Content() {
                   </span>
                 </a>
               </div>
-              <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">
+              <h5 className="font-bold dark:!text-white text-lg mb-2 text-gray-900 dark:text-white">
                 Master Thesis
               </h5>
               <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
-                Ich suche für den Zeitraum vom 01.09.2026 bis 28.02.2027 ein Unternehmen, das meine Masterarbeit im Bereich IT-Security begleitet und betreut. Melden Sie sich bei Interesse gerne direkt bei mir!
+                Ich suche für den Zeitraum vom 01.09.2026 bis 28.02.2027 ein
+                Unternehmen, das meine Masterarbeit im Bereich IT-Security
+                begleitet und betreut. Melden Sie sich bei Interesse gerne
+                direkt bei mir!
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -289,11 +293,15 @@ function Content() {
                   </span>
                 </a>
               </div>
-              <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">
+              <h5 className="font-bold dark:!text-white text-lg mb-2 text-gray-900 dark:text-white">
                 Mein erster Pentest
               </h5>
               <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
-                Im Rahmen meines Kurses "Advanced Pentesting" habe ich die Mr. Robot Instanz auf der Lernplattform TryHackMe kompromittiert. Der Bericht dokumentiert die vollständige Kill-Chain, von der ersten Informationspreisgabe bis hin zur finalen Root-Privilegieneskalation.
+                Im Rahmen meines Kurses "Advanced Pentesting" habe ich die Mr.
+                Robot Instanz auf der Lernplattform TryHackMe kompromittiert.
+                Der Bericht dokumentiert die vollständige Kill-Chain, von der
+                ersten Informationspreisgabe bis hin zur finalen
+                Root-Privilegieneskalation.
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -313,9 +321,14 @@ function Content() {
                   ZERTIFIZIERT
                 </span>
               </div>
-              <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Professional Scrum Product Owner</h5>
+              <h5 className="font-bold dark:!text-white text-lg mb-2 text-gray-900 dark:text-white">
+                Professional Scrum Product Owner
+              </h5>
               <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
-                Erfolgreiche PSPO I Zertifizierung nach einem zweitägigen Professional Scrum Training. Das Zertifikat validiert mein Wissen über das Scrum Framework sowie die Fähigkeit, Wertschöpfung und Product Management effektiv zu unterstützen.
+                Erfolgreiche PSPO I Zertifizierung nach einem zweitägigen
+                Professional Scrum Training. Das Zertifikat validiert mein
+                Wissen über das Scrum Framework sowie die Fähigkeit,
+                Wertschöpfung und Product Management effektiv zu unterstützen.
               </p>
             </div>
             <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -335,9 +348,9 @@ function Content() {
 
       {/* SEKTION: MEIN BACHELOR STUDIUM */}
       <div ref={projectsRef} id="projekte" className="scroll-mt-8">
-        <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 dark:border-slate-800 transition-all duration-300 hover:shadow-xl">
+        <div className="bg-white dark:!bg-slate-900 rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 dark:border-slate-800 transition-all duration-300 hover:shadow-xl">
           <div className="flex items-center gap-4 mb-8">
-            <h3 className="text-3xl font-black text-gray-950 dark:text-white uppercase tracking-tight">
+            <h3 className="text-3xl dark:!text-white font-black text-gray-950 dark:text-white uppercase tracking-tight">
               Mein Bachelor Studium
             </h3>
             <div className="h-1 flex-grow bg-gray-100 dark:bg-slate-800 rounded-full"></div>
@@ -349,15 +362,19 @@ function Content() {
                   <span className="text-4xl w-10 h-10 inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                     🎓
                   </span>
-                  <span className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-gray-600 dark:text-slate-400 px-2 py-1 rounded-md shadow-sm">
+                  <span className="text-[10px] dark:!text-black font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-gray-600 dark:text-slate-400 px-2 py-1 rounded-md shadow-sm">
                     Note: 1,7
                   </span>
                 </div>
-                <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">
+                <h5 className="font-bold dark:!text-white text-lg mb-2 text-gray-900 dark:text-white">
                   Bachelor Thesis
                 </h5>
                 <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed mb-4">
-                  In Kooperation mit dem MOLIT Institut habe ich untersucht, ob und inwiefern Machine-Learning-Verfahren die Materialwirtschaft optimieren können. Hierfür entwickelte ich einen automatisierten OCR-Workflow zur Datenaufbereitung und evaluierte verschiedene Prognosemodelle für den Laborbedarf.
+                  In Kooperation mit dem MOLIT Institut habe ich untersucht, ob
+                  und inwiefern Machine-Learning-Verfahren die
+                  Materialwirtschaft optimieren können. Hierfür entwickelte ich
+                  einen automatisierten OCR-Workflow zur Datenaufbereitung und
+                  evaluierte verschiedene Prognosemodelle für den Laborbedarf.
                 </p>
               </div>
               <div className="mt-auto text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -384,11 +401,15 @@ function Content() {
                     </span>
                   </a>
                 </div>
-                <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">
+                <h5 className="font-bold dark:!text-white text-lg mb-2 text-gray-900 dark:text-white">
                   Schwerpunkt Mobile Computing
                 </h5>
                 <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
-                  In meinem Studium der Angewandten Informatik haben wir uns unter diesem Schwerpunkt mit Mikrokontrollern, Sensorik und der Android App-Entwicklung befasst. Einige der Projekte, die in diesem Rahmen entstanden sind, können auf meinem GitHub-Profil eingesehen werden.
+                  In meinem Studium der Angewandten Informatik haben wir uns
+                  unter diesem Schwerpunkt mit Mikrokontrollern, Sensorik und
+                  der Android App-Entwicklung befasst. Einige der Projekte, die
+                  in diesem Rahmen entstanden sind, können auf meinem
+                  GitHub-Profil eingesehen werden.
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -427,11 +448,15 @@ function Content() {
                     </span>
                   </a>
                 </div>
-                <h5 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">
+                <h5 className="font-bold dark:!text-white text-lg mb-2 text-gray-900 dark:text-white">
                   ERPNext Integration
                 </h5>
                 <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
-                  Anpassung und Rollout des ERP-Systems in meiner Zeit als Werkstudent. In engem Austausch mit Stakeholdern habe ich eine eigene, auf die spezifischen Bedürfnisse des Unternehmens zugeschnittene App in einem englischsprachigen Arbeitsumfeld entwickelt und implementiert.
+                  Anpassung und Rollout des ERP-Systems in meiner Zeit als
+                  Werkstudent. In engem Austausch mit Stakeholdern habe ich eine
+                  eigene, auf die spezifischen Bedürfnisse des Unternehmens
+                  zugeschnittene App in einem englischsprachigen Arbeitsumfeld
+                  entwickelt und implementiert.
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-[#0089FF] transition-colors">
@@ -445,14 +470,15 @@ function Content() {
       {/* SEKTION: KERNKOMPETENZEN (INTERAKTIV) */}
       <div ref={skillsSectionRef} className="pb-8 group/section">
         {/* Hintergrund auf bg-gray-900 (wie Footer) und Border auf gray-700 angepasst */}
-        <div className="bg-gray-900 dark:bg-black rounded-[2rem] shadow-xl border border-gray-700 dark:border-slate-800 p-8 lg:p-12 transition-all duration-500 hover:shadow-2xl relative overflow-hidden">
+        <div className="bg-gray-900 dark:!bg-slate-900 rounded-[2rem] shadow-xl border border-gray-700 dark:border-slate-800 p-8 lg:p-12 transition-all duration-500 hover:shadow-2xl relative overflow-hidden">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
             <div>
               <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2">
                 Technologien & Skills
               </h3>
               <p className="text-gray-400 text-sm font-medium">
-                Technologien, Skills und Methoden mit denen ich schon gearbeitet habe.
+                Technologien, Skills und Methoden mit denen ich schon gearbeitet
+                habe.
               </p>
             </div>
 
