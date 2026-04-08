@@ -34,7 +34,7 @@ function Footer() {
           {/* 3. Social icons - Right aligned on desktop */}
           <div className="flex justify-center md:justify-end gap-5">
             <a
-              href="https://github.com/julianertle"
+              href="https://www.linkedin.com/in/julian-ertle-900177274/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-300 transition-transform hover:scale-110"
@@ -43,7 +43,7 @@ function Footer() {
               <LinkedInIcon className="w-8 h-8 fill-current" />
             </a>
             <a
-              href="https://www.instagram.com/julez_vin?igsh=ZDAwbzZqbGJ5ZXh2"
+              href="https://github.com/julianertle"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-300 transition-transform hover:scale-110"

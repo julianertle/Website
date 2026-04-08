@@ -122,7 +122,7 @@ function Content() {
                       <div className="w-4 h-4 bg-gray-900 rotate-45 -mt-2.5"></div>
                     </div>
                     <a
-                      href="https://linkedin.com/in/dein-profil"
+                      href="https://www.linkedin.com/in/julian-ertle-900177274/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`block transition-all duration-300 ${activeTooltip === "linkedin" ? "scale-125" : "hover:scale-110"}`}
@@ -221,7 +221,7 @@ function Content() {
                     <div className="w-4 h-4 bg-gray-900 rotate-45 -mt-2.5"></div>
                   </div>
                   <a
-                    href="https://linkedin.com/in/dein-profil"
+                    href="https://www.linkedin.com/in/julian-ertle-900177274/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-gray-900 dark:bg-blue-600 text-white px-5 py-2.5 rounded-xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-md active:scale-95"
@@ -250,7 +250,7 @@ function Content() {
                     📝
                   </span>
                   <a
-                    href="https://linkedin.com/in/dein-profil"
+                    href="https://www.linkedin.com/in/julian-ertle-900177274/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-gray-400 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm !no-underline"
