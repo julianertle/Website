@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsGithub, BsInstagram } from "react-icons/bs";
+import { LinkedInIcon, GitHubIcon } from "../assets/SvgIcons";
 
 const routes = [
   { name: "Start", path: "/" },
@@ -17,7 +18,7 @@ function Footer() {
           <div
             style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
           >
-            <img
+            {/* <img
               src="/logo192.png"
               alt="Logo"
               style={{ height: 40, width: 40 }}
@@ -29,7 +30,7 @@ function Footer() {
                 <span className="font-semibold">React Router</span> und{" "}
                 <span className="font-semibold">Tailwind CSS</span>
               </p>
-            </div>
+            </div> */}
           </div>
 
           {/* Navigation links */}
@@ -54,7 +55,8 @@ function Footer() {
               className="text-white hover:text-gray-300 transition-all duration-200 transform hover:scale-125"
               aria-label="GitHub Profile"
             >
-              <BsGithub size={28} />
+              {/* <BsGithub size={28} /> */}
+              <LinkedInIcon className="w-12 h-12 text-gray-900 dark:text-white" />
             </a>
             <a
               href="https://www.instagram.com/julez_vin?igsh=ZDAwbzZqbGJ5ZXh2"
@@ -63,7 +65,8 @@ function Footer() {
               className="text-white hover:text-gray-300 transition-all duration-200 transform hover:scale-125"
               aria-label="Instagram Profile"
             >
-              <BsInstagram size={28} />
+              {/* <BsInstagram size={28} /> */}
+              <GitHubIcon className="w-12 h-12 text-gray-900 dark:text-white" />
             </a>
           </div>
         </div>
