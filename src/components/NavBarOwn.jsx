@@ -16,10 +16,10 @@ const navigation = [
 
 function NavBarOwn() {
   const location = useLocation();
-  
+
   // Dark Mode Initialisierung basierend auf Browser-Einstellung
   const [isDark, setIsDark] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches
+    window.matchMedia("(prefers-color-scheme: dark)").matches,
   );
 
   // Synchronisiert die 'dark' Klasse am HTML-Tag für Tailwind
@@ -32,15 +32,24 @@ function NavBarOwn() {
   }, [isDark]);
 
   return (
-    <Disclosure as="nav" className="bg-gray-800 fixed top-0 left-0 right-0 z-50">
+    <Disclosure
+      as="nav"
+      className="bg-gray-800 fixed top-0 left-0 right-0 z-50"
+    >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           {/* Mobile menu button */}
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-none">
               <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="block h-6 w-6 group-data-open:hidden" />
-              <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-open:block" />
+              <Bars3Icon
+                aria-hidden="true"
+                className="block h-6 w-6 group-data-open:hidden"
+              />
+              <XMarkIcon
+                aria-hidden="true"
+                className="hidden h-6 w-6 group-data-open:block"
+              />
             </DisclosureButton>
           </div>
 
@@ -65,7 +74,7 @@ function NavBarOwn() {
                       isCurrent
                         ? "bg-gray-900 text-white"
                         : "text-white hover:bg-gray-700 hover:text-white",
-                      "rounded-md px-3 py-2 text-sm font-medium no-underline"
+                      "rounded-md px-3 py-2 text-sm font-medium no-underline",
                     )}
                   >
                     {item.name}
@@ -81,7 +90,7 @@ function NavBarOwn() {
               type="button"
               className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none"
             >
-              <BellIcon aria-hidden="true" className="h-6 w-6" />
+              <BellIcon aria-hidden="true" className="hidden h-6 w-6" />
             </button>
 
             {/* DARK MODE TOGGLE (Puristischer Switch) */}
@@ -113,7 +122,7 @@ function NavBarOwn() {
                   isCurrent
                     ? "bg-gray-900 text-white"
                     : "text-white hover:bg-gray-700",
-                  "block rounded-md px-3 py-2 text-base font-medium no-underline"
+                  "block rounded-md px-3 py-2 text-base font-medium no-underline",
                 )}
               >
                 {item.name}
