@@ -17,6 +17,8 @@ const navigation = [
 function NavBarOwn() {
   const location = useLocation();
 
+  const [lang, setLang] = useState("de");
+
   // Dark Mode Initialisierung basierend auf Browser-Einstellung
   const [isDark, setIsDark] = useState(
     window.matchMedia("(prefers-color-scheme: dark)").matches,
@@ -85,7 +87,8 @@ function NavBarOwn() {
           </div>
 
           {/* Right side icons */}
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-3">
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-1">
+            {/* HIDDEN BELL ICON */}
             <button
               type="button"
               className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none"
@@ -93,16 +96,27 @@ function NavBarOwn() {
               <BellIcon aria-hidden="true" className="hidden h-6 w-6" />
             </button>
 
-            {/* DARK MODE TOGGLE (Puristischer Switch) */}
+            {/* NEW: LANGUAGE TOGGLE */}
+            <button
+              onClick={() => setLang(lang === "de" ? "en" : "de")}
+              className="flex items-center justify-center p-2 rounded-md hover:bg-gray-700 transition-colors"
+              title={
+                lang === "de" ? "Switch to English" : "Auf Deutsch wechseln"
+              }
+            >
+              <span className="text-xl">{lang === "de" ? "🇩🇪" : "🇬🇧"}</span>
+            </button>
+
+            {/* DARK MODE TOGGLE */}
             <button
               onClick={() => setIsDark(!isDark)}
-              className="relative flex items-center justify-center p-2 transition-colors duration-200"
+              className="relative flex items-center justify-center p-2 rounded-md hover:bg-gray-700 transition-colors"
               title={isDark ? "Light Mode" : "Dark Mode"}
             >
               {isDark ? (
-                <MoonIcon className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+                <MoonIcon className="h-6 w-6 text-gray-400 hover:text-white" />
               ) : (
-                <SunIcon className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+                <SunIcon className="h-6 w-6 text-gray-400 hover:text-white" />
               )}
             </button>
           </div>
