@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { Disclosure, DisclosureButton } from "@headlessui/react";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react"; // Added DisclosurePanel
 import { Bars3Icon, XMarkIcon, BellIcon } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
 import { MoonIcon, SunIcon } from "../assets/SvgIcons";
+import { useLanguage } from "../context/LanguageContext"; // 1. Added Import
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const navigation = [
-  { name: "Start", href: "/" },
-  { name: "Hobbys", href: "/about" },
-  { name: "Sonstiges", href: "/imprint" },
-];
-
 function NavBarOwn() {
   const location = useLocation();
+  const { lang, toggleLang, t } = useLanguage(); // 2. Consume global context
 
-  const [lang, setLang] = useState("de");
+  // 3. Move navigation inside the component to use t()
+  const navigation = [
+    { name: t("navStart"), href: "/" },
+    { name: t("navHobbies"), href: "/about" },
+    { name: t("navMisc"), href: "/imprint" },
+  ];
 
   // Dark Mode Initialisierung basierend auf Browser-Einstellung
   const [isDark, setIsDark] = useState(
@@ -98,7 +103,7 @@ function NavBarOwn() {
 
             {/* NEW: LANGUAGE TOGGLE */}
             <button
-              onClick={() => setLang(lang === "de" ? "en" : "de")}
+              onClick={toggleLang}
               className="flex items-center justify-center p-2 rounded-md hover:bg-gray-700 transition-colors"
               title={
                 lang === "de" ? "Switch to English" : "Auf Deutsch wechseln"
@@ -124,7 +129,7 @@ function NavBarOwn() {
       </div>
 
       {/* Mobile menu panel */}
-      <Disclosure.Panel className="sm:hidden">
+      <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pt-2 pb-3">
           {navigation.map((item) => {
             const isCurrent = location.pathname === item.href;
@@ -144,7 +149,7 @@ function NavBarOwn() {
             );
           })}
         </div>
-      </Disclosure.Panel>
+      </DisclosurePanel>
     </Disclosure>
   );
 }

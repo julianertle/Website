@@ -5,7 +5,8 @@ import Languages from "./Languages";
 import Typewriter from "typewriter-effect";
 import pentestPdf from "../assets/pentest_mrrobot_ctf.pdf";
 import pspoBadge from "../assets/pspo.png";
-import { useTheme } from "./ThemeContext"; // FIXED: Changed from ThemeProvider to useTheme
+import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext"; // Added for translation
 import {
   LinkedInIcon,
   GitHubIcon,
@@ -17,7 +18,8 @@ function Content() {
   const [activeTooltip, setActiveTooltip] = useState(null);
   const projectsRef = useRef(null);
   const skillsSectionRef = useRef(null);
-  const { isDark } = useTheme(); // FIXED: Added to track theme state
+  const { isDark } = useTheme();
+  const { t, lang } = useLanguage(); // Destructured translation tools
 
   // Der Observer startet die Animation erst, wenn die Kachel im Viewport ist
   useEffect(() => {
@@ -74,7 +76,7 @@ function Content() {
                   <div className="flex-grow"></div>
                   <h3 className="text-xl lg:text-2xl leading-relaxed font-bold antialiased">
                     <Typewriter
-                      key={`typewriter-${isDark}`} // FIXED: Forces refresh to update color
+                      key={`typewriter-${isDark}-${lang}`} // Key updated to handle language change
                       onInit={(typewriter) => {
                         typewriter
                           .typeString(".")
@@ -85,9 +87,7 @@ function Content() {
                           .pauseFor(400)
                           .deleteAll(30)
                           .pauseFor(300)
-                          .typeString("Hey, ")
-                          .pauseFor(600)
-                          .typeString("I'm Julian.")
+                          .typeString(t("heroTitle"))
                           .start();
                       }}
                       options={{
@@ -102,7 +102,7 @@ function Content() {
                   </h3>
                   <div className="flex-grow"></div>
                   <p className="text-[14px] lg:text-base text-gray-400 dark:text-slate-300 font-black uppercase tracking-[0.4em] leading-relaxed">
-                    IT Security Student & Developer
+                    {t("heroSubtitle")}
                   </p>
                 </div>
 
@@ -163,7 +163,7 @@ function Content() {
                       className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 flex flex-col items-center transition-all duration-300 pointer-events-none z-30 ${activeTooltip === "location" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                     >
                       <div className="bg-gray-900 text-white text-[13px] font-black uppercase tracking-widest px-6 py-3 rounded-2xl shadow-2xl whitespace-nowrap">
-                        Allgäu, Germany
+                        {t("location")}
                       </div>
                       <div className="w-4 h-4 bg-gray-900 rotate-45 -mt-2.5"></div>
                     </div>
@@ -183,29 +183,23 @@ function Content() {
             <div className="space-y-6">
               <section>
                 <p className="text-gray-800 dark:text-white text-xl lg:text-2xl leading-relaxed font-bold mb-3">
-                  Schön, dass du hier bist!
+                  {t("welcome")}
                 </p>
                 <p className="text-gray-600 dark:text-slate-400 mb-6">
-                  Wenn du mich als Person genauer kennenlernen möchtest, bist du
-                  hier genau richtig. Sieh dir gerne meine Projekte, meinen
-                  Werdegang und meine Motivation an.
+                  {t("introText")}
                 </p>
               </section>
               <section className="bg-slate-100 dark:bg-slate-600/50 py-3 px-6 rounded-2xl border border-slate-100 dark:border-slate-700 mb-2">
                 <p className="text-gray-700 dark:text-slate-300 leading-relaxed italic mb-3">
-                  "Als Developer macht mir vor allem die Softwareentwicklung
-                  Spaß. Gerade spezialisiere ich mich auf die IT-Sicherheit, um
-                  in Zukunft Unternehmen abzusichern und Anwendungen zu bauen,
-                  die von Grund auf resilient gegen moderne Bedrohungen sind."
+                  "{t("quote")}"
                 </p>
               </section>
               <section className="pt-2 overflow-visible flex flex-col">
                 <p className="text-gray-800 dark:text-white text-xl lg:text-2xl leading-relaxed font-bold mb-3">
-                  Interesse an einer Zusammenarbeit?
+                  {t("collabTitle")}
                 </p>
                 <p className="text-gray-600 dark:text-slate-400 mb-6 text-left">
-                  Falls Sie Verstärkung für die Sicherheit Ihrer IT-Systeme
-                  suchen, freue ich mich über jede Nachricht!
+                  {t("collabText")}
                 </p>
                 <div
                   className="relative self-center overflow-visible"
@@ -216,7 +210,9 @@ function Content() {
                     className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 flex flex-col items-center transition-all duration-300 pointer-events-none z-30 ${activeTooltip === "contact-linkedin" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                   >
                     <div className="bg-gray-900 text-white text-[13px] font-black uppercase tracking-widest px-6 py-3 rounded-2xl shadow-2xl whitespace-nowrap">
-                      Auf LinkedIn kontaktieren
+                      {lang === "de"
+                        ? "Auf LinkedIn kontaktieren"
+                        : "Contact on LinkedIn"}
                     </div>
                     <div className="w-4 h-4 bg-gray-900 rotate-45 -mt-2.5"></div>
                   </div>
@@ -226,7 +222,7 @@ function Content() {
                     rel="noopener noreferrer"
                     className="inline-block bg-gray-900 dark:bg-blue-600 text-white px-5 py-2.5 rounded-xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-md active:scale-95"
                   >
-                    Kontakt aufnehmen
+                    {t("contactBtn")}
                   </a>
                 </div>
               </section>
@@ -238,7 +234,7 @@ function Content() {
         <div className="dark:bg-slate-800 rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 dark:border-slate-800 transition-all duration-300 hover:shadow-xl">
           <div className="flex items-center gap-4 mb-8">
             <h3 className="text-3xl font-black text-gray-950 dark:!text-white uppercase tracking-tight">
-              Mein Master Studium
+              {t("masterTitle")}
             </h3>
             <div className="h-1 flex-grow bg-gray-100 dark:bg-slate-800 rounded-full"></div>
           </div>
@@ -255,24 +251,21 @@ function Content() {
                     rel="noopener noreferrer"
                     className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-gray-400 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm !no-underline"
                   >
-                    KONTAKTIEREN
+                    {lang === "de" ? "KONTAKTIEREN" : "CONTACT"}
                     <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
                       →
                     </span>
                   </a>
                 </div>
                 <h5 className="font-bold dark:!text-white text-lg mb-2 text-gray-900 dark:text-white">
-                  Master Thesis
+                  {t("masterThesis")}
                 </h5>
                 <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
-                  Ich suche für den Zeitraum vom 01.09.2026 bis 28.02.2027 ein
-                  Unternehmen, das meine Masterarbeit im Bereich IT-Security
-                  begleitet und betreut. Melden Sie sich bei Interesse gerne
-                  direkt bei mir!
+                  {t("masterThesisText")}
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
-                Abschlussarbeit & Suche
+                {lang === "de" ? "Abschlussarbeit & Suche" : "Thesis & Search"}
               </div>
             </div>
 
@@ -296,18 +289,16 @@ function Content() {
                   </a>
                 </div>
                 <h5 className="font-bold dark:!text-white text-lg mb-2 text-gray-900 dark:text-white">
-                  Mein erster Pentest
+                  {t("pentestTitle")}
                 </h5>
                 <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
-                  Im Rahmen meines Kurses "Advanced Pentesting" habe ich die Mr.
-                  Robot Instanz auf der Lernplattform TryHackMe kompromittiert.
-                  Der Bericht dokumentiert die vollständige Kill-Chain, von der
-                  ersten Informationspreisgabe bis hin zur finalen
-                  Root-Privilegieneskalation.
+                  {t("pentestText")}
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
-                Black-Box Pentest Report
+                {lang === "de"
+                  ? "Black-Box Pentest Report"
+                  : "Black-Box Pentest Report"}
               </div>
             </div>
 
@@ -320,17 +311,14 @@ function Content() {
                     className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110 shadow-sm rounded-full"
                   />
                   <span className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-green-600 px-2 py-1 rounded-md shadow-sm">
-                    ZERTIFIZIERT
+                    {lang === "de" ? "ZERTIFIZIERT" : "CERTIFIED"}
                   </span>
                 </div>
                 <h5 className="font-bold dark:!text-white text-lg mb-2 text-gray-900 dark:text-white">
                   Professional Scrum Product Owner
                 </h5>
                 <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
-                  Erfolgreiche PSPO I Zertifizierung nach einem zweitägigen
-                  Professional Scrum Training. Das Zertifikat validiert mein
-                  Wissen über das Scrum Framework sowie die Fähigkeit,
-                  Wertschöpfung und Product Management effektiv zu unterstützen.
+                  {t("scrumText")}
                 </p>
               </div>
               <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -353,7 +341,7 @@ function Content() {
           <div className="bg-white dark:!bg-slate-900 rounded-3xl shadow-lg p-8 lg:p-12 border border-gray-100 dark:border-slate-800 transition-all duration-300 hover:shadow-xl">
             <div className="flex items-center gap-4 mb-8">
               <h3 className="text-3xl dark:!text-white font-black text-gray-950 dark:text-white uppercase tracking-tight">
-                Mein Bachelor Studium
+                {t("bachelorTitle")}
               </h3>
               <div className="h-1 flex-grow bg-gray-100 dark:bg-slate-800 rounded-full"></div>
             </div>
@@ -365,19 +353,14 @@ function Content() {
                       🎓
                     </span>
                     <span className="text-[10px] dark:!text-black font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-gray-600 dark:text-slate-400 px-2 py-1 rounded-md shadow-sm">
-                      Note: 1,7
+                      {lang === "de" ? "Note" : "Grade"}: 1,7
                     </span>
                   </div>
                   <h5 className="font-bold dark:!text-white text-lg mb-2 text-gray-900 dark:text-white">
                     Bachelor Thesis
                   </h5>
                   <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed mb-4">
-                    In Kooperation mit dem MOLIT Institut habe ich untersucht,
-                    ob und inwiefern Machine-Learning-Verfahren die
-                    Materialwirtschaft optimieren können. Hierfür entwickelte
-                    ich einen automatisierten OCR-Workflow zur Datenaufbereitung
-                    und evaluierte verschiedene Prognosemodelle für den
-                    Laborbedarf.
+                    {t("bachelorThesisText")}
                   </p>
                 </div>
                 <div className="mt-auto text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -398,21 +381,17 @@ function Content() {
                       className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-blue-600 hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
                       style={{ textDecoration: "none" }}
                     >
-                      LEARN MORE
+                      {lang === "de" ? "MEHR ERFAHREN" : "LEARN MORE"}
                       <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
                         →
                       </span>
                     </a>
                   </div>
                   <h5 className="font-bold dark:!text-white text-lg mb-2 text-gray-900 dark:text-white">
-                    Schwerpunkt Mobile Computing
+                    {t("mobileComputingTitle")}
                   </h5>
                   <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
-                    In meinem Studium der Angewandten Informatik haben wir uns
-                    unter diesem Schwerpunkt mit Mikrokontrollern, Sensorik und
-                    der Android App-Entwicklung befasst. Einige der Projekte,
-                    die in diesem Rahmen entstanden sind, können auf meinem
-                    GitHub-Profil eingesehen werden.
+                    {t("mobileComputingText")}
                   </p>
                 </div>
                 <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
@@ -445,7 +424,7 @@ function Content() {
                       className="text-[10px] font-black bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 text-[#0089FF] hover:!text-blue-600 hover:!bg-blue-50 px-3 py-1.5 rounded-md transition-all no-underline inline-flex items-center gap-1.5 shadow-sm"
                       style={{ textDecoration: "none" }}
                     >
-                      LEARN MORE
+                      {lang === "de" ? "MEHR ERFAHREN" : "LEARN MORE"}
                       <span className="text-sm leading-none transition-transform group-hover:translate-x-0.5">
                         →
                       </span>
@@ -455,11 +434,7 @@ function Content() {
                     ERPNext Integration
                   </h5>
                   <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">
-                    Anpassung und Rollout des ERP-Systems in meiner Zeit als
-                    Werkstudent. In engem Austausch mit Stakeholdern habe ich
-                    eine eigene, auf die spezifischen Bedürfnisse des
-                    Unternehmens zugeschnittene App in einem englischsprachigen
-                    Arbeitsumfeld entwickelt und implementiert.
+                    {t("erpNextText")}
                   </p>
                 </div>
                 <div className="mt-4 text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-[#0089FF] transition-colors">
@@ -472,41 +447,38 @@ function Content() {
 
         {/* SEKTION: KERNKOMPETENZEN (INTERAKTIV) */}
         <div ref={skillsSectionRef} className="pb-8 group/section">
-          {/* Hintergrund auf bg-gray-900 (wie Footer) und Border auf gray-700 angepasst */}
           <div className="bg-gray-900 dark:!bg-slate-900 rounded-[2rem] shadow-xl border border-gray-700 dark:border-slate-800 p-8 lg:p-12 transition-all duration-500 hover:shadow-2xl relative overflow-hidden">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
               <div>
                 <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2">
-                  Technologien & Skills
+                  {t("skillsTitle")}
                 </h3>
                 <p className="text-gray-400 text-sm font-medium">
-                  Technologien, Skills und Methoden mit denen ich schon
-                  gearbeitet habe.
+                  {t("skillsSubtitle")}
                 </p>
               </div>
 
-              {/* Filter-Buttons passend zum Footer-Farbschema */}
               <div className="flex flex-wrap gap-3 bg-gray-800/50 p-2 rounded-2xl border border-gray-700">
                 <div
                   onMouseEnter={() => setActiveTooltip("dev")}
                   onMouseLeave={() => setActiveTooltip(null)}
                   className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "dev" ? "bg-blue-600 border-blue-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
                 >
-                  Entwicklung
+                  {lang === "de" ? "Entwicklung" : "Development"}
                 </div>
                 <div
                   onMouseEnter={() => setActiveTooltip("cyber")}
                   onMouseLeave={() => setActiveTooltip(null)}
                   className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "cyber" ? "bg-red-600 border-red-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
                 >
-                  Sicherheit
+                  {lang === "de" ? "Sicherheit" : "Security"}
                 </div>
                 <div
                   onMouseEnter={() => setActiveTooltip("personal")}
                   onMouseLeave={() => setActiveTooltip(null)}
                   className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase cursor-default transition-all border ${activeTooltip === "personal" ? "bg-emerald-600 border-emerald-500 text-white shadow-lg" : "bg-gray-800 border-gray-600 text-gray-300 hover:text-white"}`}
                 >
-                  Expertise
+                  {lang === "de" ? "Expertise" : "Expertise"}
                 </div>
               </div>
             </div>
@@ -556,7 +528,6 @@ function Content() {
               ))}
             </div>
 
-            {/* Subtiler Glow, der zum Footer-Stil passt */}
             <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-blue-500 rounded-full blur-[120px] -z-0 opacity-10"></div>
           </div>
         </div>
