@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Disclosure,
   DisclosureButton,
@@ -6,7 +5,12 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, BellIcon } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
-import { MoonIcon, SunIcon } from "../assets/SvgIcons";
+import {
+  GermanFlagIcon,
+  UKFlagIcon,
+  MoonIcon,
+  SunIcon,
+} from "../assets/SvgIcons";
 import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext"; // Import global theme context
 
@@ -101,14 +105,23 @@ function NavBarOwn() {
             {/* LANGUAGE TOGGLE */}
             <button
               onClick={toggleLang}
-              className="flex items-center justify-center p-2 rounded-md hover:bg-gray-700 transition-colors"
+              className="flex items-center justify-center p-2 rounded-md hover:bg-gray-700 transition-colors group"
               title={
                 lang === "de" ? "Switch to English" : "Auf Deutsch wechseln"
               }
             >
-              <span className="text-xl">{lang === "de" ? "🇩🇪" : "🇬🇧"}</span>
+              {/* The wrapper div provides the white border. 
+      'border-white/80' gives it a slightly soft white, 
+      while 'group-hover:border-white' makes it bright on hover.
+  */}
+              <div className="w-7 h-5 flex items-center justify-center border border-white/80 rounded-sm overflow-hidden shadow-sm transition-colors group-hover:border-white">
+                {lang === "de" ? (
+                  <GermanFlagIcon className="w-full h-full object-cover" />
+                ) : (
+                  <UKFlagIcon className="w-full h-full object-cover" />
+                )}
+              </div>
             </button>
-
             {/* DARK MODE TOGGLE (Fixed to use global state) */}
             <button
               onClick={toggleTheme}

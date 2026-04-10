@@ -12,7 +12,11 @@ export const GitHubIcon = ({ className }) => (
 );
 
 export const LocationIcon = ({ className }) => (
-  <svg className={className} viewBox="57.249 0 298.6 413.099" fill="currentColor">
+  <svg
+    className={className}
+    viewBox="57.249 0 298.6 413.099"
+    fill="currentColor"
+  >
     <path d="M206.549,0L206.549,0c-82.6,0-149.3,66.7-149.3,149.3c0,28.8,9.2,56.3,22,78.899l97.3,168.399c6.1,11,18.4,16.5,30,16.5 c11.601,0,23.3-5.5,30-16.5l97.3-168.299c12.9-22.601,22-49.601,22-78.901C355.849,66.8,289.149,0,206.549,0z M206.549,193.4 c-30,0-54.5-24.5-54.5-54.5s24.5-54.5,54.5-54.5s54.5,24.5,54.5,54.5C261.049,169,236.549,193.4,206.549,193.4z" />
   </svg>
 );
@@ -71,5 +75,36 @@ export const ERPNextIcon = ({ className }) => (
       d="M32.3457 15.8147H31.5405H21.0734H15.8399V11.5205H32.3457V15.8147ZM21.0734 25.8787V31.7832H32.4798V36.0774H15.8398V21.5845H21.0734H31.5405V25.8787H21.0734Z"
       fill="white"
     />
+  </svg>
+);
+
+// German Flag SVG
+export const GermanFlagIcon = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 5 3"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="5" height="3" y="0" fill="#000" />
+    <rect width="5" height="2" y="1" fill="#D00" />
+    <rect width="5" height="1" y="2" fill="#FFCE00" />
+  </svg>
+);
+
+// UK Flag SVG (Simplified for small icon size)
+export const UKFlagIcon = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 60 30"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <clipPath id="s">
+      <path d="M0,0 v30 h60 v-30 z" />
+    </clipPath>
+    <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
+    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" strokeWidth="4" />
+    <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10" />
+    <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6" />
   </svg>
 );
