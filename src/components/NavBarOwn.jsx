@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
-} from "@headlessui/react"; // Added DisclosurePanel
+} from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, BellIcon } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
 import { MoonIcon, SunIcon } from "../assets/SvgIcons";
-import { useLanguage } from "../context/LanguageContext"; // 1. Added Import
+import { useLanguage } from "../context/LanguageContext";
+import { useTheme } from "../context/ThemeContext"; // Import global theme context
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -15,28 +16,24 @@ function classNames(...classes) {
 
 function NavBarOwn() {
   const location = useLocation();
-  const { lang, toggleLang, t } = useLanguage(); // 2. Consume global context
+  const { lang, toggleLang, t } = useLanguage();
 
-  // 3. Move navigation inside the component to use t()
+  // Use global theme state instead of local useState
+  const { isDark, setIsDark } = useTheme();
+
   const navigation = [
     { name: t("navStart"), href: "/" },
     { name: t("navHobbies"), href: "/about" },
     { name: t("navMisc"), href: "/imprint" },
   ];
 
-  // Dark Mode Initialisierung basierend auf Browser-Einstellung
-  const [isDark, setIsDark] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches,
-  );
-
-  // Synchronisiert die 'dark' Klasse am HTML-Tag für Tailwind
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDark]);
+  // Helper to handle manual toggle and persistence
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    // Explicitly save the user's manual choice to localStorage
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
+  };
 
   return (
     <Disclosure
@@ -101,7 +98,7 @@ function NavBarOwn() {
               <BellIcon aria-hidden="true" className="hidden h-6 w-6" />
             </button>
 
-            {/* NEW: LANGUAGE TOGGLE */}
+            {/* LANGUAGE TOGGLE */}
             <button
               onClick={toggleLang}
               className="flex items-center justify-center p-2 rounded-md hover:bg-gray-700 transition-colors"
@@ -112,9 +109,9 @@ function NavBarOwn() {
               <span className="text-xl">{lang === "de" ? "🇩🇪" : "🇬🇧"}</span>
             </button>
 
-            {/* DARK MODE TOGGLE */}
+            {/* DARK MODE TOGGLE (Fixed to use global state) */}
             <button
-              onClick={() => setIsDark(!isDark)}
+              onClick={toggleTheme}
               className="relative flex items-center justify-center p-2 rounded-md hover:bg-gray-700 transition-colors"
               title={isDark ? "Light Mode" : "Dark Mode"}
             >

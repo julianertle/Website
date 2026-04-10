@@ -9,7 +9,7 @@ export const translations = {
 
     // Hero Section
     heroTitle: "Hey, ich bin Julian.",
-    heroSubtitle: "IT Sicherheit Student & Developer",
+    heroSubtitle: "IT Security Student & Developer",
     location: "Allgäu, Deutschland",
     welcome: "Schön, dass du hier bist!",
     introText:

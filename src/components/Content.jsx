@@ -21,6 +21,11 @@ function Content() {
   const { isDark } = useTheme();
   const { t, lang } = useLanguage(); // Destructured translation tools
 
+  console.log(
+    "Is system dark mode enabled?",
+    window.matchMedia("(prefers-color-scheme: dark)").matches,
+  );
+
   // Der Observer startet die Animation erst, wenn die Kachel im Viewport ist
   useEffect(() => {
     const observer = new IntersectionObserver(
