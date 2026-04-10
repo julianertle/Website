@@ -4,41 +4,31 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
-    // 1. If user previously picked a side, use it
+    // 1. Check if the user manually toggled it before
     const saved = localStorage.getItem("theme");
-    if (saved) return saved === "dark";
 
-    // 2. Otherwise, follow the browser/OS system setting
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (saved !== null) {
+      return saved === "dark";
+    }
+
+    // 2. If no saved choice, detect the browser's theme
+    const isBrowserDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+
+    console.log("Initial theme from browser is dark:", isBrowserDark);
+
+    return isBrowserDark;
   });
 
   useEffect(() => {
     const root = window.document.documentElement;
-
-    // Toggle the Tailwind class
     if (isDark) {
       root.classList.add("dark");
     } else {
       root.classList.remove("dark");
     }
-
-    // NOTE: Only call localStorage.setItem inside your "Toggle" function
-    // to avoid locking the user into a specific mode forever on first visit.
   }, [isDark]);
-
-  // OPTIONAL: Listen for live OS theme changes
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e) => {
-      // Only auto-update if the user hasn't set a manual override in storage
-      if (!localStorage.getItem("theme")) {
-        setIsDark(e.matches);
-      }
-    };
-
-    query.addEventListener("change", handleChange);
-    return () => query.removeEventListener("change", handleChange);
-  }, []);
 
   return (
     <ThemeContext.Provider value={{ isDark, setIsDark }}>

@@ -31,8 +31,8 @@ function NavBarOwn() {
   const toggleTheme = () => {
     const newTheme = !isDark;
     setIsDark(newTheme);
-    // Explicitly save the user's manual choice to localStorage
-    localStorage.setItem("theme", newTheme ? "dark" : "light");
+    localStorage.setItem("theme", newTheme ? "dark" : "light"); // This triggers the "Manual Override"
+    console.log("Dark mode is " + newTheme);
   };
 
   return (
