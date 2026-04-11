@@ -1,4 +1,4 @@
-import NavBarOwn from "../components/NavBarOwn";
+import NavBar from "../components/NavBar";
 import Content from "../components/Content";
 import Footer from "../components/Footer";
 
@@ -6,7 +6,7 @@ function HomeInit() {
   return (
     <>
       <div>
-        <NavBarOwn />
+        <NavBar />
       </div>
       <div className="pt-16">
         <div>

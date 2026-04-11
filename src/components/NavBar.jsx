@@ -18,7 +18,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function NavBarOwn() {
+function NavBar() {
   const location = useLocation();
   const { lang, toggleLang, t } = useLanguage();
 
@@ -164,4 +164,4 @@ function NavBarOwn() {
   );
 }
 
-export default NavBarOwn;
+export default NavBar;
