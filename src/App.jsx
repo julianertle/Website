@@ -3,9 +3,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
 import { LanguageProvider } from "./context/LanguageContext"; // Import the new Provider
-import HomeInit from "./components/Home";
-import About from "./components/About";
-import Imprint from "./components/Imprint";
+import HomeInit from "./pages/Home";
+import About from "./pages/About";
+import Imprint from "./pages/Imprint";
 
 function App() {
   return (

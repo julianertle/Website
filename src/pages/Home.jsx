@@ -1,6 +1,6 @@
-import NavBarOwn from "./NavBarOwn";
-import Content from "./Content";
-import Footer from "./Footer";
+import NavBarOwn from "../components/NavBarOwn";
+import Content from "../components/Content";
+import Footer from "../components/Footer";
 
 function HomeInit() {
   return (
