@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import portraitImage from "../assets/portrait.png";
 import SkillsInfo from "./ContentSections/SkillsInfo";
-import Languages from "./Languages";
+import Languages from "./unused components/Languages";
 import Typewriter from "typewriter-effect";
 import pentestPdf from "../assets/pentest_mrrobot_ctf.pdf";
 import pspoBadge from "../assets/pspo.png";

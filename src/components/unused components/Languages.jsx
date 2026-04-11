@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import AnimatedProgressBar from "./AnimatedProgressBar";
-import githubImage from "../assets/github-logo.png";
+import githubImage from "../../assets/images/github-logo.png";
 
 function Languages() {
   const [languageStats, setLanguageStats] = useState({});
@@ -15,7 +15,7 @@ function Languages() {
 
         const reposRes = await fetch(
           `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`,
-          { headers }
+          { headers },
         );
 
         if (!reposRes.ok) throw new Error(`API Fehler: ${reposRes.status}`);
@@ -35,7 +35,7 @@ function Languages() {
             for (const [lang, bytes] of Object.entries(langJson)) {
               languageData[lang] = (languageData[lang] || 0) + bytes;
             }
-          })
+          }),
         );
 
         setLanguageStats(languageData);
