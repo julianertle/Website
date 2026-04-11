@@ -23,4 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-src/assets/pentest_mrrobot_ctf.pdf
+src/assets/docs/*
+src/assets/images/*

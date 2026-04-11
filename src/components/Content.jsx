@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import portraitImage from "../assets/portrait.png";
+import portraitImage from "../assets/images/portrait.png";
 import Typewriter from "typewriter-effect";
-import pentestPdf from "../assets/pentest_mrrobot_ctf.pdf";
-import pspoBadge from "../assets/pspo.png";
+import pentestPdf from "../assets/docs/pentest_mrrobot_ctf.pdf";
+import pspoBadge from "../assets/images/pspo.png";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext"; // Added for translation
 import {

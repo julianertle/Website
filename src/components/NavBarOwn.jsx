@@ -66,7 +66,7 @@ function NavBarOwn() {
             <div className="flex shrink-0 items-center">
               <img
                 alt="Logo"
-                src="src/assets/logo.png"
+                src="src/assets/images/logo.png"
                 className="h-8 w-auto"
               />
             </div>
