@@ -44,7 +44,7 @@ function Content() {
       },
       {
         threshold: 0.5, // Startet erst, wenn die Kachel zu 50% sichtbar ist
-        rootMargin: "0px 0px -50px 0px", // Puffer nach unten
+        rootMargin: "0px 0px -50px 0px",
       },
     );
 
