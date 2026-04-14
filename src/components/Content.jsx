@@ -79,7 +79,7 @@ function Content() {
                   <div className="flex-grow"></div>
                   <h3 className="text-xl lg:text-2xl leading-relaxed font-bold antialiased">
                     <Typewriter
-                      key={`typewriter-${isDark}-${lang}`} // Key updated to handle language change
+                      key={`typewriter-${isDark}-${lang}`}
                       onInit={(typewriter) => {
                         typewriter
                           .typeString(".")
