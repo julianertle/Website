@@ -6,6 +6,7 @@ import { LanguageProvider } from "./context/LanguageContext"; // Import the new 
 import HomeInit from "./pages/Home";
 import About from "./pages/About";
 import Imprint from "./pages/Imprint";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
