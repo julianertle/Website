@@ -1,6 +1,6 @@
 # Portfolio Source Code
 
-This repository houses the source code for my personal portfolio website. The project is designed as a custom-built digital business card to demonstrate my technical capabilities and academic background through a live interface.
+This repository houses the source code for my personal portfolio website. The project is designed as a custom-built digital business card to demonstrate my technical capabilities and academic background.
 
 ## 🛠 Technical Architecture
 
