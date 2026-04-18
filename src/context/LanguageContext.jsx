@@ -48,6 +48,8 @@ export const translations = {
     skillsTitle: "Technologien & Skills",
     skillsSubtitle:
       "Technologien, Skills und Methoden mit denen ich schon gearbeitet habe.",
+    siteUnderConstruction: "Seite noch in Arbeit",
+    comeBackLater: "Wir sind bald fertig – schau später nochmal rein!",
   },
   en: {
     // Navigation
@@ -95,6 +97,8 @@ export const translations = {
     // Skills Section
     skillsTitle: "Technologies & Skills",
     skillsSubtitle: "Technologies, skills, and methods I have worked with.",
+    siteUnderConstruction: "Site under construction",
+    comeBackLater: "We’ll be finished soon – check back later!",
   },
 };
 const LanguageContext = createContext();

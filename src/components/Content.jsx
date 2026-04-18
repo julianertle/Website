@@ -4,7 +4,7 @@ import Typewriter from "typewriter-effect";
 import pentestPdf from "../assets/docs/pentest_mrrobot_ctf.pdf";
 import pspoBadge from "../assets/images/pspo.png";
 import { useTheme } from "../context/ThemeContext";
-import { useLanguage } from "../context/LanguageContext"; // Added for translation
+import { useLanguage } from "../context/LanguageContext";
 import {
   LinkedInIcon,
   GitHubIcon,
@@ -17,7 +17,7 @@ function Content() {
   const projectsRef = useRef(null);
   const skillsSectionRef = useRef(null);
   const { isDark } = useTheme();
-  const { t, lang } = useLanguage(); // Destructured translation tools
+  const { t, lang } = useLanguage();
 
   console.log(
     "Is system dark mode enabled?",
