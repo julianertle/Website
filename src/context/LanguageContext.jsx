@@ -65,7 +65,7 @@ export const translations = {
     introText:
       "If you want to get to know me better as a person, you've come to the right place. Feel free to check out my projects, my background, and my motivation.",
     quote:
-      "As a developer, I particularly enjoy software development. I am currently specializing in IT security to protect companies in the future and build applications that are resilient against modern threats from the ground up.",
+      "I’ve always enjoyed the process of creating software. I am currently specializing in IT security to protect companies in the future and build applications that are resilient against modern threats from the ground up.",
 
     // Contact
     collabTitle: "Interested in working together?",
