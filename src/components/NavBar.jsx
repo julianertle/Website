@@ -62,9 +62,10 @@ function NavBar() {
           </div>
 
           {/* Logo and desktop menu */}
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex shrink-0 items-center">
-              <img alt="Logo" src="public/logo.png" className="h-8 w-auto" />
+          <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
+            <div className="flex shrink-0 items-center ml-10 sm:ml-0">
+              {/* Added ml-10 to give space for the hamburger menu button on the left */}
+              <img alt="Logo" src="/logo.png" className="h-8 w-auto" />
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
               {navigation.map((item) => {
