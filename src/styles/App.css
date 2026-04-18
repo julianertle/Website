@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  /* Wir definieren 'display' als den fettesten System-Font */
+  --font-display: system-ui, sans-serif;
+  /* 'sans' für den normalen Text */
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Deine bestehenden Styles */
+.portrait-style {
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  object-fit: cover;
+}
+
+.grow {
+  transition: transform 0.3s ease;
+}
+
+.grow:hover {
+  transform: scale(1.05);
+}
+
+.animated-image {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Der Fade-In Effekt von damals */
+.animated-image {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styling für die animierte Unterzeile */
+.sub-text {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 10px;
+  color: #9ca3af; /* text-gray-400 */
+  font-weight: 900; /* font-black */
+  text-transform: uppercase;
+  letter-spacing: 0.4em; /* tracking-[0.4em] */
+}
+
+@media (min-width: 1024px) {
+  .sub-text {
+    font-size: 0.75rem; /* text-xs */
+  }
+}
+
+a {
+  color: inherit;
+}
