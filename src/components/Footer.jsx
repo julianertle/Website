@@ -1,18 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { LinkedInIcon, GitHubIcon } from "../assets/SvgIcons";
-
-const routes = [
-  { name: "Start", path: "/" },
-  { name: "Hobbys", path: "/about" },
-  { name: "Sonstiges", path: "/imprint" },
-];
+import { useLanguage } from "../context/LanguageContext"; // 1. Hook importieren
 
 function Footer() {
+  const { t } = useLanguage(); // 2. Übersetzungsfunktion nutzen
+
+  // 3. Dynamische Routen-Namen über die t() Funktion laden
+  const routes = [
+    { name: t("navStart"), path: "/" },
+    { name: t("navHobbies"), path: "/about" },
+    { name: t("navMisc"), path: "/imprint" },
+  ];
+
   return (
     <footer className="bg-gray-900 text-white border-t border-gray-700 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+          
           {/* 1. Copyright - First on both Mobile and Desktop */}
           <div className="text-center md:text-left text-xs text-gray-400">
             © {new Date().getFullYear()} Julian Ertle. All rights reserved.
@@ -22,7 +27,7 @@ function Footer() {
           <nav className="flex justify-center gap-6">
             {routes.map((route) => (
               <Link
-                key={route.name}
+                key={route.path} // 'path' als Key nutzen, da dieser sich nicht ändert
                 to={route.path}
                 className="text-sm font-medium text-white hover:text-gray-300 hover:underline underline-offset-4 transition-all duration-200"
               >
